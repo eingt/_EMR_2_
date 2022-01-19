@@ -1,0 +1,23 @@
+def main():
+    f = open('phm.txt','w')
+    Patient_name = input("Enter patient name")
+    Medicine_name = input("Enter medicine name")
+    Quantity = input("Enter the quantity")
+    Price = input("Enter the price")
+    Medicine_id = input("Enter the medicine id")
+    Doctor_name = input("Enter the doctor name")
+    Doctor_Dep = input("Enter the doctors department")
+    Date = input("Enter the date")
+    Time = input("Enter the time")
+
+    f.write(Patient_name)
+    f.write(Medicine_name)
+    f.write(Quantity)
+    f.write(Price)
+    f.write(Medicine_id)
+    f.write(Doctor_name)
+    f.write(Doctor_Dep)
+    f.write(Date)
+    f.write(Time)
+
+    f.close()
