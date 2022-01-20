@@ -1,0 +1,4 @@
+insert into DoctorDept values(1001, 'Pediatric');
+
+insert into doctors values(1002, 'Patrose','68', 'M', 1001, '9846597154',
+'testabc@domain.com', '2010-08-29', 180000);

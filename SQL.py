@@ -10,7 +10,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute('SELECT * FROM PATIENTS')
+mycursor.execute('SELECT * FROM DOCTORS')
 
 users = mycursor.fetchall()
 print(type(users))
