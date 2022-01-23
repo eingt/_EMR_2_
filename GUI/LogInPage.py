@@ -37,8 +37,6 @@ canvas = Canvas(
     bg = "#ffffff",
     height = 569,
     width = 829,
-    bd = 0,
-    highlightthickness = 0,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
@@ -76,6 +74,7 @@ TextBox2.place(
 LogInBtn = PhotoImage(file = f"Log In Button.png")
 b1 = Button(
     image = LogInBtn,
+    borderwidth = 0,
     command = LogIn,
     relief = "flat")
 

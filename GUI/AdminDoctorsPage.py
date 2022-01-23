@@ -16,8 +16,6 @@ canvas = Canvas(
     bg = "#fefefe",
     height = 684,
     width = 1216,
-    bd = 0,
-    highlightthickness = 0,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
@@ -30,7 +28,6 @@ ProfileIcon = PhotoImage(file = f"Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -43,7 +40,6 @@ CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -56,7 +52,6 @@ PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -69,7 +64,6 @@ UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -82,7 +76,6 @@ NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -95,7 +88,6 @@ PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -108,7 +100,6 @@ DoctorsIcon = PhotoImage(file = f"Doctors Icon HL.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -117,95 +108,62 @@ b7.place(
     width = 91,
     height = 67)
 
-Arrow1 = PhotoImage(file = f"Arrow.png")
-b8 = Button(
-    image = Arrow1,
-    borderwidth = 0,
-    highlightthickness = 0,
-    command = click,
-    relief = "flat")
-
-b8.place(
-    x = 574, y = 241,
-    width = 28,
-    height = 23)
-
-Arrow2 = PhotoImage(file = f"Arrow.png")
-b9 = Button(
-    image = Arrow2,
-    borderwidth = 0,
-    highlightthickness = 0,
-    command = click,
-    relief = "flat")
-
-b9.place(
-    x = 574, y = 282,
-    width = 28,
-    height = 23)
-
-Arrow3 = PhotoImage(file = f"Arrow.png")
-b10 = Button(
-    image = Arrow3,
-    borderwidth = 0,
-    highlightthickness = 0,
-    command = click,
-    relief = "flat")
-
-b10.place(
-    x = 574, y = 323,
-    width = 28,
-    height = 23)
-
-canvas.create_text(
-    220.5, 253.0,
-    text="Pediatrics",
-    fill="#000000",
-    anchor="w",
-    font=("Lato-Light", int(18.0)))
-
-canvas.create_text(
-    220, 294.0,
-    text="Dermatology",
-    fill="#000000",
-    anchor="w",
-    font=("Lato-Light", int(18.0)))
-
-canvas.create_text(
-    220, 335.0,
-    text="Oncology",
-    fill="#000000",
-    anchor="w",
-    font=("Lato-Light", int(18.0)))
 
 canvas.create_text(
     1098.5, 425.0,
     text = "10",
     fill = "#e0e0e0",
-    font = ("Lato-Regular", int(20.0)))
+    font = ("Lato-Regular", int(18)))
 
 canvas.create_text(
     1098.5, 469.5,
     text = "10",
     fill = "#e0e0e0",
-    font = ("Lato-Regular", int(20.0)))
+    font = ("Lato-Regular", int(18)))
 
 canvas.create_text(
     1098.5, 514.5,
     text = "10",
     fill = "#e0e0e0",
-    font = ("Lato-Regular", int(20.0)))
+    font = ("Lato-Regular", int(18)))
 
 canvas.create_text(
     1098.5, 559.0,
     text = "10",
     fill = "#e0e0e0",
-    font = ("Lato-Regular", int(20.0)))
+    font = ("Lato-Regular", int(18)))
 
 canvas.create_text(
     1099.5, 604.0,
     text = "10",
     fill = "#e0e0e0",
-    font = ("Lato-Regular", int(20.0)))
+    font = ("Lato-Regular", int(18)))
+
+List = ["One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three"]
+
+
+listbox = Listbox(
+    height = 14,
+    width = 33,
+    bd = 0,
+    highlightcolor = "#ffffff",
+    selectbackground = "#bdb0ff",
+    selectmode = SINGLE,
+    font = "Lato-Light",
+    fg = "black",
+    relief = "flat")
+for item in List:
+    listbox.insert(END, item)
+'''  Double Click
+listbox.bind('<Double-1>', go)
+listbox.pack()
+'''
+
+listbox.place(
+    x = 212, y = 230
+)
+
+
 
 window.resizable(False, False)
 window.mainloop()

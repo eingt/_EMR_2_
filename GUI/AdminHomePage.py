@@ -4,10 +4,13 @@ from tkinter import *
 def click():
     print("Clicked")
 
+def AdminDoctorsPage():
+    window.destroy()
+    import AdminDoctorsPage
 
 window = Tk()
 window.title('EMR')
-window.iconbitmap("EMR Symbol.ico")j
+window.iconbitmap("EMR Symbol.ico")
 
 window.geometry("1216x684")
 window.configure(bg = "#fefefe")
@@ -16,21 +19,18 @@ canvas = Canvas(
     bg = "#fefefe",
     height = 684,
     width = 1216,
-    bd = 0,
-    highlightthickness = 0,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
 bg = PhotoImage(file = f"AdminHomePage BG.png")
 background = canvas.create_image(
-    608.0, 342.0,
+    608, 342,
     image=bg)
 
 ProfileIcon = PhotoImage(file = f"Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -43,7 +43,6 @@ CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -56,7 +55,6 @@ PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -69,7 +67,6 @@ UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -82,7 +79,6 @@ NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -95,7 +91,6 @@ PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    highlightthickness = 0,
     command = click,
     relief = "flat")
 
@@ -104,30 +99,32 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = f"Doctors Icon HL.png")
+DoctorsIcon = PhotoImage(file = f"Doctors Icon.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
-    highlightthickness = 0,
-    command = click,
+    command = AdminDoctorsPage,
     relief = "flat")
 
 b7.place(
-    x = 20, y = 114,
+    x = 20, y = 110,
     width = 91,
-    height = 67)
+    height = 63)
 
 canvas.create_text(
-    682.5, 326.5,
-    text = "Jim Brandt",
-    fill = "#6953d9",
-    font = ("Lato-Bold", int(64.0)))
-
-canvas.create_text(
-    683.0, 280.0,
+    673, 275,
     text = "Welcome",
     fill = "#000000",
-    font = ("Lato-Regular", int(24.0)))
+    font = ("Lato-Regular", int(24)))
+
+canvas.create_text(
+    665, 326,
+    text = "Jim Brandt",
+    fill = "#6953d9",
+    anchor = CENTER,
+    font = ("Lato-Bold", int(50)))
+
+
 
 window.resizable(False, False)
 window.mainloop()
