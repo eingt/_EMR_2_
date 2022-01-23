@@ -12,8 +12,13 @@ mycursor = mydb.cursor()
 
 mycursor.execute('SELECT * FROM DOCTORS')
 
-users = mycursor.fetchall()
-print(type(users))
-for user in users:
-    print(user)
-    print('Username ' + user[1])
+patients = mycursor.fetchall()
+
+for patient in patients:
+    print(patients)
+    print('Patient id' + patient[0])
+    print('Patient name'+ patient[1])
+    print('Date of birth'+ patient[2])
+    print('Registration date'+ patient[3])
+
+    print()
