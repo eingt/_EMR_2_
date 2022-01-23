@@ -1,5 +1,20 @@
 from tkinter import *
+import mysql.connector
 
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'maneeshj',
+    port = '3306',
+    database = 'EMR'
+)
+
+mycursor = mydb.cursor()
+mycursor.execute('SELECT * FROM SELECTED')
+data = mycursor.fetchall()
+
+for d in data:
+    sel_dept = d[1]
 
 def click():
     print("Clicked")
@@ -30,14 +45,22 @@ background = canvas.create_image(
 #Department Name
 canvas.create_text(
     210, 70,
-    text = "Pediatric Department",
+    text = sel_dept+" Department",
     fill = "#6953d9",
     anchor = "w",
     font = ("Lato-Bold", int(40)))
+
 #Department ID
+mycursor.execute('SELECT * FROM doctordept')
+depts = mycursor.fetchall()
+
+for dept in depts:
+    if dept[1] == sel_dept:
+        sel_dept_id = dept[0]
+
 canvas.create_text(
     210, 110,
-    text = "5001",
+    text = sel_dept_id,
     fill = "#000000",
     anchor = "w",
     font = ("Lato-Regular", int(18)))
@@ -151,7 +174,17 @@ b7.place(
     width = 91,
     height = 63)
 
+PrevPage = PhotoImage(file = f"ArrowLeft.png")
+b8 = Button(
+    image = PrevPage,
+    borderwidth = 0,
+    command = AdminDoctorsPage,
+    relief = "flat")
 
+b8.place(
+    x = 140, y = 30,
+    width = 28,
+    height = 24)
 
 
 

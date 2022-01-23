@@ -1,8 +1,26 @@
 from tkinter import *
+import mysql.connector
 
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'maneeshj',
+    port = '3306',
+    database = 'EMR'
+)
+
+mycursor = mydb.cursor()
 
 def click():
     print("Clicked")
+
+def AdminHomePage():
+    window.destroy()
+    import AdminHomePage
+
+def AdminSpecDept():
+    window.destroy()
+    import AdminSpecDept
 
 
 window = Tk()
@@ -108,6 +126,17 @@ b7.place(
     width = 91,
     height = 67)
 
+PrevPage = PhotoImage(file = f"ArrowLeft.png")
+b8 = Button(
+    image = PrevPage,
+    borderwidth = 0,
+    command = AdminHomePage,
+    relief = "flat")
+
+b8.place(
+    x = 140, y = 30,
+    width = 28,
+    height = 24)
 
 canvas.create_text(
     1098.5, 425.0,
@@ -139,8 +168,13 @@ canvas.create_text(
     fill = "#e0e0e0",
     font = ("Lato-Regular", int(18)))
 
-List = ["One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three","One","Two","Three"]
+#Departments
+mycursor.execute('SELECT * FROM DOCTORDEPT')
 
+departments = mycursor.fetchall()
+DeptList = []
+for dept in departments:
+    DeptList.append(dept[1])
 
 listbox = Listbox(
     height = 14,
@@ -152,12 +186,22 @@ listbox = Listbox(
     font = "Lato-Light",
     fg = "black",
     relief = "flat")
-for item in List:
+for item in DeptList:
     listbox.insert(END, item)
-'''  Double Click
+
+def go(event):
+    cs = listbox.curselection()
+    global dept
+    dept = listbox.get(cs)
+    command = "update Selected set dept = '"+dept+"' where no = 1"
+    mycursor.execute(command)
+    mydb.commit()
+    AdminSpecDept()
+
+#Double Click
 listbox.bind('<Double-1>', go)
 listbox.pack()
-'''
+
 
 listbox.place(
     x = 212, y = 230
