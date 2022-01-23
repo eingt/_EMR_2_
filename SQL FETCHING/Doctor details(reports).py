@@ -10,16 +10,16 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute('SELECT * FROM DOCTOR')
+mycursor.execute('SELECT * FROM DOCTORS')
 
-docotors = mycursor.fetchall()
+doctors = mycursor.fetchall()
 
 for doctor in doctors:
     print(doctors)
-    print('Doctor id' + doctor[0])
-    print('Doctor name'+ doctor[1])
-    print('Gender'+ doctor[2])
-    print('Doctor department'+ doctor[3])
-    print('Joining date' + doctor[4])
+    print('Doctor id' , doctor[0])
+    print('Doctor name', doctor[1])
+    print('Gender', doctor[2])
+    print('Doctor department', doctor[3])
+    print('Joining date' , doctor[4])
 
     print()

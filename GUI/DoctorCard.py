@@ -2,7 +2,7 @@ from tkinter import *
 
 
 def click():
-    print("Button Clicked")
+    print("Button is Clicked")
 
 
 window = Tk()
@@ -109,7 +109,7 @@ b7.place(
     height = 67)
 
 #Profile Picture
-Gender = 'Male'
+Gender = 'Female'
 if Gender == 'Male':
     MaleIcon = PhotoImage(file = f"Male Profile Pic.png")
     canvas.create_image(
@@ -226,7 +226,7 @@ canvas.create_text(
     fill = "#000000",
     font = ("Lato-Light", int(20.0)))
 
-TextBoximg = PhotoImage(file = f"Card Text Box.png")
+TextBoximg = PhotoImage(file = f"TextBox2.png")
 TextBox = canvas.create_image(
     986.5, 120.0,
     image = TextBoximg)
@@ -241,23 +241,23 @@ TextBox.place(
     width = 305.0,
     height = 38)
 
+
+SearchIcon = PhotoImage(file = f"Search Icon.png")
+b0 = Button(
+    image = SearchIcon,
+    bd = 0,
+    command = click,
+    relief = "flat")
+
+b0.place(
+    x = 1120, y = 105,
+    width=28,
+    height=28)
+
 def search():
     name_search = TextBox.get()
     print(name_search)
 
-
-SearchButton = PhotoImage(file = f"Search.png")
-b10 = Button(
-    image = SearchButton,
-    borderwidth = 0,
-    highlightthickness = 0,
-    command = search,
-    relief = "flat")
-
-b10.place(
-    x = 1081, y = 141,
-    width = 72,
-    height = 18)
 
 window.resizable(False, False)
 window.mainloop()

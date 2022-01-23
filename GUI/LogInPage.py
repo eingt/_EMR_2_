@@ -45,7 +45,7 @@ background = canvas.create_image(
     400.0, 297.5,
     image=bg)
 
-TextBoximg = PhotoImage(file = f"Text Box Img.png")
+TextBoximg = PhotoImage(file = f"TextBox1.png")
 TextBox1 = canvas.create_image(
     643.5, 284.0,
     image = TextBoximg)
