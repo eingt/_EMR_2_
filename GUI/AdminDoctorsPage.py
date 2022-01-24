@@ -126,6 +126,13 @@ b7.place(
     width = 91,
     height = 67)
 
+canvas.create_text(
+    210, 90,
+    text = "Doctors",
+    fill = "#6953d9",
+    anchor = "w",
+    font = ("Lato-Bold", int(40)))
+
 PrevPage = PhotoImage(file = f"ArrowLeft.png")
 b8 = Button(
     image = PrevPage,

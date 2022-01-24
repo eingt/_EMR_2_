@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -186,7 +187,35 @@ b8.place(
     width = 28,
     height = 24)
 
+#TABLE
 
+style = ttk.Style()
+style.configure("Treeview", font=(None, 10))
+tree = ttk.Treeview(window, column=(1, 2, 3, 4, 5, 6), show='', height=20,padding=6)
+tree.column("# 1", anchor=CENTER, stretch=NO, width=45)
+tree.column("# 2", anchor=CENTER, stretch=NO, width=220)
+tree.column("# 3", anchor=CENTER, stretch=NO, width=100)
+tree.column("# 4", anchor=CENTER, stretch=NO, width=220)
+tree.column("# 5", anchor=CENTER, stretch=NO, width=200)
+tree.column("# 6", anchor=CENTER, stretch=NO, width=100)
+
+mycursor.execute('SELECT * FROM DOCTORS')
+doctors = mycursor.fetchall()
+
+
+for doctor in doctors:
+    doc = []
+    doc.append(doctor[0])
+    doc.append(doctor[1])
+    doc.append(doctor[5])
+    doc.append(doctor[5])
+    doc.append(doctor[6])
+    doc.append(doctor[8])
+    tree.insert('', END, values=doc)
+
+tree.place(x=215, y=210)
+
+#01568
 
 window.resizable(False, False)
 window.mainloop()
