@@ -1,9 +1,29 @@
 from tkinter import *
 
+def UpdateCard():
+    command = "update Selected set id = '" + str(sel_doc[0]) + "' where no = 1"
+    mycursor.execute(command)
+    import UpdateDoctorCard
 
 def click():
     print("Button is Clicked")
 
+def AdminDoctorsPage():
+    window.destroy()
+    import AdminDoctorsPage
+
+def AdminSpecDept():
+    window.destroy()
+    import AdminSpecDept
+
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'maneeshj',
+    port = '3306',
+    database = 'EMR')
+mycursor = mydb.cursor()
 
 window = Tk()
 window.title('EMR')
@@ -108,25 +128,23 @@ b7.place(
     width = 91,
     height = 67)
 
-#Profile Picture
-Gender = 'Female'
-if Gender == 'Male':
-    MaleIcon = PhotoImage(file = f"Male Profile Pic.png")
-    canvas.create_image(
-        260, 130,
-        image = MaleIcon)
-elif Gender == 'Female':
-    FemaleIcon = PhotoImage(file=f"Female Profile Pic.png")
-    canvas.create_image(
-        260, 130,
-        image=FemaleIcon)
+PrevPage = PhotoImage(file = f"ArrowLeft.png")
+b8 = Button(
+    image = PrevPage,
+    borderwidth = 0,
+    command = AdminSpecDept,
+    relief = "flat")
 
+b8.place(
+    x = 140, y = 30,
+    width = 28,
+    height = 24)
 
 UpdateButton = PhotoImage(file = f"Update.png")
 b9 = Button(
     image = UpdateButton,
     borderwidth = 0,
-    command = click,
+    command = UpdateCard,
     relief = "flat")
 
 b9.place(
@@ -134,10 +152,25 @@ b9.place(
     width = 113,
     height = 39)
 
+#Fetch data
+mycursor.execute('SELECT * FROM SELECTED')
+data = mycursor.fetchall()
+for d in data:
+    sel_docid = int(d[2])
+    print(sel_docid)
+
+
+mycursor.execute('SELECT * FROM DOCTORS')
+doctors = mycursor.fetchall()
+for doctor in doctors:
+    if doctor[0] == sel_docid:
+        sel_doc = doctor
+
+
 #Doctor Name
 canvas.create_text(
     350, 120.0,
-    text = "John Peter",
+    text = sel_doc[1],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Bold", int(30)))
@@ -145,15 +178,28 @@ canvas.create_text(
 #Doctor ID
 canvas.create_text(
     350, 159.0,
-    text = "101",
+    text = sel_doc[0],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Regular", int(20.0)))
 
+#Profile Picture
+
+if sel_doc[3] == 'Male':
+    MaleIcon = PhotoImage(file = f"Male Profile Pic.png")
+    canvas.create_image(
+        260, 130,
+        image = MaleIcon)
+elif sel_doc[3] == 'Female':
+    FemaleIcon = PhotoImage(file=f"Female Profile Pic.png")
+    canvas.create_image(
+        260, 130,
+        image=FemaleIcon)
+
 #Age
 canvas.create_text(
     300, 263.0,
-    text = "36",
+    text = sel_doc[2],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -161,7 +207,7 @@ canvas.create_text(
 #Gender
 canvas.create_text(
     300, 353.0,
-    text = "Male",
+    text = sel_doc[3],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -177,15 +223,15 @@ canvas.create_text(
 #Join Date
 canvas.create_text(
     320, 525.0,
-    text = "4B",
+    text = sel_doc[7],
     fill = "#000000",
     anchor = 'w',
-    font = ("Lato-Light", int(14.0)))
+    font = ("Lato-Light", int(13.0)))
 
 #Phone No.
 canvas.create_text(
     540, 263.0,
-    text = "36",
+    text = sel_doc[5],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -193,7 +239,7 @@ canvas.create_text(
 #E-Mail
 canvas.create_text(
     540, 353.0,
-    text = "Male",
+    text = sel_doc[6],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -201,15 +247,20 @@ canvas.create_text(
 #Salary
 canvas.create_text(
     540, 441.0,
-    text = "4B",
+    text = sel_doc[8],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
 
 #Department
+mycursor.execute('SELECT * FROM DOCTORDEPT')
+depts = mycursor.fetchall()
+for dept in depts:
+    if sel_doc[4] == dept[0]:
+        sel_deptname = dept[1]
 canvas.create_text(
     570, 525,
-    text = "Pediatrics",
+    text = sel_deptname,
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))

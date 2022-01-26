@@ -1,21 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-import mysql.connector
-
-mydb = mysql.connector.connect(
-    host = 'localhost',
-    user = 'root',
-    password = 'maneeshj',
-    port = '3306',
-    database = 'EMR'
-)
-
-mycursor = mydb.cursor()
-mycursor.execute('SELECT * FROM SELECTED')
-data = mycursor.fetchall()
-
-for d in data:
-    sel_dept = d[1]
 
 def click():
     print("Clicked")
@@ -23,6 +7,41 @@ def click():
 def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
+
+def DoctorCard():
+    window.destroy()
+    import DoctorCard
+
+def search():
+    tree.delete(*tree.get_children())
+    entry = TextBox.get()
+    for doctor in doctors:
+        if doctor[4] == sel_dept_id:
+            if ((entry in doctor[1]) or (entry == '')):
+                doc = []
+                doc.append(doctor[0])
+                doc.append(doctor[1])
+                doc.append(doctor[5])
+                doc.append(doctor[6])
+                doc.append(doctor[7])
+                doc.append(doctor[9])
+                tree.insert('', END, values=doc)
+            else:
+                nf = ['','','',"Not Found."]
+                tree.insert('', END, values=nf)
+
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'maneeshj',
+    port = '3306',
+    database = 'EMR')
+mycursor = mydb.cursor()
+mycursor.execute('SELECT * FROM SELECTED')
+data = mycursor.fetchall()
+for d in data:
+    sel_dept = d[1]
 
 window = Tk()
 window.title('EMR')
@@ -83,7 +102,7 @@ SearchIcon = PhotoImage(file = f"Search Icon.png")
 b0 = Button(
     image = SearchIcon,
     bd = 0,
-    command = click,
+    command = search,
     relief = "flat")
 
 b0.place(
@@ -151,6 +170,7 @@ b5.place(
     width = 91,
     height = 57)
 
+
 PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
@@ -189,6 +209,7 @@ b8.place(
 
 #TABLE
 
+
 style = ttk.Style()
 style.configure("Treeview", font=(None, 10))
 tree = ttk.Treeview(window, column=(1, 2, 3, 4, 5, 6), show='', height=20,padding=6)
@@ -201,21 +222,22 @@ tree.column("# 6", anchor=CENTER, stretch=NO, width=100)
 
 mycursor.execute('SELECT * FROM DOCTORS')
 doctors = mycursor.fetchall()
-
-
-for doctor in doctors:
-    doc = []
-    doc.append(doctor[0])
-    doc.append(doctor[1])
-    doc.append(doctor[5])
-    doc.append(doctor[5])
-    doc.append(doctor[6])
-    doc.append(doctor[8])
-    tree.insert('', END, values=doc)
+search()
 
 tree.place(x=215, y=210)
 
-#01568
+
+
+def go(event):
+    sel_iid = tree.focus()
+    sel_record = tree.item(sel_iid, 'values')
+    sel_id = str(sel_record[0])
+    command = "update Selected set id = '"+sel_id+"' where no = 1"
+    mycursor.execute(command)
+    mydb.commit()
+    DoctorCard()
+
+tree.bind('<Double-1>', go)
 
 window.resizable(False, False)
 window.mainloop()

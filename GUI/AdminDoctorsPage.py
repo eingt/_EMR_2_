@@ -200,7 +200,7 @@ def go(event):
     cs = listbox.curselection()
     global dept
     dept = listbox.get(cs)
-    command = "update Selected set dept = '"+dept+"' where no = 1"
+    command = "update Selected set name = '"+dept+"' where no = 1"
     mycursor.execute(command)
     mydb.commit()
     AdminSpecDept()
