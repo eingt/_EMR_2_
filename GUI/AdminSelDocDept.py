@@ -55,7 +55,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"AdminSpecDept BG.png")
+bg = PhotoImage(file = f"AdminSelDocDept BG.png")
 background = canvas.create_image(
     608, 342,
     image=bg)

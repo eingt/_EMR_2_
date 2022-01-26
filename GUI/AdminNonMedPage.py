@@ -18,9 +18,9 @@ def AdminHomePage():
     window.destroy()
     import AdminHomePage
 
-def AdminSelDocDept():
+def AdminSelNonMed():
     window.destroy()
-    import AdminSelDocDept
+    import AdminSelNonMed
 
 
 window = Tk()
@@ -128,7 +128,7 @@ b7.place(
 
 canvas.create_text(
     210, 90,
-    text = "Doctors",
+    text = "Non-Medical Staff",
     fill = "#6953d9",
     anchor = "w",
     font = ("Lato-Bold", int(40)))
@@ -187,7 +187,7 @@ canvas.create_text(
     font = ("Lato-Regular", int(18)))
 
 #Departments
-mycursor.execute('SELECT * FROM DOCTORDEPT')
+mycursor.execute('SELECT * FROM NONMEDDEPT')
 
 departments = mycursor.fetchall()
 DeptList = []
@@ -214,7 +214,7 @@ def go(event):
     command = "update Selected set name = '"+dept+"' where no = 1"
     mycursor.execute(command)
     mydb.commit()
-    AdminSelDocDept()
+    AdminSelNonMed()
 
 #Double Click
 listbox.bind('<Double-1>', go)

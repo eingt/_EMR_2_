@@ -13,9 +13,9 @@ def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
-def AdminSpecDept():
+def AdminSelDocDept():
     window.destroy()
-    import AdminSpecDept
+    import AdminSelDocDept
 
 import mysql.connector
 mydb = mysql.connector.connect(
@@ -133,7 +133,7 @@ PrevPage = PhotoImage(file = f"ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
-    command = AdminSpecDept,
+    command = AdminSelDocDept,
     relief = "flat")
 
 b8.place(
