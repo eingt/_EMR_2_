@@ -1,7 +1,15 @@
 from tkinter import *
 
-User = 'jb23'
-Pass = 'jb23'
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'maneeshj',
+    port = '3306',
+    database = 'EMR')
+mycursor = mydb.cursor()
+mycursor.execute('SELECT * FROM USERACCOUNTS')
+users = mycursor.fetchall()
 
 def ErrorMessage():
     TextBox1.delete(0, END)
@@ -13,18 +21,24 @@ def ErrorMessage():
         anchor = "center",
         font=("Lato-Light", int(10.0)))
 
+
 def LogIn():
     TB1 = (TextBox1.get())
     TB2 = (TextBox2.get())
 
-    if TB1 == User:
-        if TB2 == Pass:
-            window.destroy()
-            import AdminHomePage
+    for user in users:
+        if TB1 == user[0]:
+            if TB2 == user[1]:
+                command1 = "update Selected set name = '" + user[2] + "' where no = 1"
+                mycursor.execute(command1)
+                mydb.commit()
+                window.destroy()
+                import AdminHomePage
+                break
+            else:
+                ErrorMessage()
         else:
             ErrorMessage()
-    else:
-        ErrorMessage()
 
 window = Tk()
 window.title("EMR Log In")

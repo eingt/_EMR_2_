@@ -145,21 +145,32 @@ b8.place(
     width = 28,
     height = 24)
 
+
+#Insights
+mycursor.execute('SELECT COUNT(*) FROM DOCTORS')
+doctorcount = mycursor.fetchall()[0][0]
+mycursor.execute('SELECT COUNT(*) FROM PATIENTS')
+patientcount = mycursor.fetchall()[0][0]
+mycursor.execute('SELECT COUNT(*) FROM NONMEDSTAFF')
+nonmedcount = mycursor.fetchall()[0][0]
+mycursor.execute('SELECT COUNT(*) FROM USERACCOUNTS')
+userscount = mycursor.fetchall()[0][0]
+
 canvas.create_text(
     1098.5, 425.0,
-    text = "10",
+    text = doctorcount,
     fill = "#e0e0e0",
     font = ("Lato-Regular", int(18)))
 
 canvas.create_text(
     1098.5, 469.5,
-    text = "10",
+    text = patientcount,
     fill = "#e0e0e0",
     font = ("Lato-Regular", int(18)))
 
 canvas.create_text(
     1098.5, 514.5,
-    text = "10",
+    text = nonmedcount,
     fill = "#e0e0e0",
     font = ("Lato-Regular", int(18)))
 
@@ -171,7 +182,7 @@ canvas.create_text(
 
 canvas.create_text(
     1099.5, 604.0,
-    text = "10",
+    text = userscount,
     fill = "#e0e0e0",
     font = ("Lato-Regular", int(18)))
 

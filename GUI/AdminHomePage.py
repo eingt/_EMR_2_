@@ -1,5 +1,15 @@
 from tkinter import *
-
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'maneeshj',
+    port = '3306',
+    database = 'EMR')
+mycursor = mydb.cursor()
+mycursor.execute('SELECT * FROM SELECTED')
+data = mycursor.fetchall()
+user_name = data[0][1]
 
 def click():
     print("Clicked")
@@ -119,7 +129,7 @@ canvas.create_text(
 
 canvas.create_text(
     665, 326,
-    text = "Jim Brandt",
+    text = user_name,
     fill = "#6953d9",
     anchor = CENTER,
     font = ("Lato-Bold", int(50)))

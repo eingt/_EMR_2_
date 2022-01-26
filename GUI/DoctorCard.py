@@ -3,6 +3,7 @@ from tkinter import *
 def UpdateCard():
     command = "update Selected set id = '" + str(sel_doc[0]) + "' where no = 1"
     mycursor.execute(command)
+    window.destroy()
     import UpdateDoctorCard
 
 def click():

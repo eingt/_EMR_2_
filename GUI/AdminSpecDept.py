@@ -17,7 +17,7 @@ def search():
     entry = TextBox.get()
     for doctor in doctors:
         if doctor[4] == sel_dept_id:
-            if ((entry in doctor[1]) or (entry == '')):
+            if ((entry.lower() in doctor[1].lower()) or (entry == '')):
                 doc = []
                 doc.append(doctor[0])
                 doc.append(doctor[1])
@@ -26,9 +26,7 @@ def search():
                 doc.append(doctor[7])
                 doc.append(doctor[9])
                 tree.insert('', END, values=doc)
-            else:
-                nf = ['','','',"Not Found."]
-                tree.insert('', END, values=nf)
+
 
 import mysql.connector
 mydb = mysql.connector.connect(

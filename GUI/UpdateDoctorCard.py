@@ -14,16 +14,33 @@ for d in data:
     sel_docid = int(d[2])
 
 def update():
-    print("Button Clicked")
+    command = "update doctors set name = '" + name_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
+    command = "update doctors set age = '" + age_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
+    command = "update doctors set phone = '" + phone_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
+    command = "update doctors set gender = '" + gender_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
+    command = "update doctors set email = '" + email_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
+    #command = "update doctors set depid = '" + dept_entry.get() + "' where no = '",sel_docid
+    #mycursor.execute(command)
+    command = "update doctors set room = '" + room_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
+    command = "update doctors set salary = '" + salary_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
+    command = "update doctors set joindate = '" + join_entry.get() + "' where no = '",sel_docid
+    mycursor.execute(command)
 
-window = Tk()
-window.title('Update Doctor Details')
-window.iconbitmap("EMR Symbol.ico")
+root = Tk()
+root.title('Update Doctor Details')
+root.iconbitmap("EMR Symbol.ico")
 
-window.geometry("551x568")
-window.configure(bg = "#ffffff")
+root.geometry("551x568")
+root.configure(bg = "#ffffff")
 canvas = Canvas(
-    window,
+    root,
     bg = "#ffffff",
     height = 568,
     width = 551,
@@ -32,7 +49,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"UpdateDoctorCard BG.png")
+background_img = PhotoImage(file = f"UpdateDoctorCardBG.png")
 background = canvas.create_image(
     275.5, 284.0,
     image=background_img)
@@ -113,6 +130,12 @@ email_entry.place(
     width = 171.0,
     height = 29)
 
+mycursor.execute('SELECT * FROM DOCTORDEPT')
+depts = mycursor.fetchall()
+for dept in depts:
+    if sel_doc[4] == dept[0]:
+        sel_deptname = dept[1]
+
 dept_entryimg = PhotoImage(file = f"TextBox3.png")
 dept_entry = canvas.create_image(
     156.5, 372.5,
@@ -121,7 +144,7 @@ dept_entry = canvas.create_image(
 dept_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-dept_entry.insert(0,sel_doc[4])
+dept_entry.insert(0,sel_deptname)
 dept_entry.place(
     x = 77.5, y = 359,
     width = 158.0,
@@ -182,5 +205,5 @@ b0.place(
     width = 138,
     height = 53)
 
-window.resizable(False, False)
-window.mainloop()
+root.resizable(False, False)
+root.mainloop()
