@@ -37,7 +37,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"AdminDoctorsPage BG.png")
+bg = PhotoImage(file = f"AdminNonMedPage BG.png")
 background = canvas.create_image(
     608.0, 342.0,
     image=bg)

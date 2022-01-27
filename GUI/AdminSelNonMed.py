@@ -18,18 +18,17 @@ def AdminNonMedPage():
 
 def search():
     tree.delete(*tree.get_children())
-    entry = TextBox.get()
-    for doctor in doctors:
-        if doctor[4] == sel_dept_id:
-            if ((entry.lower() in doctor[1].lower()) or (entry == '')):
-                doc = []
-                doc.append(doctor[0])
-                doc.append(doctor[1])
-                doc.append(doctor[5])
-                doc.append(doctor[6])
-                doc.append(doctor[7])
-                doc.append(doctor[9])
-                tree.insert('', END, values=doc)
+    '''entry = TextBox.get()
+    for staff in nonmedstaff:
+        if staff[4] == sel_dept_id:
+            if ((entry.lower() in staff[1].lower()) or (entry == '')):
+                rec = []
+                rec.append(staff[0])
+                rec.append(staff[1])
+                rec.append(staff[3])
+                rec.append(staff[6])
+                rec.append(staff[8])
+                tree.insert('', END, values=rec)'''
 
 
 import mysql.connector
@@ -59,7 +58,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"AdminSelDocDept BG.png")
+bg = PhotoImage(file = f"AdminSelNonMed BG.png")
 background = canvas.create_image(
     608, 342,
     image=bg)
@@ -67,7 +66,7 @@ background = canvas.create_image(
 #Department Name
 canvas.create_text(
     210, 70,
-    text = sel_dept+" Department",
+    text = sel_dept+" Staff",
     fill = "#6953d9",
     anchor = "w",
     font = ("Lato-Bold", int(40)))
@@ -80,12 +79,12 @@ for dept in depts:
     if dept[1] == sel_dept:
         sel_dept_id = dept[0]
 
-canvas.create_text(
+'''canvas.create_text(
     210, 110,
     text = sel_dept_id,
     fill = "#000000",
     anchor = "w",
-    font = ("Lato-Regular", int(18)))
+    font = ("Lato-Regular", int(18)))'''
 
 TextBoximg = PhotoImage(file = f"TextBox2.png")
 TextBox = canvas.create_image(
@@ -222,8 +221,8 @@ tree.column("# 4", anchor=CENTER, stretch=NO, width=220)
 tree.column("# 5", anchor=CENTER, stretch=NO, width=200)
 tree.column("# 6", anchor=CENTER, stretch=NO, width=100)
 
-mycursor.execute('SELECT * FROM DOCTORS')
-doctors = mycursor.fetchall()
+mycursor.execute('SELECT * FROM NONMEDSTAFF')
+nonmedstaff = mycursor.fetchall()
 search()
 
 tree.place(x=215, y=210)

@@ -1,7 +1,7 @@
 from tkinter import *
 
 def UpdateCard():
-    command = "update Selected set id = '" + str(sel_doc[0]) + "' where no = 1"
+    command = "update Selected set id = '" + str(sel_staff[0]) + "' where no = 1"
     mycursor.execute(command)
     window.destroy()
     import UpdateDoctorCard
@@ -9,13 +9,13 @@ def UpdateCard():
 def click():
     print("Button is Clicked")
 
-def AdminDoctorsPage():
+def AdminNonMedPage():
     window.destroy()
-    import AdminDoctorsPage
+    import AdminNonMedPage
 
-def AdminSelDocDept():
+def AdminSelNonMed():
     window.destroy()
-    import AdminSelDocDept
+    import AdminSelNonMed
 
 import mysql.connector
 mydb = mysql.connector.connect(
@@ -133,7 +133,7 @@ PrevPage = PhotoImage(file = f"ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
-    command = AdminSelDocDept,
+    command = AdminSelNonMed,
     relief = "flat")
 
 b8.place(
@@ -157,21 +157,20 @@ b9.place(
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
-    sel_docid = int(d[2])
-    print(sel_docid)
+    sel_staffid = int(d[2])
 
 
-mycursor.execute('SELECT * FROM DOCTORS')
-doctors = mycursor.fetchall()
-for doctor in doctors:
-    if doctor[0] == sel_docid:
-        sel_doc = doctor
+mycursor.execute('SELECT * FROM NONMEDSTAFF')
+nonmedstaff = mycursor.fetchall()
+for staff in nonmedstaff:
+    if staff[0] == sel_staffid:
+        sel_staff = staff
 
 
 #Doctor Name
 canvas.create_text(
     350, 120.0,
-    text = sel_doc[1],
+    text = sel_staff[1],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Bold", int(30)))
@@ -179,19 +178,19 @@ canvas.create_text(
 #Doctor ID
 canvas.create_text(
     350, 159.0,
-    text = sel_doc[0],
+    text = sel_staff[0],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Regular", int(20.0)))
 
 #Profile Picture
 
-if sel_doc[3] == 'Male':
+if sel_staff[3] == 'Male':
     MaleIcon = PhotoImage(file = f"Male Profile Pic.png")
     canvas.create_image(
         260, 130,
         image = MaleIcon)
-elif sel_doc[3] == 'Female':
+elif sel_staff[3] == 'Female':
     FemaleIcon = PhotoImage(file=f"Female Profile Pic.png")
     canvas.create_image(
         260, 130,
@@ -200,7 +199,7 @@ elif sel_doc[3] == 'Female':
 #Age
 canvas.create_text(
     300, 263.0,
-    text = sel_doc[2],
+    text = sel_staff[2],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -208,7 +207,7 @@ canvas.create_text(
 #Gender
 canvas.create_text(
     300, 353.0,
-    text = sel_doc[3],
+    text = sel_staff[3],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -216,7 +215,7 @@ canvas.create_text(
 #Room
 canvas.create_text(
     300, 441.0,
-    text = sel_doc[5],
+    text = "4B",
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -224,7 +223,7 @@ canvas.create_text(
 #Join Date
 canvas.create_text(
     320, 525.0,
-    text = sel_doc[8],
+    text = sel_staff[7],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -232,7 +231,7 @@ canvas.create_text(
 #Phone No.
 canvas.create_text(
     540, 263.0,
-    text = sel_doc[6],
+    text = sel_staff[5],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -240,7 +239,7 @@ canvas.create_text(
 #E-Mail
 canvas.create_text(
     540, 353.0,
-    text = sel_doc[7],
+    text = sel_staff[6],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
@@ -248,16 +247,16 @@ canvas.create_text(
 #Salary
 canvas.create_text(
     540, 441.0,
-    text = sel_doc[9],
+    text = sel_staff[8],
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
 
 #Department
-mycursor.execute('SELECT * FROM DOCTORDEPT')
+mycursor.execute('SELECT * FROM NONMEDDEPT')
 depts = mycursor.fetchall()
 for dept in depts:
-    if sel_doc[4] == dept[0]:
+    if sel_staff[4] == dept[1]:
         sel_deptname = dept[1]
 canvas.create_text(
     570, 525,
