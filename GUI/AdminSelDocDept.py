@@ -39,7 +39,7 @@ mycursor = mydb.cursor()
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
-    sel_dept = d[1]
+    sel_dept = d[2]
 
 window = Tk()
 window.title('EMR')
@@ -181,7 +181,7 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = f"Doctors Icon.png")
+DoctorsIcon = PhotoImage(file = f"Doctors Icon HL.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
@@ -230,7 +230,7 @@ def go(event):
     sel_iid = tree.focus()
     sel_record = tree.item(sel_iid, 'values')
     sel_id = str(sel_record[0])
-    command = "update Selected set id = '"+sel_id+"' where no = 1"
+    command = "update Selected set cur_id = '"+sel_id+"' where no = 1"
     mycursor.execute(command)
     mydb.commit()
     DoctorCard()

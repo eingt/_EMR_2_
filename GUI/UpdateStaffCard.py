@@ -11,34 +11,37 @@ mycursor = mydb.cursor()
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
-    sel_docid = int(d[3])
+    sel_staffid = int(d[3])
 
 def update():
-    command = "update doctors set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_docid)+";"
+    command = "update nonmedstaff set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_staffid)+";"
     mycursor.execute(command)
-    command = "update doctors set age = " + str(age_entry.get()) + " where id = "+ str(sel_docid)
+    command = "update nonmedstaff set age = " + str(age_entry.get()) + " where id = "+ str(sel_staffid)
     mycursor.execute(command)
-    command = "update doctors set phone = '" + str(phone_entry.get()) + "' where id = "+ str(sel_docid)
+    command = "update nonmedstaff set phone = '" + str(phone_entry.get()) + "' where id = "+ str(sel_staffid)
     mycursor.execute(command)
-    command = "update doctors set gender = '" + str(gender_entry.get()) + "' where id = "+ str(sel_docid)
+    command = "update nonmedstaff set gender = '" + str(gender_entry.get()) + "' where id = "+ str(sel_staffid)
     mycursor.execute(command)
-    command = "update doctors set email = '" + str(email_entry.get()) + "' where id = "+ str(sel_docid)
+    command = "update nonmedstaff set email = '" + str(email_entry.get()) + "' where id = "+ str(sel_staffid)
     mycursor.execute(command)
 
-    mycursor.execute('SELECT * FROM DOCTORDEPT')
+    mycursor.execute('SELECT * FROM nonmeddept')
     depts = mycursor.fetchall()
     for dept in depts:
         if str(dept_entry.get()) == dept[1]:
-            command = "update doctors set deptid = " + str(dept[0]) + " where id = "+ str(sel_docid)
+            command = "update nonmedstaff set deptid = " + str(dept[0]) + " where id = "+ str(sel_staffid)
     mycursor.execute(command)
 
-    command = "update doctors set room = '" + str(room_entry.get()) + "' where id = "+ str(sel_docid)
+    command = "update nonmedstaff set salary = '" + str(salary_entry.get()) + "' where id = "+ str(sel_staffid)
     mycursor.execute(command)
-    command = "update doctors set salary = '" + str(salary_entry.get()) + "' where id = "+ str(sel_docid)
-    mycursor.execute(command)
-    command = "update doctors set joindate = '" + str(join_entry.get()) + "' where id = "+ str(sel_docid)
+    
+    command = "update nonmedstaff set joindate = '" + str(join_entry.get()) + "' where id = "+ str(sel_staffid)
     mycursor.execute(command)
     mydb.commit()
+    root.destroy()
+    import StaffCard
+
+
 
 root = Tk()
 root.title('Update Doctor Details')
@@ -56,16 +59,16 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"UpdateDoctorCardBG.png")
+background_img = PhotoImage(file = f"UpdateStaffCardBG.png")
 background = canvas.create_image(
     275.5, 284.0,
     image=background_img)
 
-mycursor.execute('SELECT * FROM DOCTORS')
-doctors = mycursor.fetchall()
-for doctor in doctors:
-    if doctor[0] == sel_docid:
-        sel_doc = doctor
+mycursor.execute('SELECT * FROM nonmedstaff')
+nonmedstaff = mycursor.fetchall()
+for doctor in nonmedstaff:
+    if doctor[0] == sel_staffid:
+        sel_staff = doctor
 
 name_entryimg = PhotoImage(file = f"TextBox4.png")
 name_entry = canvas.create_image(
@@ -75,7 +78,7 @@ name_entry = canvas.create_image(
 name_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-name_entry.insert(0,sel_doc[1])
+name_entry.insert(0,sel_staff[1])
 name_entry.place(
     x = 77.5, y = 119,
     width = 397.0,
@@ -89,7 +92,7 @@ age_entry = canvas.create_image(
 age_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-age_entry.insert(0,sel_doc[2])
+age_entry.insert(0,sel_staff[2])
 age_entry.place(
     x = 77.5, y = 199,
     width = 158.0,
@@ -103,7 +106,7 @@ phone_entry = canvas.create_image(
 phone_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-phone_entry.insert(0,sel_doc[6])
+phone_entry.insert(0,sel_staff[5])
 phone_entry.place(
     x = 77.5, y = 279,
     width = 158.0,
@@ -117,7 +120,7 @@ gender_entry = canvas.create_image(
 gender_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-gender_entry.insert(0,sel_doc[3])
+gender_entry.insert(0,sel_staff[3])
 gender_entry.place(
     x = 303.5, y = 199,
     width = 171.0,
@@ -131,16 +134,16 @@ email_entry = canvas.create_image(
 email_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-email_entry.insert(0,sel_doc[7])
+email_entry.insert(0,sel_staff[6])
 email_entry.place(
     x = 303.5, y = 279,
     width = 171.0,
     height = 29)
 
-mycursor.execute('SELECT * FROM DOCTORDEPT')
+mycursor.execute('SELECT * FROM nonmeddept')
 depts = mycursor.fetchall()
 for dept in depts:
-    if sel_doc[4] == dept[0]:
+    if sel_staff[4] == dept[0]:
         sel_deptname = dept[1]
 
 dept_entryimg = PhotoImage(file = f"TextBox3.png")
@@ -165,27 +168,27 @@ join_entry = canvas.create_image(
 join_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-join_entry.insert(0,sel_doc[8])
+join_entry.insert(0,sel_staff[7])
 join_entry.place(
     x = 77.5, y = 439,
     width = 158.0,
     height = 29)
 
-room_entryimg = PhotoImage(file = f"TextBox3.png")
-room_entry = canvas.create_image(
+salary_entryimg = PhotoImage(file = f"TextBox3.png")
+salary_entry = canvas.create_image(
     391.5, 372.5,
-    image = room_entryimg)
+    image = salary_entryimg)
 
-room_entry = Entry(
+salary_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-room_entry.insert(0,sel_doc[5])
-room_entry.place(
+salary_entry.insert(0,sel_staff[8])
+salary_entry.place(
     x = 308.5, y = 359,
     width = 166.0,
     height = 29)
 
-salary_entryimg = PhotoImage(file = f"TextBox3.png")
+'''salary_entryimg = PhotoImage(file = f"TextBox3.png")
 salary_entry = canvas.create_image(
     391.5, 452.5,
     image = salary_entryimg)
@@ -193,12 +196,12 @@ salary_entry = canvas.create_image(
 salary_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-salary_entry.insert(0,sel_doc[9])
+salary_entry.insert(0,sel_staff[9])
 salary_entry.place(
     x = 308.5, y = 439,
     width = 166.0,
     height = 29)
-
+'''
 img0 = PhotoImage(file = f"UpdateButton.png")
 b0 = Button(
     image = img0,

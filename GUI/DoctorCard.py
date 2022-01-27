@@ -1,8 +1,9 @@
 from tkinter import *
 
 def UpdateCard():
-    command = "update Selected set id = '" + str(sel_doc[0]) + "' where no = 1"
+    command = "update Selected set cur_id = " + str(sel_doc[0]) + " where no = 1"
     mycursor.execute(command)
+    mydb.commit()
     window.destroy()
     import UpdateDoctorCard
 
@@ -157,8 +158,7 @@ b9.place(
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
-    sel_docid = int(d[2])
-    print(sel_docid)
+    sel_docid = int(d[3])
 
 
 mycursor.execute('SELECT * FROM DOCTORS')

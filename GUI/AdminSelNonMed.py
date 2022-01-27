@@ -8,9 +8,9 @@ def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
-def DoctorCard():
+def StaffCard():
     window.destroy()
-    import DoctorCard
+    import StaffCard
 
 def AdminNonMedPage():
     window.destroy()
@@ -18,17 +18,18 @@ def AdminNonMedPage():
 
 def search():
     tree.delete(*tree.get_children())
-    '''entry = TextBox.get()
+    entry = TextBox.get()
     for staff in nonmedstaff:
         if staff[4] == sel_dept_id:
             if ((entry.lower() in staff[1].lower()) or (entry == '')):
                 rec = []
                 rec.append(staff[0])
                 rec.append(staff[1])
-                rec.append(staff[3])
+                rec.append(staff[2])
+                rec.append(staff[5])
                 rec.append(staff[6])
                 rec.append(staff[8])
-                tree.insert('', END, values=rec)'''
+                tree.insert('', END, values=rec)
 
 
 import mysql.connector
@@ -42,7 +43,8 @@ mycursor = mydb.cursor()
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
-    sel_dept = d[1]
+    sel_dept = d[2]
+    print(sel_dept)
 
 window = Tk()
 window.title('EMR')
@@ -79,12 +81,12 @@ for dept in depts:
     if dept[1] == sel_dept:
         sel_dept_id = dept[0]
 
-'''canvas.create_text(
+canvas.create_text(
     210, 110,
     text = sel_dept_id,
     fill = "#000000",
     anchor = "w",
-    font = ("Lato-Regular", int(18)))'''
+    font = ("Lato-Regular", int(18)))
 
 TextBoximg = PhotoImage(file = f"TextBox2.png")
 TextBox = canvas.create_image(
@@ -233,10 +235,10 @@ def go(event):
     sel_iid = tree.focus()
     sel_record = tree.item(sel_iid, 'values')
     sel_id = str(sel_record[0])
-    command = "update Selected set id = '"+sel_id+"' where no = 1"
+    command = "update Selected set cur_id = '"+sel_id+"' where no = 1"
     mycursor.execute(command)
     mydb.commit()
-    DoctorCard()
+    StaffCard()
 
 tree.bind('<Double-1>', go)
 

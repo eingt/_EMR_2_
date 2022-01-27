@@ -29,7 +29,7 @@ def LogIn():
     for user in users:
         if TB1 == user[0]:
             if TB2 == user[1]:
-                command1 = "update Selected set name = '" + user[2] + "' where no = 1"
+                command1 = "update Selected set cur_user = '" + user[2] + "' where no = 1"
                 mycursor.execute(command1)
                 mydb.commit()
                 window.destroy()

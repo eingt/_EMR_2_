@@ -1,7 +1,7 @@
 from tkinter import *
 
 def UpdateCard():
-    command = "update Selected set id = '" + str(sel_staff[0]) + "' where no = 1"
+    command = "update Selected set cur_id = '" + str(sel_staff[0]) + "' where no = 1"
     mycursor.execute(command)
     window.destroy()
     import UpdateDoctorCard
@@ -157,7 +157,7 @@ b9.place(
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
-    sel_staffid = int(d[2])
+    sel_staffid = int(d[3])
 
 
 mycursor.execute('SELECT * FROM NONMEDSTAFF')
@@ -165,7 +165,6 @@ nonmedstaff = mycursor.fetchall()
 for staff in nonmedstaff:
     if staff[0] == sel_staffid:
         sel_staff = staff
-
 
 #Doctor Name
 canvas.create_text(
@@ -256,7 +255,7 @@ canvas.create_text(
 mycursor.execute('SELECT * FROM NONMEDDEPT')
 depts = mycursor.fetchall()
 for dept in depts:
-    if sel_staff[4] == dept[1]:
+    if sel_staff[4] == dept[0]:
         sel_deptname = dept[1]
 canvas.create_text(
     570, 525,
