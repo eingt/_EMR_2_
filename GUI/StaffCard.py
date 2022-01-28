@@ -4,7 +4,7 @@ def UpdateCard():
     command = "update Selected set cur_id = '" + str(sel_staff[0]) + "' where no = 1"
     mycursor.execute(command)
     window.destroy()
-    import UpdateDoctorCard
+    import UpdateStaffCard
 
 def click():
     print("Button is Clicked")
