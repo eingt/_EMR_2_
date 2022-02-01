@@ -4,6 +4,15 @@ from tkinter import ttk
 def click():
     print("Clicked")
 
+def UpdateCard():
+    sel_iid = tree.focus()
+    account = tree.item(sel_iid, 'values')
+    print(account[0])
+    command = "update Selected set cur_misc = '" + account[0] + "' where no = 1"
+    mycursor.execute(command)
+    window.destroy()
+    import UpdateUserAccount
+
 def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
@@ -23,18 +32,13 @@ def PatientCard():
 def search():
     tree.delete(*tree.get_children())
     entry = TextBox.get()
-    for patient in patients:
-        if ((entry.lower() in patient[1].lower()) or (entry == '')):
+    for account in accounts:
+        if ((entry.lower() in account[0].lower()) or (entry == '')):
             rec = []
-            rec.append(patient[0])
-            rec.append(patient[1])
-            rec.append(patient[2])
-            rec.append(patient[3])
-            rec.append(patient[4])
-            rec.append(patient[5])
-            rec.append(patient[6])
-            rec.append(patient[7])
-            rec.append(patient[8])
+            rec.append(account[0])
+            rec.append(account[1])
+            rec.append(account[2])
+            rec.append(account[3])
             tree.insert('', END, values=rec)
 
 
@@ -62,7 +66,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"AdminPatientsPage BG.png")
+bg = PhotoImage(file = f"AdminUsersPage BG.png")
 background = canvas.create_image(
     608, 342,
     image=bg)
@@ -70,7 +74,7 @@ background = canvas.create_image(
 #Page Name
 canvas.create_text(
     210, 90,
-    text = "Patients",
+    text = "User Accounts",
     fill = "#6953d9",
     anchor = "w",
     font = ("Lato-Bold", int(40)))
@@ -78,8 +82,6 @@ canvas.create_text(
 
 mycursor.execute('SELECT * FROM PATIENTS')
 depts = mycursor.fetchall()
-
-
 
 TextBoximg = PhotoImage(file = f"TextBox2.png")
 TextBox = canvas.create_image(
@@ -207,33 +209,43 @@ b8.place(
 
 
 style = ttk.Style()
-style.configure("Treeview", font=("Lato-semilight", 11), rowheight = 25, selectbackground = "#bdb0ff")
-tree = ttk.Treeview(window, column=(1, 2, 3, 4, 5, 6, 7, 8, 9), show='', height=20,padding=6)
-tree.column("# 1", anchor=CENTER, stretch=NO, width=40)
-tree.column("# 2", anchor=CENTER, stretch=NO, width=140)
-tree.column("# 3", anchor=CENTER, stretch=NO, width=120)
-tree.column("# 4", anchor=CENTER, stretch=NO, width=120)
-tree.column("# 5", anchor=CENTER, stretch=NO, width=100)
-tree.column("# 6", anchor=CENTER, stretch=NO, width=100)
-tree.column("# 7", anchor=CENTER, stretch=NO, width=130)
-tree.column("# 8", anchor=CENTER, stretch=NO, width=140)
-tree.column("# 9", anchor=CENTER, stretch=NO, width=110)
+style.configure("Treeview", font=("Lato-light", 15), rowheight=30)
+tree = ttk.Treeview(window, column=(1, 2, 3, 4), show='', height=13, padding=6)
+tree.column("# 1", anchor=CENTER, stretch=NO, width=220)
+tree.column("# 2", anchor=CENTER, stretch=NO, width=220)
+tree.column("# 3", anchor=CENTER, stretch=NO, width=260)
+tree.column("# 4", anchor=CENTER, stretch=NO, width=230)
 
 
-mycursor.execute('SELECT * FROM patients')
-patients = mycursor.fetchall()
-search()
+mycursor.execute('SELECT * FROM USERACCOUNTS')
+accounts = mycursor.fetchall()
+for account in accounts:
+    rec = []
+    rec.append(account[0])
+    rec.append(account[1])
+    rec.append(account[2])
+    rec.append(account[3])
+    tree.insert('', END, values=rec)
 
-tree.place(x=170, y=210)
+tree.place(x=200, y=210)
+
+UpdateButton = PhotoImage(file = f"Update.png")
+b9 = Button(
+    image = UpdateButton,
+    borderwidth = 0,
+    command = UpdateCard,
+    relief = "flat")
+
+b9.place(
+    x = 1050, y = 615,
+    width = 105,
+    height = 39)
 
 def go(event):
     sel_iid = tree.focus()
     sel_record = tree.item(sel_iid, 'values')
     sel_id = str(sel_record[0])
-    command = "update Selected set cur_id = '"+sel_id+"' where no = 1"
-    mycursor.execute(command)
-    mydb.commit()
-    PatientCard()
+
 
 tree.bind('<Double-1>', go)
 

@@ -18,6 +18,14 @@ def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
+def AdminPatientsPage():
+    window.destroy()
+    import AdminPatientsPage
+
+def AdminNonMedPage():
+    window.destroy()
+    import AdminNonMedPage
+
 window = Tk()
 window.title('EMR')
 window.iconbitmap("EMR Symbol.ico")
@@ -32,7 +40,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"AdminHomePage BG.png")
+bg = PhotoImage(file = "AdminHomePage BG.png")
 background = canvas.create_image(
     608, 342,
     image=bg)
@@ -89,7 +97,7 @@ NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminNonMedPage,
     relief = "flat")
 
 b5.place(
@@ -101,7 +109,7 @@ PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPatientsPage,
     relief = "flat")
 
 b6.place(

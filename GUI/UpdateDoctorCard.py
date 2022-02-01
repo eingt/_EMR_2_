@@ -39,6 +39,12 @@ def update():
     command = "update doctors set joindate = '" + str(join_entry.get()) + "' where id = "+ str(sel_docid)
     mycursor.execute(command)
     mydb.commit()
+    root.destroy()
+    import DoctorCard
+
+def cancel():
+    root.destroy()
+    import DoctorCard
 
 root = Tk()
 root.title('Update Doctor Details')
@@ -199,18 +205,31 @@ salary_entry.place(
     width = 166.0,
     height = 29)
 
-img0 = PhotoImage(file = f"UpdateButton.png")
-b0 = Button(
-    image = img0,
+Updateimg = PhotoImage(file = f"UpdateButton.png")
+b1 = Button(
+    image = Updateimg,
     borderwidth = 0,
     highlightthickness = 0,
     command = update,
     relief = "flat")
 
-b0.place(
+b1.place(
     x = 208, y = 489,
     width = 138,
     height = 53)
+
+CancelImg = PhotoImage(file = f"Cancel Button.png")
+b2 = Button(
+    image = CancelImg,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = cancel,
+    relief = "flat")
+
+b2.place(
+    x = 235, y = 535,
+    width = 89,
+    height = 17)
 
 root.resizable(False, False)
 root.mainloop()
