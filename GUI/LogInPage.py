@@ -5,11 +5,11 @@ mydb = mysql.connector.connect(
     host = 'localhost',
     user = 'root',
     password = 'maneeshj',
-    port = '3306',
     database = 'EMR')
 mycursor = mydb.cursor()
 mycursor.execute('SELECT * FROM USERACCOUNTS')
 users = mycursor.fetchall()
+print(users)
 
 def ErrorMessage():
     TextBox1.delete(0, END)
@@ -29,7 +29,7 @@ def LogIn():
     for user in users:
         if TB1 == user[0]:
             if TB2 == user[1]:
-                command1 = "update Selected set cur_user = '" + user[2] + "' where no = 1"
+                command1 = "update Selected set cur_user = '" + user[0] + "' where no = 1"
                 mycursor.execute(command1)
                 mydb.commit()
                 window.destroy()
@@ -96,6 +96,27 @@ b1.place(
     x = 575, y = 380,
     width = 138,
     height = 59)
+
+toggle = True
+def showpass():
+    global toggle
+    if toggle:
+        TextBox2.config(show = "")
+        toggle = False
+    else:
+        TextBox2.config(show="*")
+        toggle = True
+
+EyeButton = PhotoImage(file = "Eye Icon White.png")
+b2 = Button(
+    image = EyeButton,
+    borderwidth = 0,
+    command = showpass,
+    relief = "flat")
+b2.place(
+    x = 748, y = 344,
+    width=18,
+    height=17)
 
 window.resizable(False, False)
 window.mainloop()

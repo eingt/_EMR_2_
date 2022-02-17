@@ -9,7 +9,13 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
-user_name = data[0][1]
+cur_user = data[0][1]
+
+mycursor.execute('SELECT * FROM USERACCOUNTS')
+users = mycursor.fetchall()
+for user in users:
+    if user[0] == cur_user:
+        user_name = user[2]
 
 def click():
     print("Clicked")

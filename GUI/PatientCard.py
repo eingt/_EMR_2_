@@ -331,7 +331,6 @@ clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
 drop = ttk.OptionMenu(window, clicked, options[0], *options, command = app_selected)
-#drop.config(bg = "#FFFFFF")
 drop.place(x=1090,y=290)
 
 style2 = ttk.Style()
