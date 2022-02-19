@@ -13,11 +13,21 @@ def DoctorCard():
     import DoctorCard
 
 def search():
+    opt = clicked.get()
+    if opt = 'ID':
+        index = 0
+    elif opt = 'Name':
+        index = 1
+    elif opt = 'Room':
+        index = 2
+    elif opt = 'Email':
+        index = 3
+
     tree.delete(*tree.get_children())
     entry = TextBox.get()
     for doctor in doctors:
         if doctor[4] == sel_dept_id:
-            if ((entry.lower() in doctor[1].lower()) or (entry == '')):
+            if ((entry.lower() in doctor[index].lower()) or (entry == '')):
                 doc = []
                 doc.append(doctor[0])
                 doc.append(doctor[1])
@@ -205,9 +215,15 @@ b8.place(
     width = 28,
     height = 24)
 
+#SEARCHOPTIONS
+options = ['ID','Name','Room','Email']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
+drop.place(x=1090,y=290)
+
 #TABLE
-
-
 style = ttk.Style()
 style.configure("Treeview", font=(None, 10))
 tree = ttk.Treeview(window, column=(1, 2, 3, 4, 5, 6), show='', height=20,padding=6)
