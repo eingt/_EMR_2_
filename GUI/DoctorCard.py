@@ -254,7 +254,7 @@ canvas.create_text(
     font = ("Lato-Light", int(14.0)))
 
 #Department
-mycursor.execute('SELECT * FROM DOCTORDEPT')
+mycursor.execute('SELECT * FROM DOCTORSDEPT')
 depts = mycursor.fetchall()
 for dept in depts:
     if sel_doc[4] == dept[0]:

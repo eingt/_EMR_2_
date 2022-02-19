@@ -5,11 +5,11 @@ mydb = mysql.connector.connect(
     host = 'localhost',
     user = 'root',
     password = 'maneeshj',
+    port = '3306',
     database = 'EMR')
 mycursor = mydb.cursor()
 mycursor.execute('SELECT * FROM USERACCOUNTS')
 users = mycursor.fetchall()
-print(users)
 
 def ErrorMessage():
     TextBox1.delete(0, END)

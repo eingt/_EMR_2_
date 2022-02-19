@@ -1,15 +1,5 @@
 from tkinter import *
-import mysql.connector
-'''mydb = mysql.connector.connect(
-    host = 'localhost',
-    user = 'root',
-    password = 'maneeshj',
-    port = '3306',
-    database = 'EMR')
-mycursor = mydb.cursor()
-mycursor.execute('SELECT * FROM SELECTED')
-data = mycursor.fetchall()'''
-
+from tkinter import ttk
 
 def click():
     print("Clicked")
@@ -17,45 +7,56 @@ def click():
 def AdminHomePage():
     window.destroy()
     import AdminHomePage
-
+    
 def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
-def AdminPatientsPage():
-    window.destroy()
-    import AdminPatientsPage
-
 def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
+    
+def search():
+    tree.delete(*tree.get_children())
+    entry = TextBox.get()
+    for medicine in medicines:
+        if ((entry.lower() in medicine[1].lower()) or (entry == '')):
+            rec = []
+            rec.append(medicine[0])
+            rec.append(medicine[1])
+            rec.append(medicine[2])
+            rec.append(medicine[3])
+            rec.append('₹'+str(medicine[4]))
+            tree.insert('', END, values=rec)
+    
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'maneeshj',
+    port = '3306',
+    database = 'EMR')
+mycursor = mydb.cursor()
+
 
 window = Tk()
 window.title('EMR')
 window.iconbitmap("EMR Symbol.ico")
 
 window.geometry("1216x684")
-window.configure(bg = "#ffffff")
+window.configure(bg = "#fefefe")
 canvas = Canvas(
     window,
-    bg = "#ffffff",
+    bg = "#fefefe",
     height = 684,
     width = 1216,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"AdminPharmacyPage BG.png")
+bg = PhotoImage(file = f"AdminPharmacyPage BG.png")
 background = canvas.create_image(
-    608.5, 342.0,
-    image=background_img)
-
-#Page Name
-canvas.create_text(
-    210, 75,
-    text = "Pharmacy",
-    fill = "#6953d9",
-    anchor = "w",
-    font = ("Lato-Bold", int(40)))
+    608, 342,
+    image=bg)
 
 ProfileIcon = PhotoImage(file = f"Profile Icon.png")
 b1 = Button(
@@ -81,7 +82,7 @@ b2.place(
     width = 90,
     height = 75)
 
-PharmacyIcon = PhotoImage(file = f"Pharmacy Icon HL.png")
+PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
@@ -89,9 +90,9 @@ b3 = Button(
     relief = "flat")
 
 b3.place(
-    x = 21, y = 401,
+    x = 20, y = 401,
     width = 90,
-    height = 67)
+    height = 61)
 
 UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
 b4 = Button(
@@ -109,7 +110,7 @@ NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = AdminNonMedPage,
+    command = click,
     relief = "flat")
 
 b5.place(
@@ -117,11 +118,12 @@ b5.place(
     width = 91,
     height = 57)
 
+
 PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    command = AdminPatientsPage,
+    command = click,
     relief = "flat")
 
 b6.place(
@@ -153,8 +155,83 @@ b8.place(
     width = 28,
     height = 24)
 
-#Treeview for all records
-#ListBox for Alerts
+TextBoximg = PhotoImage(file = f"TextBox2.png")
+TextBox = canvas.create_image(
+    700, 125,
+    image = TextBoximg)
+
+TextBox = Entry(
+    bd = 0)
+
+TextBox.place(
+    x = 550, y = 106,
+    width=285,
+    height=38)
+
+SearchIcon = PhotoImage(file = f"Search Icon.png")
+b12 = Button(
+    image = SearchIcon,
+    bd = 0,
+    command = search,
+    relief = "flat")
+
+b12.place(
+    x = 830, y = 110,
+    width=28,
+    height=28)
+
+#Table
+style = ttk.Style()
+style.configure("Treeview", font=("Lato-semilight", 11), rowheight = 20, selectbackground = "#bdb0ff")
+tree = ttk.Treeview(window, column=(1, 2, 3, 4, 5), show='', height=20,padding=6)
+tree.column("# 1", anchor=CENTER, stretch=NO, width=60)
+tree.column("# 2", anchor=CENTER, stretch=NO, width=170)
+tree.column("# 3", anchor=CENTER, stretch=NO, width=180)
+tree.column("# 4", anchor=CENTER, stretch=NO, width=150)
+tree.column("# 5", anchor=CENTER, stretch=NO, width=90)
+mycursor.execute('SELECT * FROM PHARMACY')
+medicines = mycursor.fetchall()
+search()
+tree.place(x=185, y=210)
+
+AddIcon = PhotoImage(file = f"Add Icon.png")
+b9 = Button(
+    image = AddIcon,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = click,
+    relief = "flat")
+
+b9.place(
+    x = 825, y = 624,
+    width = 30,
+    height = 30)
+
+EditIcon = PhotoImage(file = f"Edit Icon.png")
+b10 = Button(
+    image = EditIcon,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = click,
+    relief = "flat")
+
+b10.place(
+    x = 785, y = 625,
+    width = 29,
+    height = 27)
+
+DeleteIcon = PhotoImage(file = f"Delete Icon.png")
+b11 = Button(
+    image = DeleteIcon,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = click,
+    relief = "flat")
+
+b11.place(
+    x = 745, y = 625,
+    width = 29,
+    height = 27)
 
 window.resizable(False, False)
 window.mainloop()

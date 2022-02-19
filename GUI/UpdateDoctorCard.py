@@ -25,7 +25,7 @@ def update():
     command = "update doctors set email = '" + str(email_entry.get()) + "' where id = "+ str(sel_docid)
     mycursor.execute(command)
 
-    mycursor.execute('SELECT * FROM DOCTORDEPT')
+    mycursor.execute('SELECT * FROM DOCTORSDEPT')
     depts = mycursor.fetchall()
     for dept in depts:
         if str(dept_entry.get()) == dept[1]:
@@ -143,7 +143,7 @@ email_entry.place(
     width = 171.0,
     height = 29)
 
-mycursor.execute('SELECT * FROM DOCTORDEPT')
+mycursor.execute('SELECT * FROM DOCTORSDEPT')
 depts = mycursor.fetchall()
 for dept in depts:
     if sel_doc[4] == dept[0]:
@@ -227,7 +227,7 @@ b2 = Button(
     relief = "flat")
 
 b2.place(
-    x = 235, y = 535,
+    x = 235, y = 537,
     width = 89,
     height = 17)
 

@@ -207,7 +207,7 @@ b8.place(
 
 
 style = ttk.Style()
-style.configure("Treeview", font=("Lato-semilight", 11), rowheight = 25, selectbackground = "#bdb0ff")
+style.configure("Treeview", font=("Lato-semilight", 11), rowheight = 20, selectbackground = "#bdb0ff")
 tree = ttk.Treeview(window, column=(1, 2, 3, 4, 5, 6, 7, 8, 9), show='', height=20,padding=6)
 tree.column("# 1", anchor=CENTER, stretch=NO, width=40)
 tree.column("# 2", anchor=CENTER, stretch=NO, width=140)

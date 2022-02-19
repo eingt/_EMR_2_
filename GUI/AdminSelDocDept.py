@@ -69,7 +69,7 @@ canvas.create_text(
     font = ("Lato-Bold", int(40)))
 
 #Department ID
-mycursor.execute('SELECT * FROM doctordept')
+mycursor.execute('SELECT * FROM DOCTORSDEPT')
 depts = mycursor.fetchall()
 
 for dept in depts:

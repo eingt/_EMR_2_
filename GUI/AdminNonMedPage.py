@@ -153,6 +153,8 @@ mycursor.execute('SELECT COUNT(*) FROM PATIENTS')
 patientcount = mycursor.fetchall()[0][0]
 mycursor.execute('SELECT COUNT(*) FROM NONMEDSTAFF')
 nonmedcount = mycursor.fetchall()[0][0]
+mycursor.execute('SELECT COUNT(*) FROM APPOINTMENTS WHERE DATE = CURDATE()')
+appointmentcount = mycursor.fetchall()[0][0]
 mycursor.execute('SELECT COUNT(*) FROM USERACCOUNTS')
 userscount = mycursor.fetchall()[0][0]
 
@@ -176,7 +178,7 @@ canvas.create_text(
 
 canvas.create_text(
     1098.5, 559.0,
-    text = "10",
+    text = appointmentcount,
     fill = "#e0e0e0",
     font = ("Lato-Regular", int(18)))
 

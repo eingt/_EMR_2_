@@ -55,7 +55,7 @@ def update():
     mycursor.execute(command)
     command = "update "+table+" set phone = '" + str(phone_entry.get()) + "' where id = "+ str(sel_record[0])
     mycursor.execute(command)
-    command = "update "+table+" set gender = '" + str(gender_entry.get()) + "' where id = "+ str(sel_record[0])
+    command = "update "+table+" set gender = '" + gender_entry + "' where id = "+ str(sel_record[0])
     mycursor.execute(command)
     command = "update "+table+" set email = '" + str(email_entry.get()) + "' where id = "+ str(sel_record[0])
     mycursor.execute(command)
@@ -74,7 +74,7 @@ def update():
     command = "update "+table+" set joindate = '" + str(join_entry.get()) + "' where id = "+ str(sel_record[0])
     mycursor.execute(command)
     mydb.commit()
-    win1.destroy()
+
 
 def UpdateConfirmation():
     win1 = Toplevel()
@@ -123,6 +123,8 @@ def UpdateConfirmation():
 
     win1.resizable(False, False)
     win1.mainloop()
+
+
 
 window = Tk()
 window.title('EMR')
@@ -279,6 +281,9 @@ canvas.create_text(
     anchor = "e",
     font = ("Lato-Regular", int(12)))
 
+def selgender(sel_gender):
+    sel_gender = clicked.get()
+
 options = ['Female','Male','Other']
 clicked = StringVar()
 style1 = ttk.Style()
@@ -287,7 +292,7 @@ gender = ttk.OptionMenu(window, clicked, sel_record[3], *options)
 gender.place(x = 280, y = 342)
 gender_entry = clicked.get()
 
-if table == "Doctors":
+
 
 mycursor.execute('SELECT * FROM '+table+'DEPT')
 depts = mycursor.fetchall()
