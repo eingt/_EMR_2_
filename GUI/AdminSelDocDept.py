@@ -14,13 +14,13 @@ def DoctorCard():
 
 def search():
     opt = clicked.get()
-    if opt = 'ID':
+    if opt == 'ID':
         index = 0
-    elif opt = 'Name':
+    elif opt == 'Name':
         index = 1
-    elif opt = 'Room':
+    elif opt == 'Room':
         index = 2
-    elif opt = 'Email':
+    elif opt == 'Email':
         index = 3
 
     tree.delete(*tree.get_children())
