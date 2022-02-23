@@ -188,7 +188,7 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = f"NonMed Icon HL.png")
+NonMedIcon = PhotoImage(file = f"Non Med Icon HL.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
@@ -243,7 +243,7 @@ clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
 drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
-drop.place(x=1090,y=80)
+drop.place(x=1090,y=290)
 
 #TABLE
 style = ttk.Style()

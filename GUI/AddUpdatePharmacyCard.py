@@ -45,13 +45,13 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"AddUpdate Pharmacy Card BG.png")
+background_img = PhotoImage(file = "AddUpdate Pharmacy Card BG.png")
 background = canvas.create_image(
     275.5, 284.0,
     image=background_img)
 
 
-name_entryimg = PhotoImage(file = f"TextBox4.png")
+name_entryimg = PhotoImage(file = "TextBox4.png")
 name_entry = canvas.create_image(
     276.0, 171,
     image = name_entryimg)
@@ -65,7 +65,7 @@ name_entry.place(
     width=397.0,
     height=29)
 
-mfd_entryimg = PhotoImage(file = f"TextBox4.png")
+mfd_entryimg = PhotoImage(file = "TextBox4.png")
 mfd_entry = canvas.create_image(
     276.0, 251,
     image = mfd_entryimg)
@@ -79,7 +79,7 @@ mfd_entry.place(
     width=397.0,
     height=29)
 
-stock_entryimg = PhotoImage(file = f"TextBox4.png")
+stock_entryimg = PhotoImage(file = "TextBox4.png")
 stock_entry = canvas.create_image(
     276.0, 331,
     image = stock_entryimg)
@@ -93,7 +93,7 @@ stock_entry.place(
     width=397.0,
     height=29)
 
-price_entryimg = PhotoImage(file = f"TextBox4.png")
+price_entryimg = PhotoImage(file = "TextBox4.png")
 price_entry = canvas.create_image(
     276.0, 411,
     image = price_entryimg)
@@ -107,7 +107,7 @@ price_entry.place(
     width=397.0,
     height=29)
 
-Updateimg = PhotoImage(file = f"UpdateButton.png")
+Updateimg = PhotoImage(file = "UpdateButton.png")
 b1 = Button(
     image = Updateimg,
     borderwidth = 0,
@@ -120,7 +120,7 @@ b1.place(
     width = 138,
     height = 53)
 
-CancelImg = PhotoImage(file = f"Cancel Button.png")
+CancelImg = PhotoImage(file = "Cancel Button.png")
 b2 = Button(
     image = CancelImg,
     borderwidth = 0,
@@ -137,7 +137,7 @@ b2.place(
 
 '''
 
-entry0_img = PhotoImage(file = f"img_textBox0.png")
+entry0_img = PhotoImage(file = "img_textBox0.png")
 entry0_bg = canvas.create_image(
     276.0, 172.5,
     image = entry0_img)
@@ -152,7 +152,7 @@ entry0.place(
     width = 397.0,
     height = 29)
 
-entry1_img = PhotoImage(file = f"img_textBox1.png")
+entry1_img = PhotoImage(file = "img_textBox1.png")
 entry1_bg = canvas.create_image(
     276.0, 252.5,
     image = entry1_img)
@@ -167,7 +167,7 @@ entry1.place(
     width = 397.0,
     height = 29)
 
-entry2_img = PhotoImage(file = f"img_textBox2.png")
+entry2_img = PhotoImage(file = "img_textBox2.png")
 entry2_bg = canvas.create_image(
     276.0, 332.5,
     image = entry2_img)
@@ -182,7 +182,7 @@ entry2.place(
     width = 397.0,
     height = 29)
 
-entry3_img = PhotoImage(file = f"img_textBox3.png")
+entry3_img = PhotoImage(file = "img_textBox3.png")
 entry3_bg = canvas.create_image(
     276.0, 412.5,
     image = entry3_img)
@@ -197,7 +197,7 @@ entry3.place(
     width = 397.0,
     height = 29)
 
-img0 = PhotoImage(file = f"img0.png")
+img0 = PhotoImage(file = "img0.png")
 b0 = Button(
     image = img0,
     borderwidth = 0,

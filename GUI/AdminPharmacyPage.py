@@ -8,9 +8,9 @@ def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
-def AdminPatientsPage():
+def Admin= "tsPage():
     window.destroy()
-    import AdminPatientsPage
+    import Admin= "tsPage
 
 def AdminNonMedPage():
     window.destroy()
@@ -168,9 +168,9 @@ b5.place(
     height = 57)
 
 
-PatientsIcon = PhotoImage(file = f"Patients Icon.png")
+= "tsIcon = PhotoImage(file = f"= "ts Icon.png")
 b6 = Button(
-    image = PatientsIcon,
+    image = = "tsIcon,
     borderwidth = 0,
     command = click,
     relief = "flat")

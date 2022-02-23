@@ -53,7 +53,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"UpdatePatientCard BG.png")
+background_img = PhotoImage(file = "UpdatePatientCard BG.png")
 background = canvas.create_image(
     267.5, 276.0,
     image=background_img)
@@ -64,7 +64,7 @@ for patient in patients:
     if patient[0] == sel_patientid:
         sel_doc = patient
 
-Updateimg = PhotoImage(file = f"UpdateButton.png")
+Updateimg = PhotoImage(file = "UpdateButton.png")
 b1 = Button(
     image = Updateimg,
     borderwidth = 0,
@@ -77,7 +77,7 @@ b1.place(
     width = 138,
     height = 53)
 
-CancelImg = PhotoImage(file = f"Cancel Button.png")
+CancelImg = PhotoImage(file = "Cancel Button.png")
 b2 = Button(
     image = CancelImg,
     borderwidth = 0,
@@ -90,7 +90,7 @@ b2.place(
     width = 89,
     height = 17)
 
-name_entryimg = PhotoImage(file = f"TextBox4.png")
+name_entryimg = PhotoImage(file = "TextBox4.png")
 name_entry = canvas.create_image(
     268.0, 163.5,
     image = name_entryimg)
@@ -104,7 +104,7 @@ name_entry.place(
     width = 397.0,
     height = 29)
 
-gender_entryimg = PhotoImage(file = f"TextBox5.png")
+gender_entryimg = PhotoImage(file = "TextBox5.png")
 gender_entry = canvas.create_image(
     122.0, 243.5,
     image = gender_entryimg)
@@ -118,7 +118,7 @@ gender_entry.place(
     width = 105.0,
     height = 29)
 
-height_entryimg = PhotoImage(file = f"TextBox5.png")
+height_entryimg = PhotoImage(file = "TextBox5.png")
 phone_entry = canvas.create_image(
     269.0, 243.5,
     image = height_entryimg)
@@ -132,7 +132,7 @@ height_entry.place(
     width = 105.0,
     height = 29)
 
-weight_entryimg = PhotoImage(file = f"TextBox5.png")
+weight_entryimg = PhotoImage(file = "TextBox5.png")
 weight_entry = canvas.create_image(
     416.0, 243.5,
     image = weight_entryimg)
@@ -146,7 +146,7 @@ weight_entry.place(
     width = 105.0,
     height = 29)
 
-dob_entryimg = PhotoImage(file = f"TextBox3.png")
+dob_entryimg = PhotoImage(file = "TextBox3.png")
 dob_entry = canvas.create_image(
     148.5, 323.5,
     image = dob_entryimg)
@@ -160,7 +160,7 @@ dob_entry.place(
     width = 158.0,
     height = 29)
 
-reg_entryimg = PhotoImage(file = f"TextBox3.png")
+reg_entryimg = PhotoImage(file = "TextBox3.png")
 reg_entry = canvas.create_image(
     381.0, 323.5,
     image = reg_entryimg)
@@ -174,7 +174,7 @@ reg_entry.place(
     width = 171.0,
     height = 29)
 
-phone_entryimg = PhotoImage(file = f"TextBox3.png")
+phone_entryimg = PhotoImage(file = "TextBox3.png")
 phone_entry = canvas.create_image(
     148.5, 403.5,
     image = phone_entryimg)
@@ -188,7 +188,7 @@ phone_entry.place(
     width = 158.0,
     height = 29)
 
-email_entryimg = PhotoImage(file = f"TextBox3.png")
+email_entryimg = PhotoImage(file = "TextBox3.png")
 email_entry = canvas.create_image(
     383.5, 403.5,
     image = email_entryimg)
@@ -202,7 +202,7 @@ email_entry.place(
     width = 166.0,
     height = 29)
 
-allergies_entryimg = PhotoImage(file = f"TextBox4.png")
+allergies_entryimg = PhotoImage(file = "TextBox4.png")
 allergies_entry = canvas.create_image(
     270, 483,
     image = allergies_entryimg)
