@@ -23,35 +23,45 @@ def app_selected(event):
 
     if opt == 'Upcoming':
         tree.delete(*tree.get_children())
-        mycursor.execute('''SELECT appointments.*, patients.name FROM appointments,patients 
-                                where appointments.patientid = patients.id and date > date(now()) or
+        mycursor.execute('''SELECT * FROM appointments where date > date(now()) or
                                 (date = date(now()) and time > time(now()))
                                 order by date asc, time asc;''')
         upcoming_app = mycursor.fetchall()
+        mycursor.execute('SELECT * FROM PATIENTS')
+        patients = mycursor.fetchall()
 
         for appointment in upcoming_app:
-            rec = []
-            rec.append(appointment[4])
-            rec.append(appointment[3])
-            rec.append(appointment[0])
-            rec.append(appointment[2])
-            tree.insert('', END, values=rec)
+            for patient in patients:
+                if (patient[0] == appointment[0]):
+                    patientname = patient[1]
+            if (appointment[1] == sel_doc[0]):
+                rec = []
+                rec.append(appointment[4])
+                rec.append(appointment[3])
+                rec.append(patientname)
+                rec.append(appointment[2])
+                tree.insert('', END, values=rec)
 
     if opt == 'Completed':
         tree.delete(*tree.get_children())
-        mycursor.execute('''SELECT appointments.*, patients.name FROM appointments,patients 
-                                where appointments.patientid = patients.id and date < date(now()) or
+        mycursor.execute('''SELECT * FROM appointments where date < date(now()) or
                                 (date = date(now()) and time < time(now()))
                                 order by date asc, time asc;''')
         completed_app = mycursor.fetchall()
+        mycursor.execute('SELECT * FROM DOCTORS')
+        doctors = mycursor.fetchall()
 
-        for appointment in completed_app:
-            rec = []
-            rec.append(appointment[4])
-            rec.append(appointment[3])
-            rec.append(appointment[0])
-            rec.append(appointment[2])
-            tree.insert('', END, values=rec)
+        for appointment in upcoming_app:
+            for patient in patients:
+                if (patient[0] == appointment[0]):
+                    patientname = patient[1]
+            if (appointment[1] == sel_doc[0]):
+                rec = []
+                rec.append(appointment[4])
+                rec.append(appointment[3])
+                rec.append(patientname)
+                rec.append(appointment[2])
+                tree.insert('', END, values=rec)
 
 import mysql.connector
 mydb = mysql.connector.connect(
