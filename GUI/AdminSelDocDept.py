@@ -12,7 +12,7 @@ def DoctorCard():
     window.destroy()
     import DoctorCard
 
-def search():
+def search():#
     opt = clicked.get()
     if opt == 'ID':
         index = 0
