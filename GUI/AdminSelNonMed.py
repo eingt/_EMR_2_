@@ -17,11 +17,21 @@ def AdminNonMedPage():
     import AdminNonMedPage
 
 def search():
+    opt = clicked.get()
+    if opt == 'ID':
+        index = 0
+    elif opt == 'Name':
+        index = 1
+    elif opt == 'Room':
+        index = 2
+    elif opt == 'Email':
+        index = 3
+
     tree.delete(*tree.get_children())
     entry = TextBox.get()
     for staff in nonmedstaff:
         if staff[4] == sel_dept_id:
-            if ((entry.lower() in staff[1].lower()) or (entry == '')):
+            if ((entry.lower() in staff[index].lower()) or (entry == '')):
                 rec = []
                 rec.append(staff[0])
                 rec.append(staff[1])
