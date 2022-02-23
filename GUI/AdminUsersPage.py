@@ -133,19 +133,19 @@ b0.place(
     width=28,
     height=28)
 
-ProfileIcon = PhotoImage(file = "Profile Icon.png")
+ProfileIcon = PhotoImage(file = f"Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    command = click,
+    command = ProfilePage,
     relief = "flat")
 
 b1.place(
     x = 20, y = 605,
     width = 88,
     height = 70)
-
-'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
+'''
+CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -157,11 +157,11 @@ b2.place(
     width = 90,
     height = 75)'''
 
-PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
+PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPharmacyPage,
     relief = "flat")
 
 b3.place(
@@ -169,11 +169,11 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = "Users Icon HL.png")
+UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminUsersPage,
     relief = "flat")
 
 b4.place(
@@ -181,11 +181,11 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = "Non Med Icon.png")
+NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminNonMedPage,
     relief = "flat")
 
 b5.place(
@@ -193,12 +193,11 @@ b5.place(
     width = 91,
     height = 57)
 
-
-PatientsIcon = PhotoImage(file = "Patients Icon.png")
+PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPatientsPage,
     relief = "flat")
 
 b6.place(
@@ -206,7 +205,7 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
+DoctorsIcon = PhotoImage(file = f"Doctors Icon.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
@@ -217,7 +216,6 @@ b7.place(
     x = 20, y = 110,
     width = 91,
     height = 63)
-
 PrevPage = PhotoImage(file = "ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
