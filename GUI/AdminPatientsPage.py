@@ -21,10 +21,22 @@ def PatientCard():
     import PatientCard
 
 def search():
+    opt = clicked.get()
+    if opt == 'ID':
+        index = 0
+    elif opt == 'Name':
+        index = 1
+    elif opt == 'Gender':
+        index = 3
+    elif opt == 'Phone Number':
+        index = 5
+    elif opt == 'Email':
+        index = 6
+
     tree.delete(*tree.get_children())
     entry = TextBox.get()
     for patient in patients:
-        if ((entry.lower() in patient[1].lower()) or (entry == '')):
+        if ((str(entry).lower() in str(patient[1]).lower()) or (entry == '')):
             rec = []
             rec.append(patient[0])
             rec.append(patient[1])
@@ -203,8 +215,16 @@ b8.place(
     width = 28,
     height = 24)
 
-#TABLE
+#SEARCHOPTIONS
 
+options = ['ID','Name','Gender','Phone Number','Email']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
+drop.place(x=1100,y=80)
+
+#TABLE
 
 style = ttk.Style()
 style.configure("Treeview", font=("Lato-semilight", 11), rowheight = 20, selectbackground = "#bdb0ff")

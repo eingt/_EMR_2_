@@ -221,7 +221,7 @@ clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
 drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
-drop.place(x=1090,y=290)
+drop.place(x=1100,y=80)
 
 #TABLE
 style = ttk.Style()
