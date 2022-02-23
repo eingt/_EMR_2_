@@ -16,7 +16,9 @@ def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
 
+index = 1
 def search():
+    global index
     opt = clicked.get()
     if opt == 'ID':
         index = 0
@@ -241,6 +243,15 @@ tree.column("# 6", anchor=CENTER, stretch=NO, width=100)
 
 mycursor.execute('SELECT * FROM NONMEDSTAFF')
 nonmedstaff = mycursor.fetchall()
+
+
+#SEARCHOPTIONS
+options = ['ID','Name','Phone Number','Email']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search())
+drop.place(x=1090,y=290)
 search()
 
 tree.place(x=215, y=210)

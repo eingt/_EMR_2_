@@ -16,17 +16,48 @@ def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
     
+def update():
+    command = "update pharmacy set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_record[0])+";"
+    mycursor.execute(command)
+    command = "update pharmacy set age = " + str(age_entry.get()) + " where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+    command = "update pharmacy set phone = '" + str(phone_entry.get()) + "' where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+    command = "update pharmacy set gender = '" + gender_entry + "' where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+    command = "update pharmacy set email = '" + str(email_entry.get()) + "' where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+
+    mycursor.execute('SELECT * FROM '+table+'DEPT')
+    depts = mycursor.fetchall()
+    for dept in depts:
+        if str(dept_entry.get()) == dept[1]:
+            command = "update pharmacy set deptid = " + str(dept[0]) + " where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+
+    command = "update pharmacy set room = '" + str(room_entry.get()) + "' where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+    command = "update pharmacy set salary = '" + str(salary_entry.get()) + "' where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+    command = "update pharmacy set joindate = '" + str(join_entry.get()) + "' where id = "+ str(sel_record[0])
+    mycursor.execute(command)
+    mydb.commit()
+index = 1
 def search():
+    global index
+    opt = clicked.get()
+    if opt == options[0]:
+        index = 0
+    elif opt == options[1]:
+        index = 1
+    elif opt == options[2]:
+        index = 2
+
     tree.delete(*tree.get_children())
     entry = TextBox.get()
     for medicine in medicines:
-        if ((entry.lower() in medicine[1].lower()) or (entry == '')):
-            rec = []
-            rec.append(medicine[0])
-            rec.append(medicine[1])
-            rec.append(medicine[2])
-            rec.append(medicine[3])
-            rec.append('₹'+str(medicine[4]))
+        if ((str(entry).lower() in str(medicine[index]).lower()) or (entry == '')):
+            rec = medicine
             tree.insert('', END, values=rec)
     
 import mysql.connector
@@ -191,8 +222,17 @@ tree.column("# 4", anchor=CENTER, stretch=NO, width=150)
 tree.column("# 5", anchor=CENTER, stretch=NO, width=90)
 mycursor.execute('SELECT * FROM PHARMACY')
 medicines = mycursor.fetchall()
-search()
 tree.place(x=185, y=210)
+
+#SEARCHOPTIONS
+options = ['ID','Name','Manufacturer']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search())
+drop.place(x=800,y=80)
+
+search()
 
 AddIcon = PhotoImage(file = f"Add Icon.png")
 b9 = Button(
@@ -232,6 +272,32 @@ b11.place(
     x = 745, y = 625,
     width = 29,
     height = 27)
+
+#Alerts
+mycursor.execute('SELECT * FROM PHARMACY WHERE STOCK<50')
+meds = mycursor.fetchall()
+AlertList = []
+for med in meds:
+    AlertList.append(med[1])
+if len(AlertList) == 0:
+    AlertList.append('No Alerts')
+listbox = Listbox(
+    height = 15,
+    width = 15,
+    bd = 0,
+    activestyle = 'none',
+    highlightcolor = "#8571E8",
+    highlightbackground = "#8571E8",
+    selectbackground = "#8571E8",
+    selectmode = NONE,
+    font = "Lato-Light",
+    fg = "#ffffff",
+    bg = "#8571E8",
+    relief = "flat")
+for item in AlertList:
+    listbox.insert(END, item)
+listbox.place(x = 940, y = 230)
+
 
 window.resizable(False, False)
 window.mainloop()

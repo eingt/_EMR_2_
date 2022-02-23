@@ -20,6 +20,7 @@ def PatientCard():
     window.destroy()
     import PatientCard
 
+index = 1
 def search():
     opt = clicked.get()
     if opt == 'ID':
@@ -215,14 +216,6 @@ b8.place(
     width = 28,
     height = 24)
 
-#SEARCHOPTIONS
-
-options = ['ID','Name','Gender','Phone Number','Email']
-clicked = StringVar()
-style1 = ttk.Style()
-style1.configure("TMenubutton", background = "#FFFFFF")
-drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
-drop.place(x=1100,y=80)
 
 #TABLE
 
@@ -242,6 +235,15 @@ tree.column("# 9", anchor=CENTER, stretch=NO, width=110)
 
 mycursor.execute('SELECT * FROM patients')
 patients = mycursor.fetchall()
+
+#SEARCHOPTIONS
+options = ['ID','Name','Gender','Phone Number','Email']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search())
+drop.place(x=1100,y=80)
+
 search()
 
 tree.place(x=170, y=210)
