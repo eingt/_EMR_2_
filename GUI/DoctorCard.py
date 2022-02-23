@@ -266,49 +266,9 @@ canvas.create_text(
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
 
-canvas.create_text(
-    901.0, 249.0,
-    text = "Lisa Jenkins",
-    fill = "#000000",
-    font = ("Lato-Light", int(20.0)))
-
-canvas.create_text(
-    901.0, 208.0,
-    text = "Clay Rigby",
-    fill = "#000000",
-    font = ("Lato-Light", int(20.0)))
-
-TextBoximg = PhotoImage(file = f"TextBox2.png")
-TextBox = canvas.create_image(
-    986.5, 120.0,
-    image = TextBoximg)
-
-TextBox = Entry(
-    bd = 0,
-    bg = "#ffffff",
-    highlightthickness = 0)
-
-TextBox.place(
-    x = 834.0, y = 101,
-    width = 305.0,
-    height = 38)
 
 
-SearchIcon = PhotoImage(file = f"Search Icon.png")
-b0 = Button(
-    image = SearchIcon,
-    bd = 0,
-    command = click,
-    relief = "flat")
 
-b0.place(
-    x = 1120, y = 105,
-    width=28,
-    height=28)
-
-def search():
-    name_search = TextBox.get()
-    print(name_search)
 
 
 window.resizable(False, False)
