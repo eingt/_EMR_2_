@@ -22,10 +22,10 @@ def search():
         index = 0
     elif opt == 'Name':
         index = 1
-    elif opt == 'Room':
-        index = 2
+    elif opt == 'Phone Number':
+        index = 5
     elif opt == 'Email':
-        index = 3
+        index = 6
 
     tree.delete(*tree.get_children())
     entry = TextBox.get()
