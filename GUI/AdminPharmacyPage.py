@@ -111,15 +111,15 @@ ProfileIcon = PhotoImage(file = f"Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    command = click,
+    command = ProfilePage,
     relief = "flat")
 
 b1.place(
     x = 20, y = 605,
     width = 88,
     height = 70)
-
-'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+'''
+CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -131,11 +131,11 @@ b2.place(
     width = 90,
     height = 75)'''
 
-PharmacyIcon = PhotoImage(file = f"Pharmacy Icon HL.png")
+PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPharmacyPage,
     relief = "flat")
 
 b3.place(
@@ -147,7 +147,7 @@ UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminUsersPage,
     relief = "flat")
 
 b4.place(
@@ -159,7 +159,7 @@ NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminNonMedPage,
     relief = "flat")
 
 b5.place(
@@ -167,12 +167,11 @@ b5.place(
     width = 91,
     height = 57)
 
-
-= "tsIcon = PhotoImage(file = f"= "ts Icon.png")
+PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
-    image = = "tsIcon,
+    image = PatientsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPatientsPage,
     relief = "flat")
 
 b6.place(
