@@ -221,7 +221,7 @@ b8.place(
     height = 24)
 
 #SEARCHOPTIONS
-options = ['ID','Name','Age','PhoneNumber','Email','Salary']
+options = ['ID','Name','Room','Phone Number','Email']
 clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
