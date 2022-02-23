@@ -169,7 +169,7 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = f"User Accounts Icon HL.png")
+UserAccountsIcon = PhotoImage(file = f"Users Icon HL.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,

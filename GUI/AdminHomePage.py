@@ -76,8 +76,8 @@ b1.place(
     x = 20, y = 605,
     width = 88,
     height = 70)
-'''
-CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+
+'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,

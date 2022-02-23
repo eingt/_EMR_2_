@@ -203,7 +203,7 @@ b5.place(
     height = 57)
 
 
-PatientsIcon = PhotoImage(file = f"Patients Icon.png")
+PatientsIcon = PhotoImage(file = f"Patients Icon HL.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,

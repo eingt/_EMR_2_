@@ -1,7 +1,7 @@
 from tkinter import *
 
-def btn_clicked():
-    print("Button is Clicked")
+def click():
+    print("Button Clicked")
 
 import mysql.connector
 mydb = mysql.connector.connect(
@@ -16,23 +16,26 @@ mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
     sel_patientid = int(d[3])
+    cardtype = 'update'
 
 def update():
-    command = "update patients set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_paientid)+";"
+    command = "update patients set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_patientid)+";"
     mycursor.execute(command)
-    command = "update patients set DOB = " + str(dob_entry.get()) + " where id = "+ str(sel_paientid)
+    command = "update patients set DOB = " + str(dob_entry.get()) + " where id = "+ str(sel_patientid)
     mycursor.execute(command)
-    command = "update patients set phone = '" + str(phone_entry.get()) + "' where id = "+ str(sel_paientid)
+    command = "update patients set phone = '" + str(phone_entry.get()) + "' where id = "+ str(sel_patientid)
     mycursor.execute(command)
-    command = "update patients set gender = '" + str(gender_entry.get()) + "' where id = "+ str(sel_paientid)
+    command = "update patients set gender = '" + str(gender_entry.get()) + "' where id = "+ str(sel_patientid)
     mycursor.execute(command)
-    command = "update patients set email = '" + str(email_entry.get()) + "' where id = "+ str(sel_paientid)
+    command = "update patients set email = '" + str(email_entry.get()) + "' where id = "+ str(sel_patientid)
     mycursor.execute(command)
-
-
-    command = "update patients set joindate = '" + str(join_entry.get()) + "' where id = "+ str(sel_paientid)
+    command = "update patients set joindate = '" + str(reg_entry.get()) + "' where id = "+ str(sel_patientid)
     mycursor.execute(command)
     mydb.commit()
+
+def cancel():
+    root.destroy()
+    import PatientCard
 
 root = Tk()
 root.title('Update Patient Details')
@@ -61,144 +64,169 @@ for patient in patients:
     if patient[0] == sel_patientid:
         sel_doc = patient
 
-updateimg = PhotoImage(file = f"UpdateButton.png")
+Updateimg = PhotoImage(file = f"UpdateButton.png")
 b1 = Button(
-    image = updateimg,
+    image = Updateimg,
     borderwidth = 0,
     highlightthickness = 0,
-    command = btn_clicked,
+    command = update,
     relief = "flat")
 
 b1.place(
-    x = 199, y = 520,
+    x = 208, y = 500,
     width = 138,
     height = 53)
 
-entry0_img = PhotoImage(file = f"TextBox4.png")
-entry0_bg = canvas.create_image(
-    268.0, 163.5,
-    image = entry0_img)
+CancelImg = PhotoImage(file = f"Cancel Button.png")
+b2 = Button(
+    image = CancelImg,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = cancel,
+    relief = "flat")
 
-entry0 = Entry(
+b2.place(
+    x = 235, y = 550,
+    width = 89,
+    height = 17)
+
+name_entryimg = PhotoImage(file = f"TextBox4.png")
+name_entry = canvas.create_image(
+    268.0, 163.5,
+    image = name_entryimg)
+
+name_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry0.place(
+name_entry.place(
     x = 69.5, y = 150,
     width = 397.0,
     height = 29)
 
-entry1_img = PhotoImage(file = f"TextBox5.png")
-entry1_bg = canvas.create_image(
+gender_entryimg = PhotoImage(file = f"TextBox5.png")
+gender_entry = canvas.create_image(
     122.0, 243.5,
-    image = entry1_img)
+    image = gender_entryimg)
 
-entry1 = Entry(
+gender_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry1.place(
+gender_entry.place(
     x = 69.5, y = 230,
     width = 105.0,
     height = 29)
 
-entry2_img = PhotoImage(file = f"TextBox5.png")
-entry2_bg = canvas.create_image(
+height_entryimg = PhotoImage(file = f"TextBox5.png")
+phone_entry = canvas.create_image(
     269.0, 243.5,
-    image = entry2_img)
+    image = height_entryimg)
 
-entry2 = Entry(
+height_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry2.place(
+height_entry.place(
     x = 216.5, y = 230,
     width = 105.0,
     height = 29)
 
-entry3_img = PhotoImage(file = f"TextBox5.png")
-entry3_bg = canvas.create_image(
+weight_entryimg = PhotoImage(file = f"TextBox5.png")
+weight_entry = canvas.create_image(
     416.0, 243.5,
-    image = entry3_img)
+    image = weight_entryimg)
 
-entry3 = Entry(
+weight_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry3.place(
+weight_entry.place(
     x = 363.5, y = 230,
     width = 105.0,
     height = 29)
 
-entry4_img = PhotoImage(file = f"TextBox3.png")
-entry4_bg = canvas.create_image(
+dob_entryimg = PhotoImage(file = f"TextBox3.png")
+dob_entry = canvas.create_image(
     148.5, 323.5,
-    image = entry4_img)
+    image = dob_entryimg)
 
-entry4 = Entry(
+dob_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry4.place(
+dob_entry.place(
     x = 69.5, y = 310,
     width = 158.0,
     height = 29)
 
-entry5_img = PhotoImage(file = f"TextBox3.png")
-entry5_bg = canvas.create_image(
+reg_entryimg = PhotoImage(file = f"TextBox3.png")
+reg_entry = canvas.create_image(
     381.0, 323.5,
-    image = entry5_img)
+    image = reg_entryimg)
 
-entry5 = Entry(
+reg_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry5.place(
+reg_entry.place(
     x = 295.5, y = 310,
     width = 171.0,
     height = 29)
 
-entry6_img = PhotoImage(file = f"TextBox3.png")
-entry6_bg = canvas.create_image(
+phone_entryimg = PhotoImage(file = f"TextBox3.png")
+phone_entry = canvas.create_image(
     148.5, 403.5,
-    image = entry6_img)
+    image = phone_entryimg)
 
-entry6 = Entry(
+phone_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry6.place(
+phone_entry.place(
     x = 69.5, y = 390,
     width = 158.0,
     height = 29)
 
-entry7_img = PhotoImage(file = f"TextBox3.png")
-entry7_bg = canvas.create_image(
+email_entryimg = PhotoImage(file = f"TextBox3.png")
+email_entry = canvas.create_image(
     383.5, 403.5,
-    image = entry7_img)
+    image = email_entryimg)
 
-entry7 = Entry(
+email_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry7.place(
+email_entry.place(
     x = 300.5, y = 390,
     width = 166.0,
     height = 29)
 
-entry8_img = PhotoImage(file = f"TextBox4.png")
-entry8_bg = canvas.create_image(
+allergies_entryimg = PhotoImage(file = f"TextBox4.png")
+allergies_entry = canvas.create_image(
     270, 483,
-    image = entry8_img)
+    image = allergies_entryimg)
 
-entry8 = Entry(
+allergies_entry = Entry(
     bd = 0,
     highlightthickness = 0)
 
-entry8.place(
+allergies_entry.place(
     x = 69.5, y = 469,
     width=397.0,
     height=29)
+
+if cardtype == 'update':
+    name_entry.insert(0, sel_doc[1])
+    dob_entry.insert(0, sel_doc[2])
+    gender_entry.insert(0, sel_doc[3])
+    height_entry.insert(0, sel_doc[4])
+    weight_entry.insert(0, sel_doc[5])
+    phone_entry.insert(0, sel_doc[6])
+    email_entry.insert(0, sel_doc[7])
+    reg_entry.insert(0, sel_doc[8])
+    allergies_entry.insert(0, sel_doc[9])
+
 
 root.resizable(False, False)
 root.mainloop()
