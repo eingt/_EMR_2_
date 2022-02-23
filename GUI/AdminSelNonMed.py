@@ -87,7 +87,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = "AdminSelNonMed BG.png")
+bg = PhotoImage(file = f"AdminSelNonMed BG.png")
 background = canvas.create_image(
     608, 342,
     image=bg)
@@ -115,7 +115,7 @@ canvas.create_text(
     anchor = "w",
     font = ("Lato-Regular", int(18)))
 
-TextBoximg = PhotoImage(file = "TextBox2.png")
+TextBoximg = PhotoImage(file = f"TextBox2.png")
 TextBox = canvas.create_image(
     1000, 128,
     image = TextBoximg)
@@ -128,7 +128,7 @@ TextBox.place(
     width=285,
     height=38)
 
-SearchIcon = PhotoImage(file = "Search Icon.png")
+SearchIcon = PhotoImage(file = f"Search Icon.png")
 b0 = Button(
     image = SearchIcon,
     bd = 0,
@@ -144,15 +144,15 @@ ProfileIcon = PhotoImage(file = f"Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    command = ProfilePage,
+    command = click,
     relief = "flat")
 
 b1.place(
     x = 20, y = 605,
     width = 88,
     height = 70)
-'''
-CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+
+'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -168,7 +168,7 @@ PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    command = AdminPharmacyPage,
+    command = click,
     relief = "flat")
 
 b3.place(
@@ -180,7 +180,7 @@ UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    command = AdminUsersPage,
+    command = click,
     relief = "flat")
 
 b4.place(
@@ -188,11 +188,11 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
+NonMedIcon = PhotoImage(file = f"NonMed Icon HL.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = AdminNonMedPage,
+    command = click,
     relief = "flat")
 
 b5.place(
@@ -200,11 +200,12 @@ b5.place(
     width = 91,
     height = 57)
 
+
 PatientsIcon = PhotoImage(file = f"Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    command = AdminPatientsPage,
+    command = click,
     relief = "flat")
 
 b6.place(
@@ -223,7 +224,8 @@ b7.place(
     x = 20, y = 110,
     width = 91,
     height = 63)
-PrevPage = PhotoImage(file = "ArrowLeft.png")
+
+PrevPage = PhotoImage(file = f"ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
@@ -241,7 +243,7 @@ clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
 drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
-drop.place(x=1090,y=290)
+drop.place(x=1090,y=80)
 
 #TABLE
 style = ttk.Style()
