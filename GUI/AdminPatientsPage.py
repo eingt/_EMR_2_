@@ -30,9 +30,9 @@ def search():
     elif opt == 'Gender':
         index = 3
     elif opt == 'Phone Number':
-        index = 5
-    elif opt == 'Email':
         index = 6
+    elif opt == 'Email':
+        index = 7
 
     tree.delete(*tree.get_children())
     entry = TextBox.get()
