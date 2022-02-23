@@ -22,6 +22,7 @@ def PatientCard():
 
 index = 1
 def search():
+    global index
     opt = clicked.get()
     if opt == 'ID':
         index = 0
@@ -37,7 +38,7 @@ def search():
     tree.delete(*tree.get_children())
     entry = TextBox.get()
     for patient in patients:
-        if ((str(entry).lower() in str(patient(index)).lower()) or (entry == '')):
+        if ((str(entry).lower() in str(patient[index]).lower()) or (entry == '')):
             rec = []
             rec.append(patient[0])
             rec.append(patient[1])
