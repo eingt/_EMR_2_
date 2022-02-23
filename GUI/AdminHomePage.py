@@ -33,6 +33,19 @@ def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
 
+def AdminUsersPage():
+    window.destroy()
+    import AdminUsersPage
+
+def AdminPharmacyPage():
+    window.destroy()
+    import AdminPharmacyPage
+
+def ProfilePage():
+    window.destroy()
+    import ProfilePage
+
+
 window = Tk()
 window.title('EMR')
 window.iconbitmap("EMR Symbol.ico")
@@ -56,14 +69,14 @@ ProfileIcon = PhotoImage(file = f"Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    command = click,
+    command = ProfilePage,
     relief = "flat")
 
 b1.place(
     x = 20, y = 605,
     width = 88,
     height = 70)
-
+'''
 CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
@@ -74,13 +87,13 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)
+    height = 75)'''
 
 PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPharmacyPage,
     relief = "flat")
 
 b3.place(
@@ -92,7 +105,7 @@ UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminUsersPage,
     relief = "flat")
 
 b4.place(

@@ -7,7 +7,6 @@ def click():
 def UpdateCard():
     sel_iid = tree.focus()
     account = tree.item(sel_iid, 'values')
-    print(account[0])
     command = "update Selected set cur_misc = '" + account[0] + "' where no = 1"
     mycursor.execute(command)
     window.destroy()
@@ -38,7 +37,7 @@ def search():
     elif opt == 'Name':
         index = 2
     elif opt == 'AccountType':
-        index = 2
+        index = 3
 
     tree.delete(*tree.get_children())
     entry = TextBox.get()
@@ -243,8 +242,8 @@ options = ['UserName','Name','AccountType']
 clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
-drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
-drop.place(x=1090,y=290)
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search())
+drop.place(x=1100,y=80)
 search()
 
 UpdateButton = PhotoImage(file = f"Update.png")

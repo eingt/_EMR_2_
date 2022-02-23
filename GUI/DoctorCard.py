@@ -24,8 +24,8 @@ def app_selected(event):
     if opt == 'Upcoming':
         tree.delete(*tree.get_children())
         mycursor.execute('''SELECT * FROM appointments where date > date(now()) or
-                                (date = date(now()) and time > time(now()))
-                                order by date asc, time asc;''')
+        (date = date(now()) and time > time(now()))
+        order by date asc, time asc;''')
         upcoming_app = mycursor.fetchall()
         mycursor.execute('SELECT * FROM PATIENTS')
         patients = mycursor.fetchall()
@@ -45,13 +45,13 @@ def app_selected(event):
     if opt == 'Completed':
         tree.delete(*tree.get_children())
         mycursor.execute('''SELECT * FROM appointments where date < date(now()) or
-                                (date = date(now()) and time < time(now()))
-                                order by date asc, time asc;''')
+        (date = date(now()) and time < time(now()))
+        order by date asc, time asc;''')
         completed_app = mycursor.fetchall()
-        mycursor.execute('SELECT * FROM DOCTORS')
-        doctors = mycursor.fetchall()
+        mycursor.execute('SELECT * FROM PATIENTS')
+        patients = mycursor.fetchall()
 
-        for appointment in upcoming_app:
+        for appointment in completed_app:
             for patient in patients:
                 if (patient[0] == appointment[0]):
                     patientname = patient[1]
@@ -317,17 +317,17 @@ clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
 drop = ttk.OptionMenu(window, clicked, options[0], *options, command = app_selected)
-drop.place(x=1090,y=290)
+drop.place(x=1090,y=40)
 
 style2 = ttk.Style()
 style2.configure("Treeview", font=(None, 10))
-tree = ttk.Treeview(window, column=(1, 2, 3, 4), show='', height=12,padding=6)
+tree = ttk.Treeview(window, column=(1, 2, 3, 4), show='', height=24,padding=6)
 tree.column("# 1", anchor=CENTER, stretch=NO, width=60)
 tree.column("# 2", anchor=CENTER, stretch=NO, width=90)
 tree.column("# 3", anchor=CENTER, stretch=NO, width=100)
 tree.column("# 4", anchor=CENTER, stretch=NO, width=100)
 
-tree.place(x=800, y=370)
+tree.place(x=800, y=120)
 
 mycursor.execute('select curdate()')
 curdate = mycursor.fetchall()
