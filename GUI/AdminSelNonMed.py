@@ -31,7 +31,7 @@ def search():
     entry = TextBox.get()
     for staff in nonmedstaff:
         if staff[4] == sel_dept_id:
-            if ((entry.lower() in staff[index].lower()) or (entry == '')):
+            if ((str(entry).lower() in str(staff[index]).lower()) or (entry == '')):
                 rec = []
                 rec.append(staff[0])
                 rec.append(staff[1])

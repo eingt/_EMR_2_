@@ -27,7 +27,7 @@ def search():
     entry = TextBox.get()
     for doctor in doctors:
         if doctor[4] == sel_dept_id:
-            if ((entry.lower() in doctor[index].lower()) or (entry == '')):
+            if ((str(entry).lower() in str(doctor[index]).lower()) or (entry == '')):
                 doc = []
                 doc.append(doctor[0])
                 doc.append(doctor[1])
