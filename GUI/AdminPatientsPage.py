@@ -37,7 +37,7 @@ def search():
     tree.delete(*tree.get_children())
     entry = TextBox.get()
     for patient in patients:
-        if ((str(entry).lower() in str(patient[1]).lower()) or (entry == '')):
+        if ((str(entry).lower() in str(patient(index)).lower()) or (entry == '')):
             rec = []
             rec.append(patient[0])
             rec.append(patient[1])
