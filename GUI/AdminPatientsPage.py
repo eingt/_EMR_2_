@@ -28,8 +28,6 @@ def search():
         index = 0
     elif opt == 'Name':
         index = 1
-    elif opt == 'Gender':
-        index = 3
     elif opt == 'Phone Number':
         index = 6
     elif opt == 'Email':
@@ -238,7 +236,7 @@ mycursor.execute('SELECT * FROM patients')
 patients = mycursor.fetchall()
 
 #SEARCHOPTIONS
-options = ['ID','Name','Gender','Phone Number','Email']
+options = ['ID','Name','Phone Number','Email']
 clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
