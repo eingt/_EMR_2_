@@ -14,6 +14,30 @@ mycursor = mydb.cursor()
 def click():
     print("Clicked")
 
+def AdminDoctorsPage():
+    window.destroy()
+    import AdminDoctorsPage
+
+def AdminPatientsPage():
+    window.destroy()
+    import AdminPatientsPage
+
+def AdminNonMedPage():
+    window.destroy()
+    import AdminNonMedPage
+
+def AdminUsersPage():
+    window.destroy()
+    import AdminUsersPage
+
+def AdminPharmacyPage():
+    window.destroy()
+    import AdminPharmacyPage
+
+def ProfilePage():
+    window.destroy()
+    import ProfilePage
+
 def AdminHomePage():
     window.destroy()
     import AdminHomePage

@@ -48,6 +48,20 @@ def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
 
+def AdminUsersPage():
+    window.destroy()
+    import AdminUsersPage
+
+def AdminPharmacyPage():
+    window.destroy()
+    import AdminPharmacyPage
+
+def ProfilePage():
+    window.destroy()
+    import ProfilePage
+
+
+
 def update():
     command = "update "+table+" set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_record[0])+";"
     mycursor.execute(command)
@@ -157,7 +171,7 @@ b1.place(
     width = 88,
     height = 70)
 
-CashierIcon = PhotoImage(file = "Cashier Icon.png")
+'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -167,7 +181,7 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)
+    height = 75)'''
 
 PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
