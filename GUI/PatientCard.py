@@ -107,12 +107,12 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"PatientCardBG.png")
+bg = PhotoImage(file = "PatientCardBG.png")
 background = canvas.create_image(
     608, 342,
     image=bg)
 
-ProfileIcon = PhotoImage(file = f"Profile Icon.png")
+ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
@@ -124,7 +124,7 @@ b1.place(
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -136,7 +136,7 @@ b2.place(
     width = 90,
     height = 75)'''
 
-PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
+PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
@@ -148,7 +148,7 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
+UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
@@ -160,7 +160,7 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
+NonMedIcon = PhotoImage(file = "Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
@@ -172,7 +172,7 @@ b5.place(
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = f"Patients Icon HL.png")
+PatientsIcon = PhotoImage(file = "Patients Icon HL.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
@@ -184,7 +184,7 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = f"Doctors Icon.png")
+DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
@@ -196,7 +196,7 @@ b7.place(
     width = 91,
     height = 63)
 
-PrevPage = PhotoImage(file = f"ArrowLeft.png")
+PrevPage = PhotoImage(file = "ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
@@ -208,7 +208,7 @@ b8.place(
     width = 28,
     height = 24)
 
-UpdateButton = PhotoImage(file = f"Update.png")
+UpdateButton = PhotoImage(file = "Update.png")
 b9 = Button(
     image = UpdateButton,
     borderwidth = 0,
@@ -252,7 +252,7 @@ canvas.create_text(
 #Profile Picture
 
 if sel_patient[3] == 'Male':
-    MaleIcon = PhotoImage(file = f"Male Profile Pic.png")
+    MaleIcon = PhotoImage(file = "Male Profile Pic.png")
     canvas.create_image(
         260, 130,
         image = MaleIcon)

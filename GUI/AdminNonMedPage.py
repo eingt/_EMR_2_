@@ -141,7 +141,7 @@ b6.place(
 DoctorsIcon = PhotoImage(file = "Doctors Icon HL.png")
 b7 = Button(
     image = DoctorsIcon,
-    borderwidth = 0,
+    borderwidth = 0,  #
     command = click,
     relief = "flat")
 

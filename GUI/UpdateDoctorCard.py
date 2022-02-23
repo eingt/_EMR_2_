@@ -62,7 +62,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"UpdateDoctorCardBG.png")
+background_img = PhotoImage(file = "UpdateDoctorCardBG.png")
 background = canvas.create_image(
     275.5, 284.0,
     image=background_img)
@@ -73,7 +73,7 @@ for doctor in doctors:
     if doctor[0] == sel_docid:
         sel_doc = doctor
 
-name_entryimg = PhotoImage(file = f"TextBox4.png")
+name_entryimg = PhotoImage(file = "TextBox4.png")
 name_entry = canvas.create_image(
     276.0, 132.5,
     image = name_entryimg)
@@ -87,7 +87,7 @@ name_entry.place(
     width = 397.0,
     height = 29)
 
-age_entryimg = PhotoImage(file = f"TextBox3.png")
+age_entryimg = PhotoImage(file = "TextBox3.png")
 age_entry = canvas.create_image(
     156.5, 212.5,
     image = age_entryimg)
@@ -101,7 +101,7 @@ age_entry.place(
     width = 158.0,
     height = 29)
 
-phone_entryimg = PhotoImage(file = f"TextBox3.png")
+phone_entryimg = PhotoImage(file = "TextBox3.png")
 phone_entry = canvas.create_image(
     156.5, 292.5,
     image = phone_entryimg)
@@ -115,7 +115,7 @@ phone_entry.place(
     width = 158.0,
     height = 29)
 
-gender_entryimg = PhotoImage(file = f"TextBox3.png")
+gender_entryimg = PhotoImage(file = "TextBox3.png")
 gender_entry = canvas.create_image(
     389.0, 212.5,
     image = gender_entryimg)
@@ -129,7 +129,7 @@ gender_entry.place(
     width = 171.0,
     height = 29)
 
-email_entryimg = PhotoImage(file = f"TextBox3.png")
+email_entryimg = PhotoImage(file = "TextBox3.png")
 email_entry = canvas.create_image(
     389.0, 292.5,
     image = email_entryimg)
@@ -149,7 +149,7 @@ for dept in depts:
     if sel_doc[4] == dept[0]:
         sel_deptname = dept[1]
 
-dept_entryimg = PhotoImage(file = f"TextBox3.png")
+dept_entryimg = PhotoImage(file = "TextBox3.png")
 dept_entry = canvas.create_image(
     156.5, 372.5,
     image = dept_entryimg)
@@ -163,7 +163,7 @@ dept_entry.place(
     width = 158.0,
     height = 29)
 
-join_entryimg = PhotoImage(file = f"TextBox3.png")
+join_entryimg = PhotoImage(file = "TextBox3.png")
 join_entry = canvas.create_image(
     156.5, 452.5,
     image = join_entryimg)
@@ -177,7 +177,7 @@ join_entry.place(
     width = 158.0,
     height = 29)
 
-room_entryimg = PhotoImage(file = f"TextBox3.png")
+room_entryimg = PhotoImage(file = "TextBox3.png")
 room_entry = canvas.create_image(
     391.5, 372.5,
     image = room_entryimg)
@@ -191,7 +191,7 @@ room_entry.place(
     width = 166.0,
     height = 29)
 
-salary_entryimg = PhotoImage(file = f"TextBox3.png")
+salary_entryimg = PhotoImage(file = "TextBox3.png")
 salary_entry = canvas.create_image(
     391.5, 452.5,
     image = salary_entryimg)
@@ -205,7 +205,7 @@ salary_entry.place(
     width = 166.0,
     height = 29)
 
-Updateimg = PhotoImage(file = f"UpdateButton.png")
+Updateimg = PhotoImage(file = "UpdateButton.png")
 b1 = Button(
     image = Updateimg,
     borderwidth = 0,
@@ -218,7 +218,7 @@ b1.place(
     width = 138,
     height = 53)
 
-CancelImg = PhotoImage(file = f"Cancel Button.png")
+CancelImg = PhotoImage(file = "Cancel Button.png")
 b2 = Button(
     image = CancelImg,
     borderwidth = 0,

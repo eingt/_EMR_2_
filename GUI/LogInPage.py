@@ -54,12 +54,12 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"LogInPage BG.png")
+bg = PhotoImage(file = "LogInPage BG.png")
 background = canvas.create_image(
     400.0, 297.5,
     image=bg)
 
-TextBoximg = PhotoImage(file = f"TextBox1.png")
+TextBoximg = PhotoImage(file = "TextBox1.png")
 TextBox1 = canvas.create_image(
     643.5, 284.0,
     image = TextBoximg)
@@ -85,7 +85,7 @@ TextBox2.place(
     width = 227.0,
     height = 30)
 
-LogInBtn = PhotoImage(file = f"Log In Button.png")
+LogInBtn = PhotoImage(file = "Log In Button.png")
 b1 = Button(
     image = LogInBtn,
     borderwidth = 0,
