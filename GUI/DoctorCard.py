@@ -1,5 +1,5 @@
 from tkinter import *
-
+from tkinter import ttk
 def UpdateCard():
     command = "update Selected set cur_id = " + str(sel_doc[0]) + " where no = 1"
     mycursor.execute(command)
@@ -17,6 +17,41 @@ def AdminDoctorsPage():
 def AdminSelDocDept():
     window.destroy()
     import AdminSelDocDept
+
+def app_selected(event):
+    opt = clicked.get()
+
+    if opt == 'Upcoming':
+        tree.delete(*tree.get_children())
+        mycursor.execute('''SELECT appointments.*, patients.name FROM appointments,patients 
+                                where appointments.patientid = patients.id and date > date(now()) or
+                                (date = date(now()) and time > time(now()))
+                                order by date asc, time asc;''')
+        upcoming_app = mycursor.fetchall()
+
+        for appointment in upcoming_app:
+            rec = []
+            rec.append(appointment[4])
+            rec.append(appointment[3])
+            rec.append(appointment[0])
+            rec.append(appointment[2])
+            tree.insert('', END, values=rec)
+
+    if opt == 'Completed':
+        tree.delete(*tree.get_children())
+        mycursor.execute('''SELECT appointments.*, patients.name FROM appointments,patients 
+                                where appointments.patientid = patients.id and date < date(now()) or
+                                (date = date(now()) and time < time(now()))
+                                order by date asc, time asc;''')
+        completed_app = mycursor.fetchall()
+
+        for appointment in completed_app:
+            rec = []
+            rec.append(appointment[4])
+            rec.append(appointment[3])
+            rec.append(appointment[0])
+            rec.append(appointment[2])
+            tree.insert('', END, values=rec)
 
 import mysql.connector
 mydb = mysql.connector.connect(
@@ -266,9 +301,29 @@ canvas.create_text(
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
 
+#Appointments
+options = ['Upcoming','Completed']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[0], *options, command = app_selected)
+drop.place(x=1090,y=290)
 
+style2 = ttk.Style()
+style2.configure("Treeview", font=(None, 10))
+tree = ttk.Treeview(window, column=(1, 2, 3, 4), show='', height=12,padding=6)
+tree.column("# 1", anchor=CENTER, stretch=NO, width=60)
+tree.column("# 2", anchor=CENTER, stretch=NO, width=90)
+tree.column("# 3", anchor=CENTER, stretch=NO, width=100)
+tree.column("# 4", anchor=CENTER, stretch=NO, width=100)
 
+tree.place(x=800, y=370)
 
+mycursor.execute('select curdate()')
+curdate = mycursor.fetchall()
+mycursor.execute('SELECT * FROM APPOINTMENTS')
+appointments = mycursor.fetchall()
+app_selected(appointments)
 
 
 window.resizable(False, False)
