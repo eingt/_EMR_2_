@@ -61,12 +61,12 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"AdminNonMedPage BG.png")
+bg = PhotoImage(file = "AdminNonMedPage BG.png")
 background = canvas.create_image(
     608.0, 342.0,
     image=bg)
 
-ProfileIcon = PhotoImage(file = f"Profile Icon.png")
+ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
@@ -78,7 +78,7 @@ b1.place(
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -90,7 +90,7 @@ b2.place(
     width = 90,
     height = 75)'''
 
-PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
+PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
@@ -102,7 +102,7 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
+UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
@@ -114,7 +114,7 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = f"NonMed Icon HL.png")
+NonMedIcon = PhotoImage(file = "NonMed Icon HL.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
@@ -126,7 +126,7 @@ b5.place(
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = f"Patients Icon.png")
+PatientsIcon = PhotoImage(file = "Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
@@ -138,7 +138,7 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = f"Doctors Icon HL.png")
+DoctorsIcon = PhotoImage(file = "Doctors Icon HL.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
@@ -157,7 +157,7 @@ canvas.create_text(
     anchor = "w",
     font = ("Lato-Bold", int(40)))
 
-PrevPage = PhotoImage(file = f"ArrowLeft.png")
+PrevPage = PhotoImage(file = "ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
