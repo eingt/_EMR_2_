@@ -29,11 +29,21 @@ def PatientCard():
     window.destroy()
     import PatientCard
 
+index = 1
 def search():
+    global index
+    opt = clicked.get()
+    if opt == 'UserName':
+        index = 0
+    elif opt == 'Name':
+        index = 2
+    elif opt == 'AccountType':
+        index = 2
+
     tree.delete(*tree.get_children())
     entry = TextBox.get()
     for account in accounts:
-        if ((entry.lower() in account[0].lower()) or (entry == '')):
+        if ((entry.lower() in account[index].lower()) or (entry == '')):
             rec = []
             rec.append(account[0])
             rec.append(account[1])
@@ -207,7 +217,6 @@ b8.place(
 
 #TABLE
 
-
 style = ttk.Style()
 style.configure("Treeview", font=("Lato-light", 15), rowheight=30)
 tree = ttk.Treeview(window, column=(1, 2, 3, 4), show='', height=13, padding=6)
@@ -228,6 +237,15 @@ for account in accounts:
     tree.insert('', END, values=rec)
 
 tree.place(x=200, y=210)
+
+#SEARCHOPTIONS
+options = ['UserName','Name','AccountType']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
+drop.place(x=1090,y=290)
+search()
 
 UpdateButton = PhotoImage(file = f"Update.png")
 b9 = Button(
