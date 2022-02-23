@@ -220,9 +220,15 @@ b8.place(
     width = 28,
     height = 24)
 
+#SEARCHOPTIONS
+options = ['ID','Name','Age','PhoneNumber','Email','Salary']
+clicked = StringVar()
+style1 = ttk.Style()
+style1.configure("TMenubutton", background = "#FFFFFF")
+drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
+drop.place(x=1090,y=290)
+
 #TABLE
-
-
 style = ttk.Style()
 style.configure("Treeview", font=(None, 10))
 tree = ttk.Treeview(window, column=(1, 2, 3, 4, 5, 6), show='', height=20,padding=6)
