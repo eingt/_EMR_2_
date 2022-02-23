@@ -14,13 +14,30 @@ def AdminDoctorsPage():
 def click():
     print("Button is Clicked")
 
+def AdminDoctorsPage():
+    window.destroy()
+    import AdminDoctorsPage
+
+def AdminPatientsPage():
+    window.destroy()
+    import AdminPatientsPage
+
 def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
 
-def AdminSelNonMed():
+def AdminUsersPage():
     window.destroy()
-    import AdminSelNonMed
+    import AdminUsersPage
+
+def AdminPharmacyPage():
+    window.destroy()
+    import AdminPharmacyPage
+
+def ProfilePage():
+    window.destroy()
+    import ProfilePage
+
     
 def app_selected(event):
     opt = clicked.get()
@@ -107,7 +124,7 @@ b1.place(
     width = 88,
     height = 70)
 
-CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -117,7 +134,7 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)
+    height = 75)'''
 
 PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
@@ -155,7 +172,7 @@ b5.place(
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = f"Patients Icon.png")
+PatientsIcon = PhotoImage(file = f"Patients Icon HL.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,

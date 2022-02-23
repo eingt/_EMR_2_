@@ -4,17 +4,35 @@ from tkinter import ttk
 def click():
     print("Clicked")
 
-def AdminHomePage():
-    window.destroy()
-    import AdminHomePage
-    
 def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
+def AdminPatientsPage():
+    window.destroy()
+    import AdminPatientsPage
+
 def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
+
+def AdminUsersPage():
+    window.destroy()
+    import AdminUsersPage
+
+def AdminPharmacyPage():
+    window.destroy()
+    import AdminPharmacyPage
+
+def ProfilePage():
+    window.destroy()
+    import ProfilePage
+
+def AdminHomePage():
+    window.destroy()
+    import AdminHomePage
+
+
     
 def update():
     command = "update pharmacy set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_record[0])+";"
@@ -101,7 +119,7 @@ b1.place(
     width = 88,
     height = 70)
 
-CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -111,9 +129,9 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)
+    height = 75)'''
 
-PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
+PharmacyIcon = PhotoImage(file = f"Pharmacy Icon HL.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,

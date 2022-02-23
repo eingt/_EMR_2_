@@ -8,17 +8,32 @@ def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
-def StaffCard():
+def AdminPatientsPage():
     window.destroy()
-    import StaffCard
+    import AdminPatientsPage
 
 def AdminNonMedPage():
     window.destroy()
     import AdminNonMedPage
 
-index = 1
+def AdminUsersPage():
+    window.destroy()
+    import AdminUsersPage
+
+def AdminPharmacyPage():
+    window.destroy()
+    import AdminPharmacyPage
+
+def ProfilePage():
+    window.destroy()
+    import ProfilePage
+
+
+def StaffCard():
+    window.destroy()
+    import StaffCard
+
 def search():
-    global index
     opt = clicked.get()
     if opt == 'ID':
         index = 0
@@ -137,7 +152,7 @@ b1.place(
     width = 88,
     height = 70)
 
-CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+'''CashierIcon = PhotoImage(file = f"Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -147,7 +162,7 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)
+    height = 75)'''
 
 PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
 b3 = Button(
@@ -173,7 +188,7 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
+NonMedIcon = PhotoImage(file = f"Non Med Icon HL.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
@@ -228,7 +243,7 @@ clicked = StringVar()
 style1 = ttk.Style()
 style1.configure("TMenubutton", background = "#FFFFFF")
 drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search)
-drop.place(x=1100,y=80)
+drop.place(x=1090,y=290)
 
 #TABLE
 style = ttk.Style()
@@ -243,15 +258,6 @@ tree.column("# 6", anchor=CENTER, stretch=NO, width=100)
 
 mycursor.execute('SELECT * FROM NONMEDSTAFF')
 nonmedstaff = mycursor.fetchall()
-
-
-#SEARCHOPTIONS
-options = ['ID','Name','Phone Number','Email']
-clicked = StringVar()
-style1 = ttk.Style()
-style1.configure("TMenubutton", background = "#FFFFFF")
-drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search())
-drop.place(x=1090,y=290)
 search()
 
 tree.place(x=215, y=210)
