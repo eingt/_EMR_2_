@@ -71,7 +71,7 @@ b0 = Button(
     image = Homebutton,
     borderwidth = 0,
     highlightthickness = 0,
-    command = click,
+    command = gohome,
     relief = "flat")
 
 b0.place(
