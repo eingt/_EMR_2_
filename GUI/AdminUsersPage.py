@@ -120,20 +120,32 @@ TextBox.place(
     x = 850, y = 109,
     width=285,
     height=38)
+Homebutton = PhotoImage(file = f"Home Button.png")
+b0 = Button(
+    image = Homebutton,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = gohome,
+    relief = "flat")
+
+b0.place(
+    x = 20, y = 116,
+    width = 95,
+    height = 400)
 
 SearchIcon = PhotoImage(file = "Search Icon.png")
-b0 = Button(
+bs = Button(
     image = SearchIcon,
     bd = 0,
     command = search,
     relief = "flat")
 
-b0.place(
+bs.place(
     x = 1135, y = 113,
     width=28,
     height=28)
 
-ProfileIcon = PhotoImage(file = "Profile Icon.png")
+'''ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
@@ -145,7 +157,7 @@ b1.place(
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
+CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -155,7 +167,7 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)'''
+    height = 75)
 
 PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
@@ -226,7 +238,7 @@ b8 = Button(
 b8.place(
     x = 140, y = 30,
     width = 28,
-    height = 24)
+    height = 24)'''
 
 #TABLE
 

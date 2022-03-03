@@ -79,7 +79,7 @@ b0.place(
     width = 95,
     height = 400)
 
-'''
+
 ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
@@ -182,7 +182,7 @@ b8.place(
     x = 140, y = 30,
     width = 28,
     height = 24)
-'''
+
 
 #Insights
 mycursor.execute('SELECT COUNT(*) FROM DOCTORS')

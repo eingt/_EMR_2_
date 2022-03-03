@@ -115,7 +115,22 @@ background = canvas.create_image(
     608, 342,
     image=bg)
 
-ProfileIcon = PhotoImage(file = "Profile Icon.png")
+
+Homebutton = PhotoImage(file = f"Home Button.png")
+b0 = Button(
+    image = Homebutton,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = gohome,
+    relief = "flat")
+
+b0.place(
+    x = 20, y = 116,
+    width = 95,
+    height = 400)
+
+
+'''ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
@@ -127,7 +142,7 @@ b1.place(
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
+CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -137,7 +152,7 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)'''
+    height = 75)
 
 PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
@@ -221,7 +236,7 @@ b9 = Button(
 b9.place(
     x = 631, y = 605,
     width = 113,
-    height = 39)
+    height = 39)'''
 
 #Fetch data
 mycursor.execute('SELECT * FROM SELECTED')
