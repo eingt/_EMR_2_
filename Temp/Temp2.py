@@ -15,53 +15,53 @@ def click():
     print("Clicked")
 
 def AdminDoctorsPage():
-    window.destroy()
+    window1.destroy()
     import AdminDoctorsPage
 
 def AdminPatientsPage():
-    window.destroy()
+    window1.destroy()
     import AdminPatientsPage
 
 def AdminNonMedPage():
-    window.destroy()
+    window1.destroy()
     import AdminNonMedPage
 
 def AdminUsersPage():
-    window.destroy()
+    window1.destroy()
     import AdminUsersPage
 
 def AdminPharmacyPage():
-    window.destroy()
+    window1.destroy()
     import AdminPharmacyPage
 
 def ProfilePage():
-    window.destroy()
+    window1.destroy()
     import ProfilePage
 
 def AdminHomePage():
-    window.destroy()
+    window1.destroy()
     import AdminHomePage
 
-def AdminSelNonMed():
-    window.destroy()
-    import AdminSelNonMed
+def AdminSelDocDept():
+    window1.destroy()
+    import AdminSelDocDept
 
 
-window = Tk()
-window.title('EMR')
-window.iconbitmap("EMR Symbol.ico")
+window1 = Tk()
+window1.title('EMR')
+window1.iconbitmap("EMR Symbol.ico")
 
-window.geometry("1216x684")
-window.configure(bg = "#fefefe")
+window1.geometry("1216x684")
+window1.configure(bg = "#fefefe")
 canvas = Canvas(
-    window,
+    window1,
     bg = "#fefefe",
     height = 684,
     width = 1216,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = "AdminNonMedPage BG.png")
+bg = PhotoImage(file = "AdminDoctorsPage BG.png")
 background = canvas.create_image(
     608.0, 342.0,
     image=bg)
@@ -70,7 +70,7 @@ ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    command = ProfilePage,
+    command = click,
     relief = "flat")
 
 b1.place(
@@ -94,7 +94,7 @@ PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    command = AdminPharmacyPage,
+    command = click,
     relief = "flat")
 
 b3.place(
@@ -106,7 +106,7 @@ UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    command = AdminUsersPage,
+    command = click,
     relief = "flat")
 
 b4.place(
@@ -118,7 +118,7 @@ NonMedIcon = PhotoImage(file = "Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = AdminNonMedPage,
+    command = click,
     relief = "flat")
 
 b5.place(
@@ -130,7 +130,7 @@ PatientsIcon = PhotoImage(file = "Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    command = AdminPatientsPage,
+    command = click,
     relief = "flat")
 
 b6.place(
@@ -138,21 +138,21 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
+DoctorsIcon = PhotoImage(file = "Doctors Icon HL.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
-    command = AdminDoctorsPage,
+    command = click,
     relief = "flat")
 
 b7.place(
-    x = 20, y = 110,
+    x = 20, y = 114,
     width = 91,
-    height = 63)
+    height = 67)
 
 canvas.create_text(
     210, 90,
-    text = "Non-Medical Staff",
+    text = "Doctors",
     fill = "#6953d9",
     anchor = "w",
     font = ("Lato-Bold", int(40)))
@@ -213,7 +213,7 @@ canvas.create_text(
     font = ("Lato-Regular", int(18)))
 
 #Departments
-mycursor.execute('SELECT * FROM NONMEDDEPT')
+mycursor.execute('SELECT * FROM DOCTORSDEPT')
 
 departments = mycursor.fetchall()
 DeptList = []
@@ -240,7 +240,7 @@ def go(event):
     command = "update Selected set cur_dept = '"+dept+"' where no = 1"
     mycursor.execute(command)
     mydb.commit()
-    AdminSelNonMed()
+    AdminSelDocDept()
 
 #Double Click
 listbox.bind('<Double-1>', go)
@@ -253,5 +253,5 @@ listbox.place(
 
 
 
-window.resizable(False, False)
-window.mainloop()
+window1.resizable(False, False)
+window1.mainloop()

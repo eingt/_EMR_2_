@@ -148,7 +148,7 @@ ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    command = click,
+    command = ProfilePage,
     relief = "flat")
 
 b1.place(
@@ -172,7 +172,7 @@ PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPharmacyPage,
     relief = "flat")
 
 b3.place(
@@ -184,7 +184,7 @@ UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminUsersPage,
     relief = "flat")
 
 b4.place(
@@ -196,7 +196,7 @@ NonMedIcon = PhotoImage(file = "Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminNonMedPage,
     relief = "flat")
 
 b5.place(
@@ -204,12 +204,11 @@ b5.place(
     width = 91,
     height = 57)
 
-
-PatientsIcon = PhotoImage(file = f"Patients Icon.png")
+PatientsIcon = PhotoImage(file = "Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPatientsPage,
     relief = "flat")
 
 b6.place(
@@ -217,24 +216,24 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = f"Doctors Icon HL.png")
+DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminDoctorsPage,
     relief = "flat")
 
 b7.place(
-    x = 20, y = 114,
+    x = 20, y = 110,
     width = 91,
-    height = 67)
+    height = 63)
 
 
-PrevPage = PhotoImage(file = f"ArrowLeft.png")
+PrevPage = PhotoImage(file = "ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
-    command = AdminHomePage,
+    command = AdminDoctorsPage,
     relief = "flat")
 
 b8.place(

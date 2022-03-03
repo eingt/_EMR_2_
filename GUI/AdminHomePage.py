@@ -65,6 +65,7 @@ background = canvas.create_image(
     608, 342,
     image=bg)
 
+
 ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,

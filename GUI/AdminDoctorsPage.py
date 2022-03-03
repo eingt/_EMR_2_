@@ -15,62 +15,76 @@ def click():
     print("Clicked")
 
 def AdminDoctorsPage():
-    window.destroy()
+    window1.destroy()
     import AdminDoctorsPage
 
 def AdminPatientsPage():
-    window.destroy()
+    window1.destroy()
     import AdminPatientsPage
 
 def AdminNonMedPage():
-    window.destroy()
+    window1.destroy()
     import AdminNonMedPage
 
 def AdminUsersPage():
-    window.destroy()
+    window1.destroy()
     import AdminUsersPage
 
 def AdminPharmacyPage():
-    window.destroy()
+    window1.destroy()
     import AdminPharmacyPage
 
 def ProfilePage():
-    window.destroy()
+    window1.destroy()
     import ProfilePage
 
 def AdminHomePage():
-    window.destroy()
+    window1.destroy()
     import AdminHomePage
 
 def AdminSelDocDept():
-    window.destroy()
+    window1.destroy()
     import AdminSelDocDept
 
 
-window = Tk()
-window.title('EMR')
-window.iconbitmap("EMR Symbol.ico")
+window1 = Tk()
+window1.title('EMR')
+window1.iconbitmap("EMR Symbol.ico")
 
-window.geometry("1216x684")
-window.configure(bg = "#fefefe")
+window1.geometry("1216x684")
+window1.configure(bg = "#fefefe")
 canvas = Canvas(
-    window,
+    window1,
     bg = "#fefefe",
     height = 684,
     width = 1216,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = f"AdminDoctorsPage BG.png")
+bg = PhotoImage(file = "AdminDoctorsPage BG.png")
 background = canvas.create_image(
     608.0, 342.0,
     image=bg)
 
-ProfileIcon = PhotoImage(file = f"Profile Icon.png")
+Homebutton = PhotoImage(file = f"Home Button.png")
+b0 = Button(
+    image = Homebutton,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = click,
+    relief = "flat")
+
+b0.place(
+    x = 20, y = 116,
+    width = 95,
+    height = 400)
+
+'''
+ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
-    command = click,
+    command = ProfilePage,
     relief = "flat")
 
 b1.place(
@@ -78,7 +92,7 @@ b1.place(
     width = 88,
     height = 70)
 
-CashierIcon = PhotoImage(file = f"Cashier Icon.png")
+CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -90,11 +104,11 @@ b2.place(
     width = 90,
     height = 75)
 
-PharmacyIcon = PhotoImage(file = f"Pharmacy Icon.png")
+PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPharmacyPage,
     relief = "flat")
 
 b3.place(
@@ -102,11 +116,11 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = f"User Accounts Icon.png")
+UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminUsersPage,
     relief = "flat")
 
 b4.place(
@@ -114,11 +128,11 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = f"Non Med Icon.png")
+NonMedIcon = PhotoImage(file = "Non Med Icon.png")
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminNonMedPage,
     relief = "flat")
 
 b5.place(
@@ -126,11 +140,11 @@ b5.place(
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = f"Patients Icon.png")
+PatientsIcon = PhotoImage(file = "Patients Icon.png")
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminPatientsPage,
     relief = "flat")
 
 b6.place(
@@ -138,17 +152,17 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = f"Doctors Icon HL.png")
+DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
-    command = click,
+    command = AdminDoctorsPage,
     relief = "flat")
 
 b7.place(
-    x = 20, y = 114,
+    x = 20, y = 110,
     width = 91,
-    height = 67)
+    height = 63)
 
 canvas.create_text(
     210, 90,
@@ -157,7 +171,7 @@ canvas.create_text(
     anchor = "w",
     font = ("Lato-Bold", int(40)))
 
-PrevPage = PhotoImage(file = f"ArrowLeft.png")
+PrevPage = PhotoImage(file = "ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
@@ -168,7 +182,7 @@ b8.place(
     x = 140, y = 30,
     width = 28,
     height = 24)
-
+'''
 
 #Insights
 mycursor.execute('SELECT COUNT(*) FROM DOCTORS')
@@ -253,5 +267,5 @@ listbox.place(
 
 
 
-window.resizable(False, False)
-window.mainloop()
+window1.resizable(False, False)
+window1.mainloop()
