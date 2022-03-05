@@ -113,7 +113,7 @@ background = canvas.create_image(
     image=bg)
 
 Homebutton = PhotoImage(file = f"Home Button.png")
-b0 = Button(
+b0 = Button(window,
     image = Homebutton,
     borderwidth = 0,
     highlightthickness = 0,
@@ -127,7 +127,7 @@ b0.place(
 
 '''
 ProfileIcon = PhotoImage(file = "Profile Icon.png")
-b1 = Button(
+b1 = Button(window,
     image = ProfileIcon,
     borderwidth = 0,
     command = ProfilePage,
@@ -139,7 +139,7 @@ b1.place(
     height = 70)
 
 CashierIcon = PhotoImage(file = "Cashier Icon.png")
-b2 = Button(
+b2 = Button(window,
     image = CashierIcon,
     borderwidth = 0,
     command = click,
@@ -151,7 +151,7 @@ b2.place(
     height = 75)
 
 PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
-b3 = Button(
+b3 = Button(window,
     image = PharmacyIcon,
     borderwidth = 0,
     command = AdminPharmacyPage,
@@ -163,7 +163,7 @@ b3.place(
     height = 61)
 
 UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
-b4 = Button(
+b4 = Button(window,
     image = UserAccountsIcon,
     borderwidth = 0,
     command = AdminUsersPage,
@@ -175,7 +175,7 @@ b4.place(
     height = 77)
 
 NonMedIcon = PhotoImage(file = "Non Med Icon.png")
-b5 = Button(
+b5 = Button(window,
     image = NonMedIcon,
     borderwidth = 0,
     command = AdminNonMedPage,
@@ -187,7 +187,7 @@ b5.place(
     height = 57)
 
 PatientsIcon = PhotoImage(file = "Patients Icon.png")
-b6 = Button(
+b6 = Button(window,
     image = PatientsIcon,
     borderwidth = 0,
     command = AdminPatientsPage,
@@ -199,7 +199,7 @@ b6.place(
     height = 63)
 
 DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
-b7 = Button(
+b7 = Button(window,
     image = DoctorsIcon,
     borderwidth = 0,
     command = AdminDoctorsPage,
@@ -218,7 +218,7 @@ canvas.create_text(
     font = ("Lato-Bold", int(40)))
 
 PrevPage = PhotoImage(file = "ArrowLeft.png")
-b8 = Button(
+b8 = Button(window,
     image = PrevPage,
     borderwidth = 0,
     command = AdminHomePage,
@@ -231,7 +231,7 @@ b8.place(
 '''
 
 UpdateButton = PhotoImage(file = "Update.png")
-b9 = Button(
+b9 = Button(window,
     image = UpdateButton,
     borderwidth = 0,
     command = UpdateCard,

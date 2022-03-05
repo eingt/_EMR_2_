@@ -111,8 +111,8 @@ def UpdateConfirmation():
         anchor = "center",
         font=("Lato-Regular", int(12)))
 
-    ConfirmImg = PhotoImage(file = "Confirm Img.png")
-    b9 = Button(win1,
+    ConfirmImg = PhotoImage(file = "Confirm Img.png", master = window)
+    b9 = Button(window,win1,
         image=ConfirmImg,
         borderwidth=0,
         command=update,
@@ -123,8 +123,8 @@ def UpdateConfirmation():
         width=120,
         height=39)
 
-    CancelImg = PhotoImage(file = "Cancel Button.png")
-    b10 = Button(win1,
+    CancelImg = PhotoImage(file = "Cancel Button.png", master = window)
+    b10 = Button(window,win1,
         image=CancelImg,
         borderwidth=0,
         command=click,
@@ -154,13 +154,13 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = "ProfilePage BG.png")
+bg = PhotoImage(file = "ProfilePage BG.png", master = window)
 background = canvas.create_image(
     608, 342,
     image=bg)
 
-ProfileIcon = PhotoImage(file = "Profile Icon.png")
-b1 = Button(
+ProfileIcon = PhotoImage(file = "Profile Icon.png", master = window)
+b1 = Button(window,
     image = ProfileIcon,
     borderwidth = 0,
     command = ProfilePage,
@@ -171,8 +171,8 @@ b1.place(
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
-b2 = Button(
+'''CashierIcon = PhotoImage(file = "Cashier Icon.png", master = window)
+b2 = Button(window,
     image = CashierIcon,
     borderwidth = 0,
     command = click,
@@ -183,8 +183,8 @@ b2.place(
     width = 90,
     height = 75)'''
 
-PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
-b3 = Button(
+PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png", master = window)
+b3 = Button(window,
     image = PharmacyIcon,
     borderwidth = 0,
     command = AdminPharmacyPage,
@@ -195,8 +195,8 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
-b4 = Button(
+UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png", master = window)
+b4 = Button(window,
     image = UserAccountsIcon,
     borderwidth = 0,
     command = AdminUsersPage,
@@ -207,8 +207,8 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = "Non Med Icon.png")
-b5 = Button(
+NonMedIcon = PhotoImage(file = "Non Med Icon.png", master = window)
+b5 = Button(window,
     image = NonMedIcon,
     borderwidth = 0,
     command = AdminNonMedPage,
@@ -219,8 +219,8 @@ b5.place(
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = "Patients Icon.png")
-b6 = Button(
+PatientsIcon = PhotoImage(file = "Patients Icon.png", master = window)
+b6 = Button(window,
     image = PatientsIcon,
     borderwidth = 0,
     command = AdminPatientsPage,
@@ -231,8 +231,8 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
-b7 = Button(
+DoctorsIcon = PhotoImage(file = "Doctors Icon.png", master = window)
+b7 = Button(window,
     image = DoctorsIcon,
     borderwidth = 0,
     command = AdminDoctorsPage,
@@ -244,12 +244,12 @@ b7.place(
     height = 63)
 #Details
 if sel_record[3] == 'Male':
-    MaleIcon = PhotoImage(file = "Male Profile Pic.png")
+    MaleIcon = PhotoImage(file = "Male Profile Pic.png", master = window)
     canvas.create_image(
         260, 140,
         image = MaleIcon)
 elif sel_record[3] == 'Female':
-    FemaleIcon = PhotoImage(file=f"Female Profile Pic.png")
+    FemaleIcon = PhotoImage(file=f"Female Profile Pic.png", master = window)
     canvas.create_image(
         260, 140,
         image=FemaleIcon)
@@ -259,7 +259,7 @@ canvas.create_text(
     text = "Name :",
     fill = "#000000",
     font = ("Lato-Regular", int(12)))
-name_entry = Entry(
+name_entry = Entry(window,
     bd = 2,
     highlightthickness = 0,
     relief = "groove",
@@ -276,7 +276,7 @@ canvas.create_text(
     fill = "#000000",
     anchor = "e",
     font = ("Lato-Regular", int(12)))
-age_entry = Entry(
+age_entry = Entry(window,
     bd = 2,
     highlightthickness = 0,
     relief = "groove",
@@ -319,7 +319,7 @@ canvas.create_text(
     fill = "#000000",
     anchor = "e",
     font = ("Lato-Regular", int(12)))
-dept_entry = Entry(
+dept_entry = Entry(window,
     bd = 2,
     highlightthickness = 0,
     relief = "groove",
@@ -338,7 +338,7 @@ canvas.create_text(
     fill = "#000000",
     anchor = "e",
     font = ("Lato-Regular", int(12)))
-phone_entry = Entry(
+phone_entry = Entry(window,
     bd = 2,
     highlightthickness = 0,
     relief = "groove",
@@ -355,7 +355,7 @@ canvas.create_text(
     fill = "#000000",
     anchor = "e",
     font = ("Lato-Regular", int(12)))
-email_entry = Entry(
+email_entry = Entry(window,
     bd = 2,
     highlightthickness = 0,
     relief = "groove",
@@ -373,7 +373,7 @@ if sel_type == 'Doctor':
         fill = "#000000",
         anchor = "e",
         font = ("Lato-Regular", int(12)))
-    room_entry = Entry(
+    room_entry = Entry(window,
         bd = 2,
         highlightthickness = 0,
         relief = "groove",
@@ -391,7 +391,7 @@ if sel_type == 'Doctor':
         fill = "#000000",
         anchor = "e",
         font = ("Lato-Regular", int(12)))
-    salary_entry = Entry(
+    salary_entry = Entry(window,
         bd = 2,
         highlightthickness = 0,
         relief = "groove",
@@ -409,7 +409,7 @@ if sel_type == 'Doctor':
         fill="#000000",
         anchor="e",
         font=("Lato-Regular", int(12)))
-    join_entry = Entry(
+    join_entry = Entry(window,
         bd=2,
         highlightthickness=0,
         relief="groove",
@@ -427,7 +427,7 @@ elif sel_type == 'Non Medical':
         fill="#000000",
         anchor="e",
         font=("Lato-Regular", int(12)))
-    salary_entry = Entry(
+    salary_entry = Entry(window,
         bd=2,
         highlightthickness=0,
         relief="groove",
@@ -445,7 +445,7 @@ elif sel_type == 'Non Medical':
         fill="#000000",
         anchor="e",
         font=("Lato-Regular", int(12)))
-    join_entry = Entry(
+    join_entry = Entry(window,
         bd=2,
         highlightthickness=0,
         relief="groove",
@@ -466,7 +466,7 @@ canvas.create_text(
     fill = "#FFFFFF",
     anchor = "e",
     font = ("Lato-Regular", int(12)))
-username_entry = Entry(
+username_entry = Entry(window,
     bd = 0,
     highlightthickness = 1,
     fg = "#FFFFFF",
@@ -486,7 +486,7 @@ canvas.create_text(
     fill = "#FFFFFF",
     anchor = "e",
     font = ("Lato-Regular", int(12)))
-password_entry = Entry(
+password_entry = Entry(window,
     bd = 0,
     highlightthickness = 1,
     fg = "#FFFFFF",
@@ -511,8 +511,8 @@ def showpass():
         password_entry.config(show="*")
         toggle = True
 
-EyeButton = PhotoImage(file = "Eye Icon Purple.png")
-b11 = Button(
+EyeButton = PhotoImage(file = "Eye Icon Purple.png", master = window)
+b11 = Button(window,
     image = EyeButton,
     borderwidth = 0,
     command = showpass,
@@ -529,7 +529,7 @@ canvas.create_text(
     anchor = "e",
     font = ("Lato-Regular", int(12)))
 
-type_entry = Entry(
+type_entry = Entry(window,
     bd = 0,
     highlightthickness = 1,
     fg = "#FFFFFF",
@@ -546,8 +546,8 @@ type_entry.place(
     height = 30)
 type_entry.config(state = "disabled")
 
-UpdateButton = PhotoImage(file = "Update.png")
-b8 = Button(
+UpdateButton = PhotoImage(file = "Update.png", master = window)
+b8 = Button(window,
     image = UpdateButton,
     borderwidth = 0,
     command = UpdateConfirmation,

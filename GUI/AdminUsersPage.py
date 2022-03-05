@@ -95,7 +95,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = "AdminUsersPage BG.png")
+bg = PhotoImage(file = "AdminUsersPage BG.png", master = window)
 background = canvas.create_image(
     608, 342,
     image=bg)
@@ -112,12 +112,12 @@ canvas.create_text(
 mycursor.execute('SELECT * FROM PATIENTS')
 depts = mycursor.fetchall()
 
-TextBoximg = PhotoImage(file = "TextBox2.png")
+TextBoximg = PhotoImage(file = "TextBox2.png", master = window)
 TextBox = canvas.create_image(
     1000, 128,
     image = TextBoximg)
 
-TextBox = Entry(
+TextBox = Entry(window,
     bd = 0)
 
 TextBox.place(
@@ -125,8 +125,8 @@ TextBox.place(
     width=285,
     height=38)
 
-Homebutton = PhotoImage(file = f"Home Button.png")
-b0 = Button(
+Homebutton = PhotoImage(file = f"Home Button.png", master = window)
+b0 = Button(window,
     image = Homebutton,
     borderwidth = 0,
     highlightthickness = 0,
@@ -138,8 +138,8 @@ b0.place(
     width = 95,
     height = 400)
 
-SearchIcon = PhotoImage(file = "Search Icon.png")
-bs = Button(
+SearchIcon = PhotoImage(file = "Search Icon.png", master = window)
+bs = Button(window,
     image = SearchIcon,
     bd = 0,
     command = search,
@@ -150,8 +150,8 @@ bs.place(
     width=28,
     height=28)
 
-'''ProfileIcon = PhotoImage(file = "Profile Icon.png")
-b1 = Button(
+'''ProfileIcon = PhotoImage(file = "Profile Icon.png", master = window)
+b1 = Button(window,
     image = ProfileIcon,
     borderwidth = 0,
     command = ProfilePage,
@@ -162,8 +162,8 @@ b1.place(
     width = 88,
     height = 70)
 
-CashierIcon = PhotoImage(file = "Cashier Icon.png")
-b2 = Button(
+CashierIcon = PhotoImage(file = "Cashier Icon.png", master = window)
+b2 = Button(window,
     image = CashierIcon,
     borderwidth = 0,
     command = click,
@@ -174,8 +174,8 @@ b2.place(
     width = 90,
     height = 75)
 
-PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
-b3 = Button(
+PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png", master = window)
+b3 = Button(window,
     image = PharmacyIcon,
     borderwidth = 0,
     command = AdminPharmacyPage,
@@ -186,8 +186,8 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
-b4 = Button(
+UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png", master = window)
+b4 = Button(window,
     image = UserAccountsIcon,
     borderwidth = 0,
     command = AdminUsersPage,
@@ -198,8 +198,8 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = "Non Med Icon.png")
-b5 = Button(
+NonMedIcon = PhotoImage(file = "Non Med Icon.png", master = window)
+b5 = Button(window,
     image = NonMedIcon,
     borderwidth = 0,
     command = AdminNonMedPage,
@@ -210,8 +210,8 @@ b5.place(
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = "Patients Icon.png")
-b6 = Button(
+PatientsIcon = PhotoImage(file = "Patients Icon.png", master = window)
+b6 = Button(window,
     image = PatientsIcon,
     borderwidth = 0,
     command = AdminPatientsPage,
@@ -222,8 +222,8 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
-b7 = Button(
+DoctorsIcon = PhotoImage(file = "Doctors Icon.png", master = window)
+b7 = Button(window,
     image = DoctorsIcon,
     borderwidth = 0,
     command = AdminDoctorsPage,
@@ -233,8 +233,8 @@ b7.place(
     x = 20, y = 110,
     width = 91,
     height = 63)
-PrevPage = PhotoImage(file = "ArrowLeft.png")
-b8 = Button(
+PrevPage = PhotoImage(file = "ArrowLeft.png", master = window)
+b8 = Button(window,
     image = PrevPage,
     borderwidth = 0,
     command = AdminHomePage,
@@ -277,8 +277,8 @@ drop = ttk.OptionMenu(window, clicked, options[1], *options, command = search())
 drop.place(x=1100,y=80)
 search()
 
-UpdateButton = PhotoImage(file = "Update.png")
-b9 = Button(
+UpdateButton = PhotoImage(file = "Update.png", master = window)
+b9 = Button(window,
     image = UpdateButton,
     borderwidth = 0,
     command = UpdateCard,
