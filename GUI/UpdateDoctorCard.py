@@ -1,5 +1,6 @@
 from tkinter import *
 import mysql.connector
+
 mydb = mysql.connector.connect(
     host = 'localhost',
     user = 'root',
@@ -12,6 +13,8 @@ mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
     sel_docid = int(d[3])
+
+
 
 def update():
     command = "update doctors set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_docid)+";"
@@ -40,13 +43,16 @@ def update():
     mycursor.execute(command)
     mydb.commit()
     root.destroy()
+
+def cancel():
+    root.destroy()
     import DoctorCard
 
 def cancel():
     root.destroy()
     import DoctorCard
 
-root = Tk()
+root = Toplevel()
 root.title('Update Doctor Details')
 root.iconbitmap("EMR Symbol.ico")
 
@@ -78,7 +84,7 @@ name_entry = canvas.create_image(
     276.0, 132.5,
     image = name_entryimg)
 
-name_entry = Entry(
+name_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 name_entry.insert(0,sel_doc[1])
@@ -92,7 +98,7 @@ age_entry = canvas.create_image(
     156.5, 212.5,
     image = age_entryimg)
 
-age_entry = Entry(
+age_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 age_entry.insert(0,sel_doc[2])
@@ -106,7 +112,7 @@ phone_entry = canvas.create_image(
     156.5, 292.5,
     image = phone_entryimg)
 
-phone_entry = Entry(
+phone_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 phone_entry.insert(0,sel_doc[6])
@@ -120,7 +126,7 @@ gender_entry = canvas.create_image(
     389.0, 212.5,
     image = gender_entryimg)
 
-gender_entry = Entry(
+gender_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 gender_entry.insert(0,sel_doc[3])
@@ -134,7 +140,7 @@ email_entry = canvas.create_image(
     389.0, 292.5,
     image = email_entryimg)
 
-email_entry = Entry(
+email_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 email_entry.insert(0,sel_doc[7])
@@ -154,7 +160,7 @@ dept_entry = canvas.create_image(
     156.5, 372.5,
     image = dept_entryimg)
 
-dept_entry = Entry(
+dept_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 dept_entry.insert(0,sel_deptname)
@@ -168,7 +174,7 @@ join_entry = canvas.create_image(
     156.5, 452.5,
     image = join_entryimg)
 
-join_entry = Entry(
+join_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 join_entry.insert(0,sel_doc[8])
@@ -182,7 +188,7 @@ room_entry = canvas.create_image(
     391.5, 372.5,
     image = room_entryimg)
 
-room_entry = Entry(
+room_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 room_entry.insert(0,sel_doc[5])
@@ -196,7 +202,7 @@ salary_entry = canvas.create_image(
     391.5, 452.5,
     image = salary_entryimg)
 
-salary_entry = Entry(
+salary_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
 salary_entry.insert(0,sel_doc[9])
@@ -206,7 +212,7 @@ salary_entry.place(
     height = 29)
 
 Updateimg = PhotoImage(file = "UpdateButton.png")
-b1 = Button(
+b1 = Button(root,
     image = Updateimg,
     borderwidth = 0,
     highlightthickness = 0,
@@ -219,7 +225,7 @@ b1.place(
     height = 53)
 
 CancelImg = PhotoImage(file = "Cancel Button.png")
-b2 = Button(
+b2 = Button(root,
     image = CancelImg,
     borderwidth = 0,
     highlightthickness = 0,

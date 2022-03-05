@@ -4,41 +4,9 @@ from tkinter import ttk
 def click():
     print("Clicked")
 
-def AdminDoctorsPage():
-    window.destroy()
-    import AdminDoctorsPage
-
-def AdminPatientsPage():
-    window.destroy()
-    import AdminPatientsPage
-
-def AdminNonMedPage():
-    window.destroy()
-    import AdminNonMedPage
-
-def AdminUsersPage():
-    window.destroy()
-    import AdminUsersPage
-
-def AdminPharmacyPage():
-    window.destroy()
-    import AdminPharmacyPage
-
-def ProfilePage():
-    window.destroy()
-    import ProfilePage
-
-def AdminDoctorsPage():
-    window.destroy()
-    import AdminDoctorsPage
-
-def AdminHomePage():
+def gohome():
     window.destroy()
     import AdminHomePage
-
-def AdminNonMedPage():
-    window.destroy()
-    import AdminNonMedPage
 
 def PatientCard():
     window.destroy()
@@ -131,17 +99,31 @@ TextBox.place(
     height=38)
 
 SearchIcon = PhotoImage(file = "Search Icon.png")
-b0 = Button(
+bs = Button(
     image = SearchIcon,
     bd = 0,
     command = search,
     relief = "flat")
 
-b0.place(
+bs.place(
     x = 1135, y = 113,
     width=28,
     height=28)
 
+Homebutton = PhotoImage(file = f"Home Button.png")
+b0 = Button(
+    image = Homebutton,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = gohome,
+    relief = "flat")
+
+b0.place(
+    x = 20, y = 116,
+    width = 95,
+    height = 400)
+
+'''
 ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
@@ -154,7 +136,7 @@ b1.place(
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
+CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -164,7 +146,7 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)'''
+    height = 75)
 
 PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
@@ -226,6 +208,13 @@ b7.place(
     width = 91,
     height = 63)
 
+canvas.create_text(
+    210, 90,
+    text = "Non-Medical Staff",
+    fill = "#6953d9",
+    anchor = "w",
+    font = ("Lato-Bold", int(40)))
+
 PrevPage = PhotoImage(file = "ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
@@ -237,6 +226,7 @@ b8.place(
     x = 140, y = 30,
     width = 28,
     height = 24)
+'''
 
 
 #TABLE

@@ -106,7 +106,7 @@ def UpdateConfirmation():
 
     canvas.create_text(
         200, 70,
-        text="Are you sure you want to make changes?",
+        text="Are you sure you want to save changes?",
         fill="#000000",
         anchor = "center",
         font=("Lato-Regular", int(12)))

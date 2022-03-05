@@ -4,6 +4,10 @@ from tkinter import ttk
 def click():
     print("Clicked")
 
+def gohome():
+    window.destroy()
+    import AdminHomePage
+
 def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
@@ -120,6 +124,7 @@ TextBox.place(
     x = 850, y = 109,
     width=285,
     height=38)
+
 Homebutton = PhotoImage(file = f"Home Button.png")
 b0 = Button(
     image = Homebutton,

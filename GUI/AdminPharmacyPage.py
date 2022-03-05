@@ -8,9 +8,9 @@ def AdminDoctorsPage():
     window.destroy()
     import AdminDoctorsPage
 
-def Admin= "tsPage():
+def gohome():
     window.destroy()
-    import Admin= "tsPage
+    import AdminHomePage
 
 def AdminNonMedPage():
     window.destroy()
@@ -214,7 +214,7 @@ b8 = Button(
 b8.place(
     x = 140, y = 30,
     width = 28,
-    height = 24)
+    height = 24)'''
 
 TextBoximg = PhotoImage(file = "TextBox2.png")
 TextBox = canvas.create_image(
@@ -239,7 +239,7 @@ b12 = Button(
 b12.place(
     x = 830, y = 110,
     width=28,
-    height=28)'''
+    height=28)
 
 #Table
 style = ttk.Style()

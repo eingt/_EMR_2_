@@ -22,130 +22,120 @@ def click():
     print("Clicked")
 
 def AdminDoctorsPage():
-    window.destroy()
+    home.withdraw()
     import AdminDoctorsPage
+    home.deiconify()
 
 def AdminPatientsPage():
-    window.destroy()
+    home.withdraw()
     import AdminPatientsPage
-
+    home.deiconify()
 def AdminNonMedPage():
-    window.destroy()
+    home.withdraw()
     import AdminNonMedPage
-
+    home.deiconify()
 def AdminUsersPage():
-    window.destroy()
+    home.withdraw()
     import AdminUsersPage
-
+    home.deiconify()
 def AdminPharmacyPage():
-    window.destroy()
+    home.withdraw()
     import AdminPharmacyPage
-
+    home.deiconify()
 def ProfilePage():
-    window.destroy()
+    home.withdraw()
     import ProfilePage
+    home.deiconify()
 
+home = Tk()
+home.title('EMR')
+home.iconbitmap("EMR Symbol.ico")
 
-window = Tk()
-window.title('EMR')
-window.iconbitmap("EMR Symbol.ico")
-
-window.geometry("1216x684")
-window.configure(bg = "#fefefe")
+home.geometry("1216x684")
+home.configure(bg = "#fefefe")
 canvas = Canvas(
-    window,
+    home,
     bg = "#fefefe",
     height = 684,
     width = 1216,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = "AdminHomePage BG.png")
+homebg = PhotoImage(file = "AdminHomePage BG.png", master=home)
 background = canvas.create_image(
     608, 342,
-    image=bg)
+    image=homebg)
 
 
-ProfileIcon = PhotoImage(file = "Profile Icon.png")
-b1 = Button(
+ProfileIcon = PhotoImage(file = "Profile Icon.png", master=home)
+menu1 = Button(home,
     image = ProfileIcon,
     borderwidth = 0,
     command = ProfilePage,
     relief = "flat")
 
-b1.place(
+menu1.place(
     x = 20, y = 605,
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
-b2 = Button(
-    image = CashierIcon,
-    borderwidth = 0,
-    command = click,
-    relief = "flat")
 
-b2.place(
-    x = 20, y = 467,
-    width = 90,
-    height = 75)'''
-
-PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
-b3 = Button(
+PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png", master=home)
+menu3 = Button(home,
     image = PharmacyIcon,
     borderwidth = 0,
     command = AdminPharmacyPage,
     relief = "flat")
 
-b3.place(
+menu3.place(
     x = 20, y = 401,
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
-b4 = Button(
+UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png", master=home)
+menu4 = Button(home,
     image = UserAccountsIcon,
     borderwidth = 0,
     command = AdminUsersPage,
     relief = "flat")
 
-b4.place(
+menu4.place(
     x = 20, y = 317,
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = "Non Med Icon.png")
-b5 = Button(
+NonMedIcon = PhotoImage(file = "Non Med Icon.png", master=home)
+menu5 = Button(home,
     image = NonMedIcon,
     borderwidth = 0,
     command = AdminNonMedPage,
     relief = "flat")
 
-b5.place(
+menu5.place(
     x = 20, y = 253,
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = "Patients Icon.png")
-b6 = Button(
+PatientsIcon = PhotoImage(file = "Patients Icon.png", master=home)
+menu6 = Button(home,
     image = PatientsIcon,
     borderwidth = 0,
     command = AdminPatientsPage,
     relief = "flat")
 
-b6.place(
+menu6.place(
     x = 20, y = 183,
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
-b7 = Button(
+DoctorsIcon = PhotoImage(file = "Doctors Icon.png", master=home)
+menu7 = Button(home,
     image = DoctorsIcon,
     borderwidth = 0,
     command = AdminDoctorsPage,
     relief = "flat")
 
-b7.place(
+menu7.place(
     x = 20, y = 110,
     width = 91,
     height = 63)
@@ -165,5 +155,5 @@ canvas.create_text(
 
 
 
-window.resizable(False, False)
-window.mainloop()
+home.resizable(False, False)
+home.mainloop()

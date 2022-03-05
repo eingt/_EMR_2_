@@ -1,6 +1,7 @@
 from tkinter import *
 import mysql.connector
 
+
 mydb = mysql.connector.connect(
     host = 'localhost',
     user = 'root',
@@ -13,61 +14,37 @@ mycursor = mydb.cursor()
 
 def click():
     print("Clicked")
-
-def AdminDoctorsPage():
-    window1.destroy()
-    import AdminDoctorsPage
-
-def AdminPatientsPage():
-    window1.destroy()
-    import AdminPatientsPage
-
-def AdminNonMedPage():
-    window1.destroy()
-    import AdminNonMedPage
-
-def AdminUsersPage():
-    window1.destroy()
-    import AdminUsersPage
-
-def AdminPharmacyPage():
-    window1.destroy()
-    import AdminPharmacyPage
-
-def ProfilePage():
-    window1.destroy()
-    import ProfilePage
-
-def AdminHomePage():
-    window1.destroy()
+    
+def gohome():
+    window.destroy()
     import AdminHomePage
 
 def AdminSelDocDept():
-    window1.destroy()
+    window.destroy()
     import AdminSelDocDept
 
 
-window1 = Tk()
-window1.title('EMR')
-window1.iconbitmap("EMR Symbol.ico")
+window = Tk()
+window.title('EMR')
+window.iconbitmap("EMR Symbol.ico")
 
-window1.geometry("1216x684")
-window1.configure(bg = "#fefefe")
+window.geometry("1216x684")
+window.configure(bg = "#fefefe")
 canvas = Canvas(
-    window1,
+    window,
     bg = "#fefefe",
     height = 684,
     width = 1216,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-bg = PhotoImage(file = "AdminDoctorsPage BG.png")
+bg = PhotoImage(file = "AdminDoctorsPage BG.png", master=window)
 background = canvas.create_image(
     608.0, 342.0,
     image=bg)
 
-Homebutton = PhotoImage(file = f"Home Button.png")
-b0 = Button(
+Homebutton = PhotoImage(file = f"Home Button.png", master=window)
+b0 = Button(window,
     image = Homebutton,
     borderwidth = 0,
     highlightthickness = 0,
@@ -80,7 +57,7 @@ b0.place(
     height = 400)
 
 
-ProfileIcon = PhotoImage(file = "Profile Icon.png")
+'''ProfileIcon = PhotoImage(file = "Profile Icon.png", master=window)
 b1 = Button(
     image = ProfileIcon,
     borderwidth = 0,
@@ -92,7 +69,7 @@ b1.place(
     width = 88,
     height = 70)
 
-CashierIcon = PhotoImage(file = "Cashier Icon.png")
+CashierIcon = PhotoImage(file = "Cashier Icon.png", master=window)
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -104,7 +81,7 @@ b2.place(
     width = 90,
     height = 75)
 
-PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
+PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png", master=window)
 b3 = Button(
     image = PharmacyIcon,
     borderwidth = 0,
@@ -116,7 +93,7 @@ b3.place(
     width = 90,
     height = 61)
 
-UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png")
+UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png", master=window)
 b4 = Button(
     image = UserAccountsIcon,
     borderwidth = 0,
@@ -128,7 +105,7 @@ b4.place(
     width = 91,
     height = 77)
 
-NonMedIcon = PhotoImage(file = "Non Med Icon.png")
+NonMedIcon = PhotoImage(file = "Non Med Icon.png", master=window)
 b5 = Button(
     image = NonMedIcon,
     borderwidth = 0,
@@ -140,7 +117,7 @@ b5.place(
     width = 91,
     height = 57)
 
-PatientsIcon = PhotoImage(file = "Patients Icon.png")
+PatientsIcon = PhotoImage(file = "Patients Icon.png", master=window)
 b6 = Button(
     image = PatientsIcon,
     borderwidth = 0,
@@ -152,7 +129,7 @@ b6.place(
     width = 91,
     height = 63)
 
-DoctorsIcon = PhotoImage(file = "Doctors Icon.png")
+DoctorsIcon = PhotoImage(file = "Doctors Icon.png", master=window)
 b7 = Button(
     image = DoctorsIcon,
     borderwidth = 0,
@@ -171,7 +148,7 @@ canvas.create_text(
     anchor = "w",
     font = ("Lato-Bold", int(40)))
 
-PrevPage = PhotoImage(file = "ArrowLeft.png")
+PrevPage = PhotoImage(file = "ArrowLeft.png", master=window)
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
@@ -181,7 +158,7 @@ b8 = Button(
 b8.place(
     x = 140, y = 30,
     width = 28,
-    height = 24)
+    height = 24)'''
 
 
 #Insights
@@ -234,7 +211,7 @@ DeptList = []
 for dept in departments:
     DeptList.append(dept[1])
 
-listbox = Listbox(
+listbox = Listbox(window,
     height = 14,
     width = 33,
     bd = 0,
@@ -267,5 +244,5 @@ listbox.place(
 
 
 
-window1.resizable(False, False)
-window1.mainloop()
+window.resizable(False, False)
+window.mainloop()

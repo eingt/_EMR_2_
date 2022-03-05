@@ -6,6 +6,10 @@ def UpdateCard():
     window.destroy()
     import UpdateStaffCard
 
+def gohome():
+    window.destroy()
+    import AdminHomePage
+
 def click():
     print("Button is Clicked")
 
@@ -66,6 +70,20 @@ background = canvas.create_image(
     608, 342,
     image=bg)
 
+Homebutton = PhotoImage(file = f"Home Button.png")
+b0 = Button(
+    image = Homebutton,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = gohome,
+    relief = "flat")
+
+b0.place(
+    x = 20, y = 116,
+    width = 95,
+    height = 400)
+
+'''
 ProfileIcon = PhotoImage(file = "Profile Icon.png")
 b1 = Button(
     image = ProfileIcon,
@@ -78,7 +96,7 @@ b1.place(
     width = 88,
     height = 70)
 
-'''CashierIcon = PhotoImage(file = "Cashier Icon.png")
+CashierIcon = PhotoImage(file = "Cashier Icon.png")
 b2 = Button(
     image = CashierIcon,
     borderwidth = 0,
@@ -88,7 +106,7 @@ b2 = Button(
 b2.place(
     x = 20, y = 467,
     width = 90,
-    height = 75)'''
+    height = 75)
 
 PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png")
 b3 = Button(
@@ -150,17 +168,25 @@ b7.place(
     width = 91,
     height = 63)
 
+canvas.create_text(
+    210, 90,
+    text = "Non-Medical Staff",
+    fill = "#6953d9",
+    anchor = "w",
+    font = ("Lato-Bold", int(40)))
+
 PrevPage = PhotoImage(file = "ArrowLeft.png")
 b8 = Button(
     image = PrevPage,
     borderwidth = 0,
-    command = AdminSelNonMed,
+    command = AdminHomePage,
     relief = "flat")
 
 b8.place(
     x = 140, y = 30,
     width = 28,
     height = 24)
+'''
 
 UpdateButton = PhotoImage(file = "Update.png")
 b9 = Button(
