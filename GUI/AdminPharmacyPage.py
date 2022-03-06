@@ -269,7 +269,7 @@ b9 = Button(window,
     image = AddIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = click,
+    command = redadd,
     relief = "flat")
 
 b9.place(
@@ -282,7 +282,7 @@ b10 = Button(window,
     image = EditIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = click,
+    command = recedit,
     relief = "flat")
 
 b10.place(
@@ -295,7 +295,7 @@ b11 = Button(window,
     image = DeleteIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = click,
+    command = recdelete,
     relief = "flat")
 
 b11.place(
