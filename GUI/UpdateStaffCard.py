@@ -47,8 +47,6 @@ def update():
     root.destroy()
     import StaffCard
 
-
-
 root = Tk()
 root.title('Update Doctor Details')
 root.iconbitmap("EMR Symbol.ico")
@@ -194,20 +192,7 @@ salary_entry.place(
     width = 166.0,
     height = 29)
 
-'''salary_entryimg = PhotoImage(file = "TextBox3.png")
-salary_entry = canvas.create_image(
-    391.5, 452.5,
-    image = salary_entryimg)
 
-salary_entry = Entry(
-    bd = 0,
-    highlightthickness = 0)
-salary_entry.insert(0,sel_staff[9])
-salary_entry.place(
-    x = 308.5, y = 439,
-    width = 166.0,
-    height = 29)
-'''
 img0 = PhotoImage(file = "UpdateButton.png")
 b0 = Button(
     image = img0,

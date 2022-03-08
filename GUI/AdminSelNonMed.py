@@ -8,31 +8,6 @@ def gohome():
     window.destroy()
     import AdminHomePage
 
-def AdminDoctorsPage():
-    window.destroy()
-    import AdminDoctorsPage
-
-def AdminPatientsPage():
-    window.destroy()
-    import AdminPatientsPage
-
-def AdminNonMedPage():
-    window.destroy()
-    import AdminNonMedPage
-
-def AdminUsersPage():
-    window.destroy()
-    import AdminUsersPage
-
-def AdminPharmacyPage():
-    window.destroy()
-    import AdminPharmacyPage
-
-def ProfilePage():
-    window.destroy()
-    import ProfilePage
-
-
 def StaffCard():
     window.destroy()
     import StaffCard
@@ -175,8 +150,6 @@ b0.place(
     width = 95,
     height = 400)
 
-
-
 AddIcon = PhotoImage(file = "Add Icon.png", master = window)
 b9 = Button(window,
     image = AddIcon,
@@ -240,8 +213,6 @@ nonmedstaff = mycursor.fetchall()
 search()
 
 tree.place(x=215, y=210)
-
-
 
 def go(event):
     sel_iid = tree.focus()

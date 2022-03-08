@@ -1,8 +1,8 @@
 from tkinter import *
 import mysql.connector
 
-def btn_clicked():
-    print("Button Clicked")
+def click():
+    print("Button is Clicked")
 
 import mysql.connector
 mydb = mysql.connector.connect(

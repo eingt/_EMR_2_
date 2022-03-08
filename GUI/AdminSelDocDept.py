@@ -152,8 +152,6 @@ bs.place(
     width=28,
     height=28)
 
-
-
 AddIcon = PhotoImage(file = "Add Icon.png", master = window)
 b9 = Button(window,
     image = AddIcon,
@@ -217,8 +215,6 @@ drop.place(x=1090,y=80)
 search()
 
 tree.place(x=215, y=210)
-
-
 
 def go(event):
     sel_iid = tree.focus()

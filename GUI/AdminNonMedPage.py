@@ -18,30 +18,6 @@ def gohome():
     window.destroy()
     import AdminHomePage
 
-def AdminDoctorsPage():
-    window.destroy()
-    import AdminDoctorsPage
-
-def AdminPatientsPage():
-    window.destroy()
-    import AdminPatientsPage
-
-def AdminNonMedPage():
-    window.destroy()
-    import AdminNonMedPage
-
-def AdminUsersPage():
-    window.destroy()
-    import AdminUsersPage
-
-def AdminPharmacyPage():
-    window.destroy()
-    import AdminPharmacyPage
-
-def ProfilePage():
-    window.destroy()
-    import ProfilePage
-
 def AdminHomePage():
     window.destroy()
     import AdminHomePage
@@ -49,7 +25,6 @@ def AdminHomePage():
 def AdminSelNonMed():
     window.destroy()
     import AdminSelNonMed
-
 
 window = Tk()
 window.title('EMR')
@@ -82,9 +57,6 @@ b0.place(
     x = 20, y = 116,
     width = 95,
     height = 400)
-
-
-
 
 #Insights
 mycursor.execute('SELECT COUNT(*) FROM DOCTORS')
@@ -166,8 +138,6 @@ listbox.pack()
 listbox.place(
     x = 212, y = 230
 )
-
-
 
 window.resizable(False, False)
 window.mainloop()

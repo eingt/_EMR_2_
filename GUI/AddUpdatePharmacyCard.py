@@ -13,20 +13,20 @@ def add():
     mycursor.execute("insert into pharmacy(MedName,MfdCompany,Stock,Price) values(%s,%s,%s,%s)",rec)
 
 
-'''def update():
-    command = "update doctors set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_docid)+";"
+def update():
+    command = "update doctors set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_medid)+";"
     mycursor.execute(command)
-    command = "update doctors set age = " + str(mfd_entryimg.get()) + " where id = "+ str(sel_docid)
+    command = "update doctors set age = " + str(mfd_entryimg.get()) + " where id = "+ str(sel_medid)
     mycursor.execute(command)
-    command = "update doctors set phone = '" + str(stock_entry.get()) + "' where id = "+ str(sel_docid)
+    command = "update doctors set phone = '" + str(stock_entry.get()) + "' where id = "+ str(sel_medid)
     mycursor.execute(command)
-    command = "update doctors set price = '" + str(price_entry.get()) + "' where id = "+ str(sel_docid)
+    command = "update doctors set price = '" + str(price_entry.get()) + "' where id = "+ str(sel_medid)
     mycursor.execute(command)
 
     mycursor.execute(command)
     mydb.commit()
     root.destroy()
-    import AdminPharmacyPage'''
+    import AdminPharmacyPage
 
 def cancel():
     root.destroy()
@@ -62,7 +62,7 @@ name_entry = canvas.create_image(
 name_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-#name_entry.insert(0,sel_doc[1])
+name_entry.insert(0,sel_doc[1])
 name_entry.place(
     x=77.5, y=157,
     width=397.0,
@@ -76,7 +76,7 @@ mfd_entry = canvas.create_image(
 mfd_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-#mfd_entry.insert(0,sel_doc[2])
+mfd_entry.insert(0,sel_doc[2])
 mfd_entry.place(
     x=77.5, y=237,
     width=397.0,
@@ -90,7 +90,7 @@ stock_entry = canvas.create_image(
 stock_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-#stock_entry.insert(0,sel_doc[6])
+stock_entry.insert(0,sel_doc[6])
 stock_entry.place(
     x=77.5, y=317,
     width=397.0,
@@ -104,7 +104,7 @@ price_entry = canvas.create_image(
 price_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-#price_entry.insert(0,sel_doc[3])
+price_entry.insert(0,sel_doc[3])
 price_entry.place(
     x=77.5, y=397,
     width=397.0,
@@ -136,83 +136,6 @@ b2.place(
     width = 89,
     height = 17)
 
-
-
-'''
-
-entry0_img = PhotoImage(file = "img_textBox0.png")
-entry0_bg = canvas.create_image(
-    276.0, 172.5,
-    image = entry0_img)
-
-entry0 = Entry(
-    bd = 0,
-    bg = "#ebebeb",
-    highlightthickness = 0)
-
-entry0.place(
-    x = 77.5, y = 157,
-    width = 397.0,
-    height = 29)
-
-entry1_img = PhotoImage(file = "img_textBox1.png")
-entry1_bg = canvas.create_image(
-    276.0, 252.5,
-    image = entry1_img)
-
-entry1 = Entry(
-    bd = 0,
-    bg = "#ebebeb",
-    highlightthickness = 0)
-
-entry1.place(
-    x = 77.5, y = 237,
-    width = 397.0,
-    height = 29)
-
-entry2_img = PhotoImage(file = "img_textBox2.png")
-entry2_bg = canvas.create_image(
-    276.0, 332.5,
-    image = entry2_img)
-
-entry2 = Entry(
-    bd = 0,
-    bg = "#ebebeb",
-    highlightthickness = 0)
-
-entry2.place(
-    x = 77.5, y = 317,
-    width = 397.0,
-    height = 29)
-
-entry3_img = PhotoImage(file = "img_textBox3.png")
-entry3_bg = canvas.create_image(
-    276.0, 412.5,
-    image = entry3_img)
-
-entry3 = Entry(
-    bd = 0,
-    bg = "#ebebeb",
-    highlightthickness = 0)
-
-entry3.place(
-    x = 77.5, y = 397,
-    width = 397.0,
-    height = 29)
-
-img0 = PhotoImage(file = "img0.png")
-b0 = Button(
-    image = img0,
-    borderwidth = 0,
-    highlightthickness = 0,
-    command = btn_clicked,
-    relief = "flat")
-
-b0.place(
-    x = 207, y = 462,
-    width = 138,
-    height = 53)
-'''
 
 root.resizable(False, False)
 root.mainloop()

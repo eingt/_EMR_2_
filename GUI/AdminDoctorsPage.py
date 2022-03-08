@@ -56,10 +56,6 @@ b0.place(
     width = 95,
     height = 400)
 
-
-
-
-
 #Insights
 mycursor.execute('SELECT COUNT(*) FROM DOCTORS')
 doctorcount = mycursor.fetchall()[0][0]
@@ -136,12 +132,9 @@ def go(event):
 listbox.bind('<Double-1>', go)
 listbox.pack()
 
-
 listbox.place(
     x = 212, y = 230
 )
-
-
 
 window.resizable(False, False)
 window.mainloop()

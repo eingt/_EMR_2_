@@ -13,31 +13,6 @@ def gohome():
 def click():
     print("Button is Clicked")
 
-def AdminDoctorsPage():
-    window.destroy()
-    import AdminDoctorsPage
-
-def AdminPatientsPage():
-    window.destroy()
-    import AdminPatientsPage
-
-def AdminNonMedPage():
-    window.destroy()
-    import AdminNonMedPage
-
-def AdminUsersPage():
-    window.destroy()
-    import AdminUsersPage
-
-def AdminPharmacyPage():
-    window.destroy()
-    import AdminPharmacyPage
-
-def ProfilePage():
-    window.destroy()
-    import ProfilePage
-
-
 def AdminSelNonMed():
     window.destroy()
     import AdminSelNonMed
@@ -82,111 +57,6 @@ b0.place(
     x = 20, y = 116,
     width = 95,
     height = 400)
-
-'''
-ProfileIcon = PhotoImage(file = "Profile Icon.png", master = window)
-b1 = Entry(window,
-    image = ProfileIcon,
-    borderwidth = 0,
-    command = ProfilePage,
-    relief = "flat")
-
-b1.place(
-    x = 20, y = 605,
-    width = 88,
-    height = 70)
-
-CashierIcon = PhotoImage(file = "Cashier Icon.png", master = window)
-b2 = Entry(window,
-    image = CashierIcon,
-    borderwidth = 0,
-    command = click,
-    relief = "flat")
-
-b2.place(
-    x = 20, y = 467,
-    width = 90,
-    height = 75)
-
-PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png", master = window)
-b3 = Entry(window,
-    image = PharmacyIcon,
-    borderwidth = 0,
-    command = AdminPharmacyPage,
-    relief = "flat")
-
-b3.place(
-    x = 20, y = 401,
-    width = 90,
-    height = 61)
-
-UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png", master = window)
-b4 = Entry(window,
-    image = UserAccountsIcon,
-    borderwidth = 0,
-    command = AdminUsersPage,
-    relief = "flat")
-
-b4.place(
-    x = 20, y = 317,
-    width = 91,
-    height = 77)
-
-NonMedIcon = PhotoImage(file = "Non Med Icon.png", master = window)
-b5 = Entry(window,
-    image = NonMedIcon,
-    borderwidth = 0,
-    command = AdminNonMedPage,
-    relief = "flat")
-
-b5.place(
-    x = 20, y = 253,
-    width = 91,
-    height = 57)
-
-PatientsIcon = PhotoImage(file = "Patients Icon.png", master = window)
-b6 = Entry(window,
-    image = PatientsIcon,
-    borderwidth = 0,
-    command = AdminPatientsPage,
-    relief = "flat")
-
-b6.place(
-    x = 20, y = 183,
-    width = 91,
-    height = 63)
-
-DoctorsIcon = PhotoImage(file = "Doctors Icon.png", master = window)
-b7 = Entry(window,
-    image = DoctorsIcon,
-    borderwidth = 0,
-    command = AdminDoctorsPage,
-    relief = "flat")
-
-b7.place(
-    x = 20, y = 110,
-    width = 91,
-    height = 63)
-
-canvas.create_text(
-    210, 90,
-    text = "Non-Medical Staff",
-    fill = "#6953d9",
-    anchor = "w",
-    font = ("Lato-Bold", int(40)))
-
-PrevPage = PhotoImage(file = "ArrowLeft.png", master = window)
-b8 = Entry(window,
-    image = PrevPage,
-    borderwidth = 0,
-    command = AdminHomePage,
-    relief = "flat")
-
-b8.place(
-    x = 140, y = 30,
-    width = 28,
-    height = 24)
-'''
 
 UpdateButton = PhotoImage(file = "Update.png", master = window)
 b9 = Button(window,
@@ -310,9 +180,6 @@ canvas.create_text(
     fill = "#000000",
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
-
-
-
 
 window.resizable(False, False)
 window.mainloop()

@@ -8,30 +8,6 @@ def gohome():
     window.destroy()
     import AdminHomePage
 
-def AdminDoctorsPage():
-    window.destroy()
-    import AdminDoctorsPage
-
-def AdminPatientsPage():
-    window.destroy()
-    import AdminPatientsPage
-
-def AdminNonMedPage():
-    window.destroy()
-    import AdminNonMedPage
-
-def AdminUsersPage():
-    window.destroy()
-    import AdminUsersPage
-
-def AdminPharmacyPage():
-    window.destroy()
-    import AdminPharmacyPage
-
-def ProfilePage():
-    window.destroy()
-    import ProfilePage
-
 def UpdateCard():
     sel_iid = tree.focus()
     account = tree.item(sel_iid, 'values')
@@ -39,14 +15,6 @@ def UpdateCard():
     mycursor.execute(command)
     window.destroy()
     import UpdateUserAccount
-
-def AdminHomePage():
-    window.destroy()
-    import AdminHomePage
-
-def PatientCard():
-    window.destroy()
-    import PatientCard
 
 index = 1
 def search():
@@ -149,8 +117,6 @@ bs.place(
     x = 1135, y = 113,
     width=28,
     height=28)
-
-
 
 #TABLE
 

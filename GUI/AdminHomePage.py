@@ -153,7 +153,5 @@ canvas.create_text(
     anchor = CENTER,
     font = ("Lato-Bold", int(50)))
 
-
-
 home.resizable(False, False)
 home.mainloop()

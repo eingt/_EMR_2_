@@ -14,8 +14,6 @@ data = mycursor.fetchall()
 for d in data:
     sel_docid = int(d[3])
 
-
-
 def update():
     command = "update doctors set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_docid)+";"
     mycursor.execute(command)
@@ -43,10 +41,6 @@ def update():
     mycursor.execute(command)
     mydb.commit()
     root.destroy()
-
-def cancel():
-    root.destroy()
-    import DoctorCard
 
 def cancel():
     root.destroy()
