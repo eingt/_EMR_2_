@@ -16,7 +16,7 @@ def recaddupdate():
     sel_lid = tree.focus()
     sel_record = tree.item(sel_lid, 'values')
     sel_id = str(sel_record[0])
-    commmand = "update selected set cur_id = "+sel.id+" where no = 1"
+    commmand = "update selected set cur_id = "+sel_id+" where no = 1"
     mycursor.execute(commmand)
     mydb.commit()
     window.withdraw()

@@ -12,6 +12,25 @@ def DoctorCard():
     window.destroy()
     import DoctorCard
 
+def recaddupdate():
+    sel_iid = tree.focus()
+    sel_record = tree.item(sel_iid, 'values')
+    sel_id = str(sel_record[0])
+    command = "update Selected set cur_id ="+sel_id+" where no = 1"
+    mycursor.execute(command)
+    mydb.commit()
+    window.withdraw()
+    import UpdateDoctorCard
+    window.deiconify()
+
+def recdelete():
+    sel_iid = tree.focus()
+    sel_record = tree.item(sel_iid, 'values')
+    sel_id = str(sel_record[0])
+    command = "delete from doctors where id = "+sel_id
+    mycursor.execute(command)
+    search()
+
 index = 1
 def search():
     global index
@@ -235,7 +254,7 @@ b9 = Button(window,
     image = AddIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = click(),
+    command = recaddupdate,
     relief = "flat")
 
 b9.place(
@@ -248,7 +267,7 @@ b10 = Button(window,
     image = EditIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = click(),
+    command = recaddupdate,
     relief = "flat")
 
 b10.place(
@@ -261,7 +280,7 @@ b11 = Button(window,
     image = DeleteIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = click(),
+    command = recdelete,
     relief = "flat")
 
 b11.place(
