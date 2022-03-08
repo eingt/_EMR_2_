@@ -32,6 +32,8 @@ def AdminHomePage():
     window.destroy()
     import AdminHomePage
 
+def recadd():
+
 
     
 def update():
@@ -269,7 +271,7 @@ b9 = Button(window,
     image = AddIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = redadd,
+    command = recadd,
     relief = "flat")
 
 b9.place(

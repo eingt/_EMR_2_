@@ -239,7 +239,7 @@ DeptList = []
 for dept in departments:
     DeptList.append(dept[1])
 
-listbox = Listbox(
+listbox = Listbox(window,
     height = 14,
     width = 33,
     bd = 0,

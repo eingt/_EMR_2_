@@ -71,7 +71,7 @@ background = canvas.create_image(
     image=bg)
 
 Homebutton = PhotoImage(file = f"Home Button.png", master = window)
-b0 = Entry(window,window,
+b0 = Button(window,
     image = Homebutton,
     borderwidth = 0,
     highlightthickness = 0,
@@ -85,7 +85,7 @@ b0.place(
 
 '''
 ProfileIcon = PhotoImage(file = "Profile Icon.png", master = window)
-b1 = Entry(window,window,
+b1 = Entry(window,
     image = ProfileIcon,
     borderwidth = 0,
     command = ProfilePage,
@@ -97,7 +97,7 @@ b1.place(
     height = 70)
 
 CashierIcon = PhotoImage(file = "Cashier Icon.png", master = window)
-b2 = Entry(window,window,
+b2 = Entry(window,
     image = CashierIcon,
     borderwidth = 0,
     command = click,
@@ -109,7 +109,7 @@ b2.place(
     height = 75)
 
 PharmacyIcon = PhotoImage(file = "Pharmacy Icon.png", master = window)
-b3 = Entry(window,window,
+b3 = Entry(window,
     image = PharmacyIcon,
     borderwidth = 0,
     command = AdminPharmacyPage,
@@ -121,7 +121,7 @@ b3.place(
     height = 61)
 
 UserAccountsIcon = PhotoImage(file = "User Accounts Icon.png", master = window)
-b4 = Entry(window,window,
+b4 = Entry(window,
     image = UserAccountsIcon,
     borderwidth = 0,
     command = AdminUsersPage,
@@ -133,7 +133,7 @@ b4.place(
     height = 77)
 
 NonMedIcon = PhotoImage(file = "Non Med Icon.png", master = window)
-b5 = Entry(window,window,
+b5 = Entry(window,
     image = NonMedIcon,
     borderwidth = 0,
     command = AdminNonMedPage,
@@ -145,7 +145,7 @@ b5.place(
     height = 57)
 
 PatientsIcon = PhotoImage(file = "Patients Icon.png", master = window)
-b6 = Entry(window,window,
+b6 = Entry(window,
     image = PatientsIcon,
     borderwidth = 0,
     command = AdminPatientsPage,
@@ -157,7 +157,7 @@ b6.place(
     height = 63)
 
 DoctorsIcon = PhotoImage(file = "Doctors Icon.png", master = window)
-b7 = Entry(window,window,
+b7 = Entry(window,
     image = DoctorsIcon,
     borderwidth = 0,
     command = AdminDoctorsPage,
@@ -176,7 +176,7 @@ canvas.create_text(
     font = ("Lato-Bold", int(40)))
 
 PrevPage = PhotoImage(file = "ArrowLeft.png", master = window)
-b8 = Entry(window,window,
+b8 = Entry(window,
     image = PrevPage,
     borderwidth = 0,
     command = AdminHomePage,
@@ -189,7 +189,7 @@ b8.place(
 '''
 
 UpdateButton = PhotoImage(file = "Update.png", master = window)
-b9 = Entry(window,window,
+b9 = Button(window,
     image = UpdateButton,
     borderwidth = 0,
     command = UpdateCard,

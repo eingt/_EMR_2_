@@ -8,9 +8,12 @@ mydb = mysql.connector.connect(
     database = 'EMR')
 mycursor = mydb.cursor()
 
+def add():
+    rec = (name_entry.get(),mfd_entry.get(),int(stock_entry.get()),float(price_entry.get()))
+    mycursor.execute("insert into pharmacy(MedName,MfdCompany,Stock,Price) values(%s,%s,%s,%s)",rec)
 
 
-def update():
+'''def update():
     command = "update doctors set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_docid)+";"
     mycursor.execute(command)
     command = "update doctors set age = " + str(mfd_entryimg.get()) + " where id = "+ str(sel_docid)
@@ -23,7 +26,7 @@ def update():
     mycursor.execute(command)
     mydb.commit()
     root.destroy()
-    import AdminPharmacyPage
+    import AdminPharmacyPage'''
 
 def cancel():
     root.destroy()
@@ -45,7 +48,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = "AddUpdate Pharmacy Card BG.png")
+background_img = PhotoImage(file = "AddUpdatePharmacyCard BG.png")
 background = canvas.create_image(
     275.5, 284.0,
     image=background_img)
@@ -59,7 +62,7 @@ name_entry = canvas.create_image(
 name_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-name_entry.insert(0,sel_doc[1])
+#name_entry.insert(0,sel_doc[1])
 name_entry.place(
     x=77.5, y=157,
     width=397.0,
@@ -73,7 +76,7 @@ mfd_entry = canvas.create_image(
 mfd_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-mfd_entry.insert(0,sel_doc[2])
+#mfd_entry.insert(0,sel_doc[2])
 mfd_entry.place(
     x=77.5, y=237,
     width=397.0,
@@ -87,7 +90,7 @@ stock_entry = canvas.create_image(
 stock_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-stock_entry.insert(0,sel_doc[6])
+#stock_entry.insert(0,sel_doc[6])
 stock_entry.place(
     x=77.5, y=317,
     width=397.0,
@@ -101,7 +104,7 @@ price_entry = canvas.create_image(
 price_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-price_entry.insert(0,sel_doc[3])
+#price_entry.insert(0,sel_doc[3])
 price_entry.place(
     x=77.5, y=397,
     width=397.0,
@@ -112,7 +115,7 @@ b1 = Button(
     image = Updateimg,
     borderwidth = 0,
     highlightthickness = 0,
-    command = update,
+    command = add,
     relief = "flat")
 
 b1.place(
