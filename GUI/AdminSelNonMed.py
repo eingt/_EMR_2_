@@ -37,6 +37,24 @@ def StaffCard():
     window.destroy()
     import StaffCard
 
+def recaddupdate():
+    sel_iid = tree.focus()
+    sel_record = tree.item(sel_iid, 'values')
+    sel_id = str(sel_record[0])
+    command = "update Selected set cur_id ="+sel_id+"where no = 1"
+    mycursor.execute(command)
+    mydb.commit()
+    window.withdraw()
+    import UpdateStaffCard
+    window.deiconify()
+
+def recdelete():
+    sel_iid = tree.focus()
+    sel_record = tree.item(sel_iid, 'values')
+    sel_id = str(sel_record[0])
+    command = "delete from nonmedstaff where id = "+sel_id
+    mycursor.execute(command)
+
 def search():
     opt = clicked.get()
     if opt == 'ID':
@@ -267,7 +285,7 @@ b9 = Button(window,
     image = AddIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = recadd,
+    command = recaddupdate,
     relief = "flat")
 
 b9.place(
@@ -280,7 +298,7 @@ b10 = Button(window,
     image = EditIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = recedit,
+    command = recaddupdate,
     relief = "flat")
 
 b10.place(
