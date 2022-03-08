@@ -13,6 +13,12 @@ data = mycursor.fetchall()
 for d in data:
     sel_staffid = int(d[3])
 
+def add():
+    rec = [name_entry.get(),age_entry.get(),phone_entry.get(),phone_entry.get(),
+           gender_entry.get(),email_entry.get(),dept_entry.get(),join_entry.get,
+           salary_entry.get()]
+    mycursor.execute("insert into nonmedstaff values(%s)",rec)
+
 def update():
     command = "update nonmedstaff set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_staffid)+";"
     mycursor.execute(command)

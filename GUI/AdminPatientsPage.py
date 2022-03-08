@@ -228,6 +228,44 @@ b8.place(
     height = 24)
 '''
 
+AddIcon = PhotoImage(file = "Add Icon.png", master = window)
+b9 = Button(window,
+    image = AddIcon,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = recadd,
+    relief = "flat")
+
+b9.place(
+    x = 825, y = 624,
+    width = 30,
+    height = 30)
+
+EditIcon = PhotoImage(file = "Edit Icon.png", master = window)
+b10 = Button(window,
+    image = EditIcon,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = recedit,
+    relief = "flat")
+
+b10.place(
+    x = 785, y = 625,
+    width = 29,
+    height = 27)
+
+DeleteIcon = PhotoImage(file = "Delete Icon.png", master = window)
+b11 = Button(window,
+    image = DeleteIcon,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = recdelete,
+    relief = "flat")
+
+b11.place(
+    x = 745, y = 625,
+    width = 29,
+    height = 27)
 
 #TABLE
 
