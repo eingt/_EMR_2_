@@ -12,16 +12,22 @@ def DoctorCard():
     window.destroy()
     import DoctorCard
 
-def recaddupdate():
+def recadd():
+    command = "update Selected set cur_misc = 'add' where no = 1"
+    mycursor.execute(command)
+    mydb.commit()
+    import AddUpdateDoctorCard
+
+def recupdate():
     sel_iid = tree.focus()
     sel_record = tree.item(sel_iid, 'values')
     sel_id = str(sel_record[0])
     command = "update Selected set cur_id ="+sel_id+" where no = 1"
     mycursor.execute(command)
+    command = "update Selected set cur_misc = 'update' where no = 1"
+    mycursor.execute(command)
     mydb.commit()
-    window.withdraw()
-    import UpdateDoctorCard
-    window.deiconify()
+    import AddUpdateDoctorCard
 
 def recdelete():
     sel_iid = tree.focus()
@@ -157,7 +163,7 @@ b9 = Button(window,
     image = AddIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = recaddupdate,
+    command = recadd,
     relief = "flat")
 
 b9.place(
@@ -170,7 +176,7 @@ b10 = Button(window,
     image = EditIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = recaddupdate,
+    command = recupdate,
     relief = "flat")
 
 b10.place(
@@ -226,6 +232,9 @@ def go(event):
     DoctorCard()
 
 tree.bind('<Double-1>', go)
+
+
+
 
 window.resizable(False, False)
 window.mainloop()

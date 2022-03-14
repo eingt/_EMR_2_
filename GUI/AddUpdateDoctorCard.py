@@ -13,6 +13,7 @@ mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
     sel_docid = int(d[3])
+    mode = (d[4])
 
 def update():
     command = "update doctors set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_docid)+";"
@@ -44,10 +45,10 @@ def update():
 
 def cancel():
     root.destroy()
-    import DoctorCard
+
 
 root = Toplevel()
-root.title('Update Doctor Details')
+root.title('Doctor Details')
 root.iconbitmap("EMR Symbol.ico")
 
 root.geometry("551x568")
@@ -62,7 +63,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = "UpdateDoctorCardBG.png")
+background_img = PhotoImage(file = "AddUpdateDoctorCardBG.png")
 background = canvas.create_image(
     275.5, 284.0,
     image=background_img)
@@ -81,7 +82,7 @@ name_entry = canvas.create_image(
 name_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-name_entry.insert(0,sel_doc[1])
+
 name_entry.place(
     x = 77.5, y = 119,
     width = 397.0,
@@ -95,7 +96,7 @@ age_entry = canvas.create_image(
 age_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-age_entry.insert(0,sel_doc[2])
+
 age_entry.place(
     x = 77.5, y = 199,
     width = 158.0,
@@ -109,7 +110,7 @@ phone_entry = canvas.create_image(
 phone_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-phone_entry.insert(0,sel_doc[6])
+
 phone_entry.place(
     x = 77.5, y = 279,
     width = 158.0,
@@ -123,7 +124,7 @@ gender_entry = canvas.create_image(
 gender_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-gender_entry.insert(0,sel_doc[3])
+
 gender_entry.place(
     x = 303.5, y = 199,
     width = 171.0,
@@ -137,7 +138,7 @@ email_entry = canvas.create_image(
 email_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-email_entry.insert(0,sel_doc[7])
+
 email_entry.place(
     x = 303.5, y = 279,
     width = 171.0,
@@ -157,7 +158,7 @@ dept_entry = canvas.create_image(
 dept_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-dept_entry.insert(0,sel_deptname)
+
 dept_entry.place(
     x = 77.5, y = 359,
     width = 158.0,
@@ -171,7 +172,7 @@ join_entry = canvas.create_image(
 join_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-join_entry.insert(0,sel_doc[8])
+
 join_entry.place(
     x = 77.5, y = 439,
     width = 158.0,
@@ -185,7 +186,7 @@ room_entry = canvas.create_image(
 room_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-room_entry.insert(0,sel_doc[5])
+
 room_entry.place(
     x = 308.5, y = 359,
     width = 166.0,
@@ -199,11 +200,23 @@ salary_entry = canvas.create_image(
 salary_entry = Entry(root,
     bd = 0,
     highlightthickness = 0)
-salary_entry.insert(0,sel_doc[9])
+
 salary_entry.place(
     x = 308.5, y = 439,
     width = 166.0,
     height = 29)
+
+if mode == 'update':
+    name_entry.insert(0, sel_doc[1])
+    age_entry.insert(0, sel_doc[2])
+    phone_entry.insert(0, sel_doc[6])
+    gender_entry.insert(0, sel_doc[3])
+    email_entry.insert(0, sel_doc[7])
+    dept_entry.insert(0, sel_deptname)
+    join_entry.insert(0, sel_doc[8])
+    room_entry.insert(0, sel_doc[5])
+    salary_entry.insert(0, sel_doc[9])
+
 
 Updateimg = PhotoImage(file = "UpdateButton.png")
 b1 = Button(root,
