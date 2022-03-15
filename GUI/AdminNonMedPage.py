@@ -58,6 +58,14 @@ b0.place(
     width = 95,
     height = 400)
 
+canvas.create_text(
+    210, 70,
+    text = "Non Medical Staff",
+    fill = "#6953d9",
+    anchor = "w",
+    font = ("Lato-Bold", int(40)))
+
+
 #Insights
 mycursor.execute('SELECT COUNT(*) FROM DOCTORS')
 doctorcount = mycursor.fetchall()[0][0]

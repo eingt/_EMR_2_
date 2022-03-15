@@ -5,7 +5,7 @@ def UpdateCard():
     mycursor.execute(command)
     mydb.commit()
     #window.destroy()
-    import UpdateDoctorCard
+    import AddUpdateDoctorCard
 
 def click():
     print("Button is Clicked")
