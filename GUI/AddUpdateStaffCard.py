@@ -12,7 +12,7 @@ mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
     sel_staffid = int(d[3])
-    node = (d[4])
+    mode = (d[4])
 
 def add():
     rec = [name_entry.get(),age_entry.get(),phone_entry.get(),phone_entry.get(),
@@ -46,7 +46,9 @@ def update():
     mycursor.execute(command)
     mydb.commit()
     root.destroy()
-    import StaffCard
+
+def cancel():
+    root.destroy()
 
 root = Tk()
 root.title('Update Doctor Details')
@@ -186,18 +188,32 @@ salary_entry.place(
     height = 29)
 
 
-img0 = PhotoImage(file = "UpdateButton.png")
-b0 = Button(
-    image = img0,
+Updateimg = PhotoImage(file = "UpdateButton.png")
+b1 = Button(
+    image = Updateimg,
     borderwidth = 0,
     highlightthickness = 0,
     command = update,
     relief = "flat")
 
-b0.place(
-    x = 208, y = 489,
+b1.place(
+    x = 208, y = 500,
     width = 138,
     height = 53)
+
+CancelImg = PhotoImage(file = "Cancel Button.png")
+b2 = Button(
+    image = CancelImg,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = cancel,
+    relief = "flat")
+
+b2.place(
+    x = 235, y = 550,
+    width = 89,
+    height = 17)
+
 if mode == 'update':
     name_entry.insert(0, sel_staff[1])
     age_entry.insert(0, sel_staff[2])

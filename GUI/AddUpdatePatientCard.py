@@ -23,7 +23,6 @@ def add():
     rec = (name_entry.get(),gender_entry.get(),height_entry.get(),weight_entry.get(),dob_entry.get(),reg_entry.get(),phone_entry.get(),email_entry.get(),allergies_entry.get())
     mycursor.execute("insert into patient values(%s)'%rec")
 
-    command = "insert into patient values("+rec+")"
 
 def update():
     command = "update patients set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_patientid)+";"
@@ -42,7 +41,7 @@ def update():
 
 def cancel():
     root.destroy()
-    import PatientCard
+
 
 root = Tk()
 root.title('Update Patient Details')
