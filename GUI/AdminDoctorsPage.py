@@ -17,7 +17,6 @@ def click():
     
 def gohome():
     window.destroy()
-    #import AdminHomePage
 
 def AdminSelDocDept():
     window.destroy()

@@ -6,7 +6,7 @@ def click():
 
 def gohome():
     window.destroy()
-    import AdminHomePage
+
 
 def UpdateCard():
     sel_iid = tree.focus()

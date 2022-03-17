@@ -6,7 +6,7 @@ def click():
 
 def gohome():
     window.destroy()
-    import AdminHomePage
+
 
 def recaddupdate():
     sel_iid = tree.focus()

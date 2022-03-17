@@ -6,7 +6,7 @@ def click():
 
 def gohome():
     window.destroy()
-    import AdminHomePage
+    
 
 def DoctorCard():
     window.destroy()

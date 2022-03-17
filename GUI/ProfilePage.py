@@ -38,7 +38,7 @@ def click():
 
 def gohome():
     window.destroy()
-    import AdminHomePage
+
 
 def update():
     command = "update "+table+" set name = '" + str(name_entry.get()) + "' where id = "+ str(sel_record[0])+";"
