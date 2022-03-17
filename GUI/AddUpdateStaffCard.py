@@ -12,6 +12,7 @@ mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
 for d in data:
     sel_staffid = int(d[3])
+    node = (d[4])
 
 def add():
     rec = [name_entry.get(),age_entry.get(),phone_entry.get(),phone_entry.get(),
@@ -82,7 +83,6 @@ name_entry = canvas.create_image(
 name_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-name_entry.insert(0,sel_staff[1])
 name_entry.place(
     x = 77.5, y = 119,
     width = 397.0,
@@ -96,7 +96,6 @@ age_entry = canvas.create_image(
 age_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-age_entry.insert(0,sel_staff[2])
 age_entry.place(
     x = 77.5, y = 199,
     width = 158.0,
@@ -110,7 +109,6 @@ phone_entry = canvas.create_image(
 phone_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-phone_entry.insert(0,sel_staff[5])
 phone_entry.place(
     x = 77.5, y = 279,
     width = 158.0,
@@ -124,7 +122,6 @@ gender_entry = canvas.create_image(
 gender_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-gender_entry.insert(0,sel_staff[3])
 gender_entry.place(
     x = 303.5, y = 199,
     width = 171.0,
@@ -138,7 +135,6 @@ email_entry = canvas.create_image(
 email_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-email_entry.insert(0,sel_staff[6])
 email_entry.place(
     x = 303.5, y = 279,
     width = 171.0,
@@ -158,7 +154,6 @@ dept_entry = canvas.create_image(
 dept_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-dept_entry.insert(0,sel_deptname)
 dept_entry.place(
     x = 77.5, y = 359,
     width = 158.0,
@@ -172,7 +167,6 @@ join_entry = canvas.create_image(
 join_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-join_entry.insert(0,sel_staff[7])
 join_entry.place(
     x = 77.5, y = 439,
     width = 158.0,
@@ -186,7 +180,6 @@ salary_entry = canvas.create_image(
 salary_entry = Entry(
     bd = 0,
     highlightthickness = 0)
-salary_entry.insert(0,sel_staff[8])
 salary_entry.place(
     x = 308.5, y = 359,
     width = 166.0,
@@ -205,6 +198,15 @@ b0.place(
     x = 208, y = 489,
     width = 138,
     height = 53)
+if mode == 'update':
+    name_entry.insert(0, sel_staff[1])
+    age_entry.insert(0, sel_staff[2])
+    phone_entry.insert(0, sel_staff[5])
+    gender_entry.insert(0, sel_staff[3])
+    email_entry.insert(0, sel_staff[6])
+    dept_entry.insert(0, sel_deptname)
+    join_entry.insert(0, sel_staff[7])
+    salary_entry.insert(0, sel_staff[8])
 
 root.resizable(False, False)
 root.mainloop()
