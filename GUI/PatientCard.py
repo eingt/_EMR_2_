@@ -12,7 +12,7 @@ def click():
 
 def gohome():
     window.destroy()
-    import AdminHomePage
+
     
 def app_selected(event):
     opt = clicked.get()

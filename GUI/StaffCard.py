@@ -8,7 +8,6 @@ def UpdateCard():
 
 def gohome():
     window.destroy()
-    import AdminHomePage
 
 def click():
     print("Button is Clicked")

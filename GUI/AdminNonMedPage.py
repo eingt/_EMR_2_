@@ -16,11 +16,6 @@ def click():
 
 def gohome():
     window.destroy()
-    import AdminHomePage
-
-def AdminHomePage():
-    window.destroy()
-    import AdminHomePage
 
 def AdminSelNonMed():
     window.destroy()
