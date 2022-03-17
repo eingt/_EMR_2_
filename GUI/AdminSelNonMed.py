@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import os
 
 def click():
     print("Clicked")
@@ -11,16 +12,22 @@ def StaffCard():
     window.destroy()
     import StaffCard
 
-def recaddupdate():
+def recadd():
+    command = "update Selected set cur_misc = 'add' where no = 1"
+    mycursor.execute(command)
+    mydb.commit()
+    os.execute('AddUpdateStaffCard.py')
+
+def recupdate():
     sel_iid = tree.focus()
     sel_record = tree.item(sel_iid, 'values')
     sel_id = str(sel_record[0])
-    command = "update Selected set cur_id = "+sel_id+" where no = 1"
+    command = "update Selected set cur_id ="+sel_id+" where no = 1"
+    mycursor.execute(command)
+    command = "update Selected set cur_misc = 'update' where no = 1"
     mycursor.execute(command)
     mydb.commit()
-    window.withdraw()
-    import UpdateStaffCard
-    window.deiconify()
+    os.execute('AddUpdateStaffCard.py')
 
 def recdelete():
     sel_iid = tree.focus()
