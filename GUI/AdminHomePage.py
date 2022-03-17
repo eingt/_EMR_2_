@@ -1,5 +1,5 @@
 from tkinter import *
-
+import os
 import mysql.connector
 mydb = mysql.connector.connect(
     host = 'localhost',
@@ -23,28 +23,27 @@ def click():
 
 def AdminDoctorsPage():
     home.withdraw()
-    import AdminDoctorsPage
+    os.system('AdminDoctorsPage.py')
     home.deiconify()
-
 def AdminPatientsPage():
     home.withdraw()
-    import AdminPatientsPage
+    os.system('AdminPatientsPage.py')
     home.deiconify()
 def AdminNonMedPage():
     home.withdraw()
-    import AdminNonMedPage
+    os.system('AdminNonMedPage.py')
     home.deiconify()
 def AdminUsersPage():
     home.withdraw()
-    import AdminUsersPage
+    os.system('AdminUsersPage.py')
     home.deiconify()
 def AdminPharmacyPage():
     home.withdraw()
-    import AdminPharmacyPage
+    os.system('AdminPharmacyPage.py')
     home.deiconify()
 def ProfilePage():
     home.withdraw()
-    import ProfilePage
+    os.system('ProfilePage.py')
     home.deiconify()
 
 home = Tk()

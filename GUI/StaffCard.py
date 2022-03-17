@@ -128,17 +128,10 @@ canvas.create_text(
     anchor = 'w',
     font = ("Lato-Light", int(14.0)))
 
-#Room
-canvas.create_text(
-    300, 441.0,
-    text = "4B",
-    fill = "#000000",
-    anchor = 'w',
-    font = ("Lato-Light", int(14.0)))
 
 #Join Date
 canvas.create_text(
-    320, 525.0,
+    320, 440,
     text = sel_staff[7],
     fill = "#000000",
     anchor = 'w',

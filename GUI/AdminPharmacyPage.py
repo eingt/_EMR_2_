@@ -210,7 +210,7 @@ for med in meds:
     AlertList.append(med[1])
 if len(AlertList) == 0:
     AlertList.append('No Alerts')
-listbox = Listbox(
+listbox = Listbox(window,
     height = 15,
     width = 15,
     bd = 0,
