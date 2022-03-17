@@ -47,7 +47,7 @@ def cancel():
     root.destroy()
 
 
-root = Toplevel()
+root = Tk()
 root.title('Doctor Details')
 root.iconbitmap("EMR Symbol.ico")
 
