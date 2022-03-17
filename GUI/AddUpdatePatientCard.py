@@ -14,9 +14,10 @@ mycursor = mydb.cursor()
 
 mycursor.execute('SELECT * FROM SELECTED')
 data = mycursor.fetchall()
+
 for d in data:
     sel_patientid = int(d[3])
-    cardtype = 'update'
+    mode = (d[4])
 
 def add():
     rec = (name_entry.get(),gender_entry.get(),height_entry.get(),weight_entry.get(),dob_entry.get(),reg_entry.get(),phone_entry.get(),email_entry.get(),allergies_entry.get())
@@ -222,7 +223,7 @@ allergies_entry.place(
     width=397.0,
     height=29)
 
-if cardtype == 'update':
+if mode == 'update':
     name_entry.insert(0, sel_doc[1])
     dob_entry.insert(0, sel_doc[2])
     gender_entry.insert(0, sel_doc[3])
