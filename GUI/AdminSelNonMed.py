@@ -16,7 +16,7 @@ def recadd():
     command = "update Selected set cur_misc = 'add' where no = 1"
     mycursor.execute(command)
     mydb.commit()
-    os.execute('AddUpdateStaffCard.py')
+    os.system('AddUpdateStaffCard.py')
 
 def recupdate():
     sel_iid = tree.focus()
@@ -27,7 +27,7 @@ def recupdate():
     command = "update Selected set cur_misc = 'update' where no = 1"
     mycursor.execute(command)
     mydb.commit()
-    os.execute('AddUpdateStaffCard.py')
+    os.system('AddUpdateStaffCard.py')
 
 def recdelete():
     sel_iid = tree.focus()
@@ -161,7 +161,7 @@ b9 = Button(window,
     image = AddIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = recaddupdate,
+    command = recadd,
     relief = "flat")
 
 b9.place(
@@ -174,7 +174,7 @@ b10 = Button(window,
     image = EditIcon,
     borderwidth = 0,
     highlightthickness = 0,
-    command = recaddupdate,
+    command = recupdate,
     relief = "flat")
 
 b10.place(
